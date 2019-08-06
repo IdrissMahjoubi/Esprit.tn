@@ -3,6 +3,7 @@ var router = express.Router();
 const passport = require('passport');
 const { upload } = require('../utils/Uploader');
 var { RdiModel } = require('../models/index');
+const cleaner = require('../utils/fileCleaner');
 
 /* GET All Rdi . 
 @Route : rdi/
@@ -47,24 +48,29 @@ router.put(
   passport.authenticate('jwt', { session: false }),
   function(req, res) {
     if (req.file) {
-      RdiModel.findOneAndUpdate(
-        req.params.id,
-        {
-          $set: {
-            title: req.body.title,
-            date: new Date(),
-            memebers: req.body.memebers,
-            desciption: req.body.desciption,
-            url: req.body.url,
-            image: req.file.path
+      //Delete old image
+      RdiModel.findById(req.params.id)
+      .then(old => {
+        cleaner(old.image);
+        RdiModel.findOneAndUpdate(
+          req.params.id,
+          {
+            $set: {
+              title: req.body.title,
+              date: new Date(),
+              memebers: req.body.memebers,
+              desciption: req.body.desciption,
+              url: req.body.url,
+              image: req.file.path
+            }
+          },
+  
+          function(err, newValue) {
+            if (err) return res.send(err);
+            res.json(newValue);
           }
-        },
-
-        function(err, newValue) {
-          if (err) return res.send(err);
-          res.json(newValue);
-        }
-      );
+        );
+      });
     } else {
       RdiModel.findByIdAndUpdate(
         req.params.id,
@@ -98,14 +104,19 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
   let query = {
     _id: req.params.id
   };
-  RdiModel.remove(query, err => {
-    if (err) {
-      res.status(500).json(err);
-      return;
-    } else {
-      res.status(204).send('Rdi deleted');
-    }
-  });
+        //Delete old image
+        RdiModel.findById(req.params.id)
+        .then(old => {
+          cleaner(old.image);
+          RdiModel.deleteOne(query, err => {
+            if (err) {
+              res.status(500).json(err);
+              return;
+            } else {
+              res.status(204).send('Rdi deleted');
+            }
+          });
+        });
 });
 
 /* GET Rdi by Id . 

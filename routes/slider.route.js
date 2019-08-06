@@ -3,6 +3,7 @@ var router = express.Router();
 const passport = require('passport');
 const { upload } = require('../utils/Uploader');
 var { SliderModel } = require('../models/index');
+const cleaner = require('../utils/fileCleaner');
 
 /* GET All Slider . 
 @Route : Slider/
@@ -57,23 +58,28 @@ router.put(
   passport.authenticate('jwt', { session: false }),
   function(req, res) {
     if (req.file) {
-      SliderModel.findOneAndUpdate(
-        req.params.id,
-        {
-          $set: {
-            title: req.body.title,
-            date: new Date(),
-            status: req.body.status,
-            url: req.body.url,
-            image: req.file.path
+       //Delete old image
+       SliderModel.findById(req.params.id)
+       .then(old => {
+         cleaner(old.image);
+         SliderModel.findOneAndUpdate(
+          req.params.id,
+          {
+            $set: {
+              title: req.body.title,
+              date: new Date(),
+              status: req.body.status,
+              url: req.body.url,
+              image: req.file.path
+            }
+          },
+  
+          function(err, newValue) {
+            if (err) return res.send(err);
+            res.json(newValue);
           }
-        },
-
-        function(err, newValue) {
-          if (err) return res.send(err);
-          res.json(newValue);
-        }
-      );
+        );
+       });
     } else {
       SliderModel.findByIdAndUpdate(
         req.params.id,
@@ -106,13 +112,16 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
   let query = {
     _id: req.params.id
   };
-  SliderModel.remove(query, err => {
-    if (err) {
-      res.status(500).json(err);
-      return;
-    } else {
-      res.status(204).send('Slider deleted');
-    }
+  SliderModel.findById(req.params.id).then(old => {
+    cleaner(old.image);
+    SliderModel.deleteOne(query, err => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      } else {
+        res.status(204).send('Slider deleted');
+      }
+    });
   });
 });
 

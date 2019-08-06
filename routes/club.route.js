@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const passport = require('passport');
 const { upload } = require('../utils/Uploader');
+const cleaner = require('../utils/fileCleaner');
 var { ClubModel } = require('../models/index');
 
 /* GET All Clubs . 
@@ -48,6 +49,11 @@ router.put(
   passport.authenticate('jwt', { session: false }),
   function(req, res) {
     if (req.file) {
+      //Delete old image
+      ClubModel.findById(req.params.id)
+      .then(old => {
+        cleaner(old.image);
+      });
       ClubModel.findOneAndUpdate(
         req.params.id,
         {
@@ -101,6 +107,11 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
   let query = {
     _id: req.params.id
   };
+  //Delete old image
+  ClubModel.findById(req.params.id)
+  .then(old => {
+    cleaner(old.image);
+  });
   ClubModel.remove(query, err => {
     if (err) {
       res.status(500).json(err);

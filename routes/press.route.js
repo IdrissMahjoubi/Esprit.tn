@@ -3,6 +3,7 @@ const passport = require('passport');
 var { PressModel } = require('../models/index');
 const { uploadTwo } = require('../utils/Uploader');
 const path = require('path');
+const cleaner = require('../utils/fileCleaner');
 const { allowedImages, allowedFiles } = require('../enums/fileExtentions');
 
 /* GET All Press . 
@@ -93,6 +94,12 @@ router.put('/update/:id', passport.authenticate('jwt', { session: false }), (req
           img = file.path;
         }
       });
+      //Delete old files
+      PressModel.findById(req.params.id)
+      .then(old => {
+        cleaner(old.image);
+        cleaner(old.file);
+      });
     }
     let eventUpdated = {
       title: req.body.title,
@@ -167,9 +174,21 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
   let query = {
     _id: req.params.id
   };
-  PressModel.remove()
-    .then(press => res.status(204).json(press))
-    .catch(err => res.status(400).json(err));
+  //Delete old files
+  PressModel.findById(req.params.id)
+  .then(old => {
+    cleaner(old.image);
+    cleaner(old.file);
+    PressModel.deleteOne(query, err => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      } else {
+        res.status(204).send('Press deleted');
+      }
+    });
+  });
+ 
 });
 
 /* GET Single Press unarchived. 
