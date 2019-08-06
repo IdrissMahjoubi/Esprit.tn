@@ -10,13 +10,14 @@ var { ClubModel } = require('../models/index');
 */
 router.get('/', function(req, res, next) {
   ClubModel.find()
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
     });
 });
 
-/* GET add Club . 
+/*POST add Club . 
 @Route : club/add
 */
 router.post(
@@ -31,7 +32,8 @@ router.post(
       sport: req.body.sport,
       desciption: req.body.desciption,
       url: req.body.url,
-      image: req.file.path
+      image: req.file.path,
+      user: req.user._id
     });
     newClub.save(function(err, result) {
       if (err) res.send(err);
@@ -50,8 +52,7 @@ router.put(
   function(req, res) {
     if (req.file) {
       //Delete old image
-      ClubModel.findById(req.params.id)
-      .then(old => {
+      ClubModel.findById(req.params.id).then(old => {
         cleaner(old.image);
       });
       ClubModel.findOneAndUpdate(
@@ -64,7 +65,8 @@ router.put(
             sport: req.body.sport,
             desciption: req.body.desciption,
             url: req.body.url,
-            image: req.file.path
+            image: req.file.path,
+            user: req.user._id
           }
         },
 
@@ -83,7 +85,8 @@ router.put(
             type: req.body.type,
             sport: req.body.sport,
             desciption: req.body.desciption,
-            url: req.body.url
+            url: req.body.url,
+            user: req.user._id
           }
         },
 
@@ -108,8 +111,7 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
     _id: req.params.id
   };
   //Delete old image
-  ClubModel.findById(req.params.id)
-  .then(old => {
+  ClubModel.findById(req.params.id).then(old => {
     cleaner(old.image);
   });
   ClubModel.remove(query, err => {
@@ -132,7 +134,7 @@ router.get('/id/:id', function(req, res) {
   ClubModel.findById(query, function(err, Club) {
     if (err) return res.send(err);
     res.send(Club);
-  });
+  }).populate('user');
 });
 
 /* GET All Clubs by type . 
@@ -143,6 +145,7 @@ router.get('/type', function(req, res, next) {
     type: req.query.type
   };
   ClubModel.find(query)
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -158,6 +161,7 @@ router.get('/sportType', function(req, res, next) {
     type: 'sports'
   };
   ClubModel.find(query)
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -170,6 +174,7 @@ router.get('/sportType', function(req, res, next) {
 router.get('/search', function(req, res) {
   var title = req.query.title;
   ClubModel.find({ title: new RegExp(title, 'i') })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);

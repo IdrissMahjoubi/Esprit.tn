@@ -27,7 +27,8 @@ var pressSchema = mongoose.Schema(
     file: {
       type: String,
       required: false
-    }
+    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
   },
   {
     timestamps: true

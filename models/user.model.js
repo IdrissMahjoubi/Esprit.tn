@@ -15,7 +15,8 @@ const UserSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "can't be blank"]
+      required: [true, "can't be blank"],
+      select: false,
     },
     //set the avatar from avatar server || set default avatar
     avatar: {

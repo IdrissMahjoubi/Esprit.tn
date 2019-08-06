@@ -10,6 +10,7 @@ const cleaner = require('../utils/fileCleaner');
 */
 router.get('/', function(req, res, next) {
   RdiModel.find()
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -30,7 +31,8 @@ router.post(
       memebers: req.body.memebers,
       desciption: req.body.desciption,
       url: req.body.url,
-      image: req.file.path
+      image: req.file.path,
+      user: req.user._id
     });
     newRdi.save(function(err, result) {
       if (err) res.send(err);
@@ -49,8 +51,7 @@ router.put(
   function(req, res) {
     if (req.file) {
       //Delete old image
-      RdiModel.findById(req.params.id)
-      .then(old => {
+      RdiModel.findById(req.params.id).then(old => {
         cleaner(old.image);
         RdiModel.findOneAndUpdate(
           req.params.id,
@@ -61,10 +62,11 @@ router.put(
               memebers: req.body.memebers,
               desciption: req.body.desciption,
               url: req.body.url,
-              image: req.file.path
+              image: req.file.path,
+              user: req.user._id
             }
           },
-  
+
           function(err, newValue) {
             if (err) return res.send(err);
             res.json(newValue);
@@ -80,7 +82,8 @@ router.put(
             date: new Date(),
             memebers: req.body.memebers,
             desciption: req.body.desciption,
-            url: req.body.url
+            url: req.body.url,
+            user: req.user._id
           }
         },
 
@@ -104,19 +107,18 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
   let query = {
     _id: req.params.id
   };
-        //Delete old image
-        RdiModel.findById(req.params.id)
-        .then(old => {
-          cleaner(old.image);
-          RdiModel.deleteOne(query, err => {
-            if (err) {
-              res.status(500).json(err);
-              return;
-            } else {
-              res.status(204).send('Rdi deleted');
-            }
-          });
-        });
+  //Delete old image
+  RdiModel.findById(req.params.id).then(old => {
+    cleaner(old.image);
+    RdiModel.deleteOne(query, err => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      } else {
+        res.status(204).send('Rdi deleted');
+      }
+    });
+  });
 });
 
 /* GET Rdi by Id . 
@@ -129,7 +131,7 @@ router.get('/id/:id', function(req, res) {
   RdiModel.findById(query, function(err, Rdi) {
     if (err) return res.send(err);
     res.send(Rdi);
-  });
+  }).populate('user');
 });
 
 /* Search Rdi by title . 
@@ -138,6 +140,7 @@ router.get('/id/:id', function(req, res) {
 router.get('/search', function(req, res) {
   var title = req.query.title;
   RdiModel.find({ title: new RegExp(title, 'i') })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);

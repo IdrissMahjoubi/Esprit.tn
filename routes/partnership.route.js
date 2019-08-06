@@ -10,6 +10,7 @@ const cleaner = require('../utils/fileCleaner');
 */
 router.get('/', function(req, res, next) {
   PartnershipModel.find()
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -30,7 +31,8 @@ router.post(
       type: req.body.type,
       desciption: req.body.desciption,
       url: req.body.url,
-      image: req.file.path
+      image: req.file.path,
+      user: req.user._id
     });
     newPartnership.save(function(err, result) {
       if (err) res.send(err);
@@ -60,7 +62,8 @@ router.put(
               type: req.body.type,
               desciption: req.body.desciption,
               url: req.body.url,
-              image: req.file.path
+              image: req.file.path,
+              user: req.user._id
             }
           },
           function(err, newValue) {
@@ -78,7 +81,8 @@ router.put(
             date: new Date(),
             type: req.body.type,
             desciption: req.body.desciption,
-            url: req.body.url
+            url: req.body.url,
+            user: req.user._id
           }
         },
 
@@ -126,7 +130,7 @@ router.get('/id/:id', function(req, res) {
   PartnershipModel.findById(query, function(err, Partnership) {
     if (err) return res.send(err);
     res.send(Partnership);
-  });
+  }).populate('user');
 });
 
 /* Get Partnership by type . 
@@ -135,6 +139,7 @@ router.get('/id/:id', function(req, res) {
 router.get('/type', function(req, res) {
   var type = req.query.type;
   PartnershipModel.find({ type: type })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -147,6 +152,7 @@ router.get('/type', function(req, res) {
 router.get('/search', function(req, res) {
   var title = req.query.title;
   PartnershipModel.find({ title: new RegExp(title, 'i') })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);

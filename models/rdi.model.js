@@ -19,7 +19,8 @@ var rdiSchema = mongoose.Schema({
       type: String,
       required: false
     }
-  ]
+  ],
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 });
 var RdiModel = mongoose.model('rdi', rdiSchema);
 module.exports = RdiModel;

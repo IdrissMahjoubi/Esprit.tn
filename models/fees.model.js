@@ -39,7 +39,8 @@ var feeSchema = mongoose.Schema({
   secondTranche: {
     type: Number,
     required: false
-  }
+  },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 });
 var fee = mongoose.model('fee', feeSchema);
 module.exports = fee;

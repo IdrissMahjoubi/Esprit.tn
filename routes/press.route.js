@@ -11,6 +11,7 @@ const { allowedImages, allowedFiles } = require('../enums/fileExtentions');
 */
 router.get('/', (req, res) => {
   PressModel.find({ archived: false })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -23,6 +24,7 @@ router.get('/', (req, res) => {
 router.get('/archived', passport.authenticate('jwt', { session: false }), (req, res) => {
   var users = null;
   PressModel.find({ archived: true })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -35,6 +37,7 @@ router.get('/archived', passport.authenticate('jwt', { session: false }), (req, 
 router.get('/getAll', passport.authenticate('jwt', { session: false }), (req, res) => {
   var users = null;
   PressModel.find()
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -66,7 +69,7 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
       type: req.body.type,
       image: img,
       file: pdf,
-      user: req.body.user
+      user: req.user._id
     });
     newPress
       .save()
@@ -95,8 +98,7 @@ router.put('/update/:id', passport.authenticate('jwt', { session: false }), (req
         }
       });
       //Delete old files
-      PressModel.findById(req.params.id)
-      .then(old => {
+      PressModel.findById(req.params.id).then(old => {
         cleaner(old.image);
         cleaner(old.file);
       });
@@ -107,7 +109,7 @@ router.put('/update/:id', passport.authenticate('jwt', { session: false }), (req
       archived: req.body.archived,
       type: req.body.type,
       url: req.body.url,
-      user: req.body.user
+      user: req.user._id
     };
     if (pdf.length > 0) {
       eventUpdated.file = pdf;
@@ -175,8 +177,7 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
     _id: req.params.id
   };
   //Delete old files
-  PressModel.findById(req.params.id)
-  .then(old => {
+  PressModel.findById(req.params.id).then(old => {
     cleaner(old.image);
     cleaner(old.file);
     PressModel.deleteOne(query, err => {
@@ -188,7 +189,6 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
       }
     });
   });
- 
 });
 
 /* GET Single Press unarchived. 
@@ -200,6 +200,7 @@ router.get('/get/:id', function(req, res) {
     archived: false
   };
   PressModel.findOne(query)
+    .populate('user')
     .then(data => {
       res.json(data);
     })
@@ -214,6 +215,7 @@ router.get('/archived/:id', passport.authenticate('jwt', { session: false }), fu
     _id: req.params.id
   };
   PressModel.findOne(query)
+    .populate('user')
     .then(data => {
       res.json(data);
     })
@@ -232,6 +234,7 @@ router.get('/allbytype', passport.authenticate('jwt', { session: false }), funct
     type: req.query.type
   };
   PressModel.find(query)
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -247,6 +250,7 @@ router.get('/bytype', function(req, res, next) {
     archived: false
   };
   PressModel.find(query)
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -260,6 +264,7 @@ router.get('/search', function(req, res) {
     archived: false
   };
   PressModel.find(query)
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -273,6 +278,7 @@ router.get('/searchAll', passport.authenticate('jwt', { session: false }), funct
     title: new RegExp(title, 'i')
   };
   PressModel.find(query)
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);

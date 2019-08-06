@@ -25,7 +25,8 @@ var clubSchema = mongoose.Schema({
     image :{
         type:String,
         required:false
-    }
+    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 })
 var club =mongoose.model('club',clubSchema);
 module.exports=club;

@@ -15,13 +15,12 @@ var partnershipSchema = mongoose.Schema({
     type: String,
     required: false
   },
-  type:
-    {
-      type: String,
-      enum: partnershipTypes,
-      required: false
-    }
-  
+  type: {
+    type: String,
+    enum: partnershipTypes,
+    required: false
+  },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 });
 var PartnershipModel = mongoose.model('partnership', partnershipSchema);
 module.exports = PartnershipModel;

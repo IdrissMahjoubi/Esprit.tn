@@ -16,7 +16,8 @@ var SliderSchema = mongoose.Schema({
     image :{
         type:String,
         required:false
-    }
+    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'users' }
 })
 var Slider =mongoose.model('Slider',SliderSchema);
 module.exports=Slider;

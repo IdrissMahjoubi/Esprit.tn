@@ -10,6 +10,7 @@ const cleaner = require('../utils/fileCleaner');
 */
 router.get('/', function(req, res, next) {
   SliderModel.find({ status: 'active' })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -21,6 +22,7 @@ router.get('/', function(req, res, next) {
 */
 router.get('/all', passport.authenticate('jwt', { session: false }), function(req, res, next) {
   SliderModel.find()
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -40,7 +42,8 @@ router.post(
       date: new Date(),
       status: req.body.status,
       url: req.body.url,
-      image: req.file.path
+      image: req.file.path,
+      user: req.user._id
     });
     newSlider.save(function(err, result) {
       if (err) res.send(err);
@@ -58,11 +61,10 @@ router.put(
   passport.authenticate('jwt', { session: false }),
   function(req, res) {
     if (req.file) {
-       //Delete old image
-       SliderModel.findById(req.params.id)
-       .then(old => {
-         cleaner(old.image);
-         SliderModel.findOneAndUpdate(
+      //Delete old image
+      SliderModel.findById(req.params.id).then(old => {
+        cleaner(old.image);
+        SliderModel.findOneAndUpdate(
           req.params.id,
           {
             $set: {
@@ -70,16 +72,17 @@ router.put(
               date: new Date(),
               status: req.body.status,
               url: req.body.url,
-              image: req.file.path
+              image: req.file.path,
+              user: req.user._id
             }
           },
-  
+
           function(err, newValue) {
             if (err) return res.send(err);
             res.json(newValue);
           }
         );
-       });
+      });
     } else {
       SliderModel.findByIdAndUpdate(
         req.params.id,
@@ -88,7 +91,8 @@ router.put(
             title: req.body.title,
             date: new Date(),
             status: req.body.status,
-            url: req.body.url
+            url: req.body.url,
+            user: req.user._id
           }
         },
 
@@ -135,7 +139,7 @@ router.get('/id/:id', passport.authenticate('jwt', { session: false }), function
   SliderModel.findById(query, function(err, Slider) {
     if (err) return res.send(err);
     res.send(Slider);
-  });
+  }).populate('user');
 });
 
 /* Search Slider by title . 
@@ -144,6 +148,7 @@ router.get('/id/:id', passport.authenticate('jwt', { session: false }), function
 router.get('/search', function(req, res) {
   var title = req.query.title;
   SliderModel.find({ status: 'active', title: new RegExp(title, 'i') })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
@@ -156,6 +161,7 @@ router.get('/search', function(req, res) {
 router.get('/searchall', passport.authenticate('jwt', { session: false }), function(req, res) {
   var title = req.query.title;
   SliderModel.find({ title: new RegExp(title, 'i') })
+    .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);

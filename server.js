@@ -12,6 +12,7 @@ const cors = require('cors');
 const errorHandler = require('errorhandler');
 const mongoose = require('mongoose');
 const socketIo = require("socket.io");
+const UserModel = require("./models/user.model");
 
 let app = express();
 let server = require('http').createServer(app);
@@ -33,9 +34,19 @@ mongoose
   });
 // Passport middleware
 app.use(passport.initialize());
-
+app.use(passport.session());
 // Passport Config
 require('./config/passport')(passport);
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user.id);
+});
+
+passport.deserializeUser(function(id, cb) {
+  UserModel.findById(id, function(err, user) {
+    cb(err, user);
+  });
+});
 
 app.set('port', process.env.SERVER_PORT || 4000);
 // allow-cors
