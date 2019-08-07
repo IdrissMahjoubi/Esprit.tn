@@ -42,6 +42,8 @@ router.post(
       date: new Date(),
       status: req.body.status,
       url: req.body.url,
+      description: req.body.description,
+      titleDescription: req.body.titleDescription,
       image: req.file.path,
       user: req.user._id
     });
@@ -73,6 +75,8 @@ router.put(
               status: req.body.status,
               url: req.body.url,
               image: req.file.path,
+              description: req.body.description,
+              titleDescription: req.body.titleDescription,
               user: req.user._id
             }
           },
@@ -92,6 +96,8 @@ router.put(
             date: new Date(),
             status: req.body.status,
             url: req.body.url,
+            description: req.body.description,
+            titleDescription: req.body.titleDescription,
             user: req.user._id
           }
         },

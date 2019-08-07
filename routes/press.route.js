@@ -77,7 +77,6 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
       .catch(err => res.status(400).json(err));
   });
 });
-
 /* UPDATE Single Press. 
 @Route : press/update/:id
 */

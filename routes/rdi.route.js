@@ -25,13 +25,18 @@ router.post(
   upload.single('image'),
   passport.authenticate('jwt', { session: false }),
   function(req, res) {
+    var img ='';
+    if(req.file)
+    {
+      img = req.file.path;
+    }
     newRdi = new RdiModel({
       title: req.body.title,
       date: new Date(),
       memebers: req.body.memebers,
       desciption: req.body.desciption,
       url: req.body.url,
-      image: req.file.path,
+      image: img,
       user: req.user._id
     });
     newRdi.save(function(err, result) {
