@@ -29,6 +29,8 @@ class Events extends Component {
    this.props.getEvents();
   }
 
+
+
   handleArchivedEventsButton = () => {
     this.props.history.push('/events/archived');
   };

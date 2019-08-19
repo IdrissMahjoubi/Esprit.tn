@@ -13,7 +13,7 @@ import {
   Row,
   CardImg
 } from 'reactstrap';
-import { getEvent, editEvent } from '../../actions/eventActions';
+import { getEvent, editEvent,setEditEventLoading } from '../../actions/eventActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
@@ -34,6 +34,7 @@ class updateEvents extends Component {
   };
 
   componentDidMount() {
+    this.props.setEditEventLoading();
     this.props.getEvent(this.props.match.params.id);
   }
 
@@ -47,6 +48,8 @@ class updateEvents extends Component {
       type: nextProps.event.type,
       url: nextProps.event.url
     });
+    if (nextProps.isModified)
+    this.props.history.push('/events');
   }
 
   handleCancel = event => {
@@ -74,7 +77,7 @@ class updateEvents extends Component {
   };
 
 
-  handleSubmit = (event) => {
+   handleSubmit = (event) => {
     const newEvent = new FormData();
     if (this.state.loaded) {
       newEvent.append('imageData', this.state.selectedFile, this.state.selectedFile.name);
@@ -88,8 +91,6 @@ class updateEvents extends Component {
     newEvent.append('url', this.state.url);
 
     this.props.editEvent(newEvent, this.props.match.params.id);
-
-    this.props.history.push('/events');
   };
 
   render() {
@@ -241,12 +242,14 @@ class updateEvents extends Component {
 
 const mapStateToProps = state => ({
   event: state.event.event,
-  user: state.auth.user
+  events: state.event.events,
+  user: state.auth.user,
+  isModified: state.event.isModified
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { getEvent, editEvent }
+    { getEvent, editEvent ,setEditEventLoading}
   )(updateEvents)
 );

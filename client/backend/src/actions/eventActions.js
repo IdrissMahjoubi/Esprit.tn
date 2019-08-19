@@ -9,7 +9,8 @@ import {
   GET_ERRORS,
   EDIT_EVENT,
   UNARCHIVE_EVENT,
-  ARCHIVE_EVENT
+  ARCHIVE_EVENT,
+  EDIT_EVENT_LOADING
 } from "../actions/types";
 
 export const addEvent = (eventData) => dispatch => {
@@ -37,12 +38,12 @@ export const addEvent = (eventData) => dispatch => {
 export const editEvent = (eventData,id) => dispatch => {
   dispatch(clearErrors());
   axios.put(`/events/update/${id}`, eventData)
-    .then(res =>
+    .then(res => {
       dispatch({
         type: EDIT_EVENT,
         payload: res.data
-      })
-    )
+      });
+    })
     .catch(error => {
       if (error.response && error.response.data) {
         dispatch({
@@ -201,6 +202,11 @@ export const deleteEvent = id => dispatch => {
 export const setEventLoading = () => {
   return {
     type: EVENT_LOADING
+  };
+};
+export const setEditEventLoading = () => {
+  return {
+    type: EDIT_EVENT_LOADING
   };
 };
 

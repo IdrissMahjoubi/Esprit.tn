@@ -6,7 +6,8 @@ import {
   EVENT_LOADING,
   EDIT_EVENT,
   UNARCHIVE_EVENT,
-  ARCHIVE_EVENT
+  ARCHIVE_EVENT,
+  EDIT_EVENT_LOADING
 } from "../actions/types";
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
   event: {},
   loading: false,
   search: [],
-  searching :false
+  searching: false,
+  isModified:false
 };
 
 export default function(state = initialState, action) {
@@ -24,6 +26,11 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+      case EDIT_EVENT_LOADING:
+        return {
+          ...state,
+          isModified:false
+        };
     case GET_EVENTS:
       return {
         ...state,
@@ -45,6 +52,7 @@ export default function(state = initialState, action) {
     case EDIT_EVENT:
       return {
         ...state,
+        isModified:true,
         events: state.events.map((event) => event._id === action.payload._id ? event = action.payload : event)
       };
     case DELETE_EVENT:
