@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { getPress } from "../../actions/pressActions";
+import { getRdi } from "../../actions/rdiActions";
 import { connect } from "react-redux";
 import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap';
 
- class detailsPress extends Component {
+ class detailsRdi extends Component {
 
    
 
@@ -12,17 +12,17 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
     }
 
     componentDidMount() {
-        this.props.getPress(this.props.match.params.id);
+        this.props.getRdi(this.props.match.params.id);
     }
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.press.press)
+        console.log(nextProps.rdi.rdi)
         this.setState({
-            title : nextProps.press.title
+            title : nextProps.rdi.title
         })
     }
     
     render() {
-        const { press } = this.props;
+        const { rdi } = this.props;
         return (
             <div className="animated fadeIn">
             <Row>
@@ -30,47 +30,39 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
                 <Card>
                   <CardHeader>
                     <i className="fa fa-align-justify"></i>
-                    <strong>Evénement : Image</strong>
+                    <strong>Partenariat : Image</strong>
                   </CardHeader>
                   <CardBody>
-                  <CardImg src={`http://localhost:4000/${press.image}`} alt={press.image} />
+                  <CardImg src={`http://localhost:4000/${rdi.image}`} alt={rdi.image} />
                   </CardBody>
                 </Card>
               </Col>
               <Col xs="12" xl="6">
                 <Card>
                   <CardHeader>
-                    <i className="fa fa-align-justify"></i> Evénement <small>Détails</small>
-                    <div className="card-header-actions">
-                      <Badge>{press.type}</Badge>
-                    </div>
+                    <i className="fa fa-align-justify"></i> Partenariat <small>Détails</small>
                   </CardHeader>
                   <CardBody>
                     <div id="exampleAccordion" data-children=".item">
                       <div className="item">
                         <h5> Titre :</h5>
     
-                        <p className="mb-3">{press.title}</p>
+                        <p className="mb-3">{rdi.title}</p>
                       </div>
                       <div className="item">
                         <h5>Date Enregistrement :</h5>
     
-                        <p className="mb-3">{press.createdAt}</p>
+                        <p className="mb-3">{rdi.date}</p>
                       </div>
                       <div className="item">
                         <h5>Description :</h5>
     
-                        <p className="mb-3">{press.description}</p>
+                        <p className="mb-3">{rdi.description}</p>
                       </div>
                       <div className="item">
                         <h5>Url :</h5>
     
-                        <p className="mb-3">{press.url}</p>
-                      </div>
-                      <div className="item">
-                        <h5>File :</h5>
-    
-                        <p className="mb-3"><a href={`http://localhost:4000/${press.file}`}>{press.file}</a></p>
+                        <p className="mb-3">{rdi.url}</p>
                       </div>
                     </div>
                   </CardBody>
@@ -85,10 +77,10 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
 const mapStateToProps = state => ({
     user: state.auth.user,
     errors: state.errors,
-    press: state.press.press,
+    rdi: state.rdi.rdi,
   });
   
   export default connect(
     mapStateToProps,
-    { getPress }
-  )(detailsPress);
+    { getRdi }
+  )(detailsRdi);

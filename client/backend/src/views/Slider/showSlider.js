@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { getAllPress } from '../../actions/pressActions';
-import Press from '../components/Press';
+import { getAllSlider } from '../../actions/sliderActions';
+import Slider from '../components/Slider';
 import { connect } from 'react-redux';
 import {
   FormGroup,
@@ -16,25 +16,23 @@ import {
   Form
 } from 'reactstrap';
 
-
-class showPress extends Component {
+class showSlider extends Component {
   state = {
-    allPress: [],
+    allSlider: [],
     search: '',
-    type: '',
     etat: false
   };
 
   componentWillMount() {
-    this.props.getAllPress();
+    this.props.getAllSlider();
   }
 
   handleAddRedirect = () => {
-    this.props.history.push('/presse/ajouter');
+    this.props.history.push('/slider/ajouter');
   };
 
   handleArchivedEventsButton = () => {
-    this.props.history.push('/presse/archives');
+    this.props.history.push('/slider/archived');
   };
 
   handleInputChange = event => {
@@ -43,19 +41,12 @@ class showPress extends Component {
     });
   };
   render() {
-    const { allPress } = this.props.press;
+    const { allSlider } = this.props.slider;
 
-    let presses = allPress.filter(press => {
-      return press.archived === false;
-    });
+    let sliders = allSlider;
     if (this.state.search !== '') {
-      presses = presses.filter(press => {
-        return press.title.indexOf(this.state.search) !== -1;
-      });
-    }
-    if (this.state.type !== '') {
-      presses = presses.filter(press => {
-        return press.type.indexOf(this.state.type) !== -1;
+      sliders = sliders.filter(slider => {
+        return slider.title.indexOf(this.state.search) !== -1;
       });
     }
 
@@ -84,35 +75,14 @@ class showPress extends Component {
                         />
                       </InputGroup>
                     </Col>
-                    <Col md="4" sm="4">
-                      <InputGroup className="mt-2">
-                        <InputGroupAddon addonType="prepend">
-                          <Button type="button" color="primary">
-                            Type:
-                          </Button>
-                        </InputGroupAddon>
-                        <Input
-                          type="select"
-                          value={this.state.type}
-                          name="type"
-                          placeholder="Inserer un titre"
-                          onChange={this.handleInputChange}
-                        >
-                          <option value="">veuillez choisir le type</option>
-                          <option value="rapport">rapport</option>
-                          <option value="article">article</option>
-                          <option value="brochure">brochure</option>
-                          <option value="communique">communique</option>
-                        </Input>
-                      </InputGroup>
-                    </Col>
+              
                   </FormGroup>
                   <FormGroup row>
                     <Col md="4" sm="4">
                       <InputGroup className="mt-2">
                         <Button block onClick={this.handleAddRedirect} color="success" outline>
                           <i className="fa fa-plus" />
-                          &nbsp;Ajouter un article
+                          &nbsp;Ajouter un slider
                         </Button>
                       </InputGroup>
                     </Col>
@@ -125,7 +95,7 @@ class showPress extends Component {
                           outline
                         >
                           <i className="fa fa-plus" />
-                          &nbsp;Article Presse Archiveés
+                          &nbsp;Sliders Inactifs
                         </Button>
                       </InputGroup>
                     </Col>
@@ -136,7 +106,7 @@ class showPress extends Component {
                 <Row>
                   {this.props.loading
                     ? 'Loading...'
-                    : presses.map((press, index) => <Press key={index} press={press} />)}
+                    : sliders.map((slider, index) => <Slider key={index} slider={slider} />)}
                 </Row>
               </CardBody>
             </Card>
@@ -150,11 +120,11 @@ class showPress extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  press: state.press,
-  loading: state.press.loading
+  slider: state.slider,
+  loading: state.slider.loading
 });
 
 export default connect(
   mapStateToProps,
-  { getAllPress }
-)(showPress);
+  { getAllSlider }
+)(showSlider);

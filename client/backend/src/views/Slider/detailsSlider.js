@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { getPress } from "../../actions/pressActions";
+import { getSlider } from "../../actions/sliderActions";
 import { connect } from "react-redux";
 import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap';
 
- class detailsPress extends Component {
+ class detailsSlider extends Component {
 
    
 
@@ -12,17 +12,17 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
     }
 
     componentDidMount() {
-        this.props.getPress(this.props.match.params.id);
+        this.props.getSlider(this.props.match.params.id);
     }
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.press.press)
+        console.log(nextProps.slider.slider)
         this.setState({
-            title : nextProps.press.title
+            title : nextProps.slider.title
         })
     }
     
     render() {
-        const { press } = this.props;
+        const { slider } = this.props;
         return (
             <div className="animated fadeIn">
             <Row>
@@ -30,19 +30,19 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
                 <Card>
                   <CardHeader>
                     <i className="fa fa-align-justify"></i>
-                    <strong>Evénement : Image</strong>
+                    <strong>Slider : Image</strong>
                   </CardHeader>
                   <CardBody>
-                  <CardImg src={`http://localhost:4000/${press.image}`} alt={press.image} />
+                  <CardImg src={`http://localhost:4000/${slider.image}`} alt={slider.image} />
                   </CardBody>
                 </Card>
               </Col>
               <Col xs="12" xl="6">
                 <Card>
                   <CardHeader>
-                    <i className="fa fa-align-justify"></i> Evénement <small>Détails</small>
+                    <i className="fa fa-align-justify"></i> Slider <small>Détails</small>
                     <div className="card-header-actions">
-                      <Badge>{press.type}</Badge>
+                      <Badge>{slider.status}</Badge>
                     </div>
                   </CardHeader>
                   <CardBody>
@@ -50,27 +50,27 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
                       <div className="item">
                         <h5> Titre :</h5>
     
-                        <p className="mb-3">{press.title}</p>
+                        <p className="mb-3">{slider.title}</p>
                       </div>
                       <div className="item">
                         <h5>Date Enregistrement :</h5>
     
-                        <p className="mb-3">{press.createdAt}</p>
+                        <p className="mb-3">{slider.date}</p>
                       </div>
                       <div className="item">
-                        <h5>Description :</h5>
+                        <h5>Description principale:</h5>
     
-                        <p className="mb-3">{press.description}</p>
+                        <p className="mb-3">{slider.titleDescription}</p>
+                      </div>
+                      <div className="item">
+                        <h5>Description secondaire:</h5>
+    
+                        <p className="mb-3">{slider.description}</p>
                       </div>
                       <div className="item">
                         <h5>Url :</h5>
     
-                        <p className="mb-3">{press.url}</p>
-                      </div>
-                      <div className="item">
-                        <h5>File :</h5>
-    
-                        <p className="mb-3"><a href={`http://localhost:4000/${press.file}`}>{press.file}</a></p>
+                        <p className="mb-3">{slider.url}</p>
                       </div>
                     </div>
                   </CardBody>
@@ -85,10 +85,10 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
 const mapStateToProps = state => ({
     user: state.auth.user,
     errors: state.errors,
-    press: state.press.press,
+    slider: state.slider.slider,
   });
   
   export default connect(
     mapStateToProps,
-    { getPress }
-  )(detailsPress);
+    { getSlider }
+  )(detailsSlider);

@@ -4,8 +4,8 @@ const cleaner = function(path)
 {
     fs.unlink(path, (err) => {
         if (err) {
-          console.error(err)
-          return
+          console.error(err);
+          return;
         }
       })
 }

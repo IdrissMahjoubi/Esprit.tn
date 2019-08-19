@@ -29,7 +29,7 @@ router.post(
       title: req.body.title,
       date: new Date(),
       type: req.body.type,
-      desciption: req.body.desciption,
+      description: req.body.description,
       url: req.body.url,
       image: req.file.path,
       user: req.user._id
@@ -53,24 +53,22 @@ router.put(
       //Delete old image
       PartnershipModel.findById(req.params.id).then(old => {
         cleaner(old.image);
-        PartnershipModel.findOneAndUpdate(
+        PartnershipModel.findByIdAndUpdate(
           req.params.id,
           {
             $set: {
               title: req.body.title,
               date: new Date(),
               type: req.body.type,
-              desciption: req.body.desciption,
+              description: req.body.description,
               url: req.body.url,
               image: req.file.path,
               user: req.user._id
             }
           },
-          function(err, newValue) {
-            if (err) return res.send(err);
-            res.json(newValue);
-          }
-        );
+          { new: true }
+        ).then(partnership => res.json(partnership))
+        .catch(err => res.status(400).json(err));
       });
     } else {
       PartnershipModel.findByIdAndUpdate(
@@ -80,17 +78,14 @@ router.put(
             title: req.body.title,
             date: new Date(),
             type: req.body.type,
-            desciption: req.body.desciption,
+            description: req.body.description,
             url: req.body.url,
             user: req.user._id
           }
         },
-
-        function(err, newValue) {
-          if (err) return res.send(err);
-          res.json(newValue);
-        }
-      );
+        { new: true }
+      ).then(partnership => res.json(partnership))
+      .catch(err => res.status(400).json(err));
     }
   }
 );

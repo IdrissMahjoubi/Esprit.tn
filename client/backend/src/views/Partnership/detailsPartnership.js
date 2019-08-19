@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { getPress } from "../../actions/pressActions";
+import { getPartnership } from "../../actions/partnershipActions";
 import { connect } from "react-redux";
 import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap';
 
- class detailsPress extends Component {
+ class detailsPartnership extends Component {
 
    
 
@@ -12,17 +12,17 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
     }
 
     componentDidMount() {
-        this.props.getPress(this.props.match.params.id);
+        this.props.getPartnership(this.props.match.params.id);
     }
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.press.press)
+        console.log(nextProps.partnership.partnership)
         this.setState({
-            title : nextProps.press.title
+            title : nextProps.partnership.title
         })
     }
     
     render() {
-        const { press } = this.props;
+        const { partnership } = this.props;
         return (
             <div className="animated fadeIn">
             <Row>
@@ -30,19 +30,19 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
                 <Card>
                   <CardHeader>
                     <i className="fa fa-align-justify"></i>
-                    <strong>Evénement : Image</strong>
+                    <strong>Partenariat : Image</strong>
                   </CardHeader>
                   <CardBody>
-                  <CardImg src={`http://localhost:4000/${press.image}`} alt={press.image} />
+                  <CardImg src={`http://localhost:4000/${partnership.image}`} alt={partnership.image} />
                   </CardBody>
                 </Card>
               </Col>
               <Col xs="12" xl="6">
                 <Card>
                   <CardHeader>
-                    <i className="fa fa-align-justify"></i> Evénement <small>Détails</small>
+                    <i className="fa fa-align-justify"></i> Partenariat <small>Détails</small>
                     <div className="card-header-actions">
-                      <Badge>{press.type}</Badge>
+                      <Badge>{partnership.type}</Badge>
                     </div>
                   </CardHeader>
                   <CardBody>
@@ -50,27 +50,22 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
                       <div className="item">
                         <h5> Titre :</h5>
     
-                        <p className="mb-3">{press.title}</p>
+                        <p className="mb-3">{partnership.title}</p>
                       </div>
                       <div className="item">
                         <h5>Date Enregistrement :</h5>
     
-                        <p className="mb-3">{press.createdAt}</p>
+                        <p className="mb-3">{partnership.date}</p>
                       </div>
                       <div className="item">
                         <h5>Description :</h5>
     
-                        <p className="mb-3">{press.description}</p>
+                        <p className="mb-3">{partnership.description}</p>
                       </div>
                       <div className="item">
                         <h5>Url :</h5>
     
-                        <p className="mb-3">{press.url}</p>
-                      </div>
-                      <div className="item">
-                        <h5>File :</h5>
-    
-                        <p className="mb-3"><a href={`http://localhost:4000/${press.file}`}>{press.file}</a></p>
+                        <p className="mb-3">{partnership.url}</p>
                       </div>
                     </div>
                   </CardBody>
@@ -85,10 +80,10 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
 const mapStateToProps = state => ({
     user: state.auth.user,
     errors: state.errors,
-    press: state.press.press,
+    partnership: state.partnership.partnership,
   });
   
   export default connect(
     mapStateToProps,
-    { getPress }
-  )(detailsPress);
+    { getPartnership }
+  )(detailsPartnership);

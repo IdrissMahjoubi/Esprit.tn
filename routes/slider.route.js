@@ -9,7 +9,7 @@ const cleaner = require('../utils/fileCleaner');
 @Route : Slider/
 */
 router.get('/', function(req, res, next) {
-  SliderModel.find({ status: 'active' })
+  SliderModel.find({ status: true })
     .populate('user')
     .sort('-date')
     .then(data => {
@@ -66,7 +66,7 @@ router.put(
       //Delete old image
       SliderModel.findById(req.params.id).then(old => {
         cleaner(old.image);
-        SliderModel.findOneAndUpdate(
+        SliderModel.findByIdAndUpdate(
           req.params.id,
           {
             $set: {
@@ -80,12 +80,9 @@ router.put(
               user: req.user._id
             }
           },
-
-          function(err, newValue) {
-            if (err) return res.send(err);
-            res.json(newValue);
-          }
-        );
+          { new: true }
+        ).then(slider => res.json(slider))
+        .catch(err => res.status(400).json(err));
       });
     } else {
       SliderModel.findByIdAndUpdate(
@@ -101,12 +98,9 @@ router.put(
             user: req.user._id
           }
         },
-
-        function(err, newValue) {
-          if (err) return res.send(err);
-          res.json(newValue);
-        }
-      );
+        { new: true }
+      ).then(slider => res.json(slider))
+      .catch(err => res.status(400).json(err));
     }
   }
 );
@@ -124,7 +118,7 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
   };
   SliderModel.findById(req.params.id).then(old => {
     cleaner(old.image);
-    SliderModel.deleteOne(query, err => {
+    SliderModel.findByIdAndDelete(query, err => {
       if (err) {
         res.status(500).json(err);
         return;
@@ -153,12 +147,48 @@ router.get('/id/:id', passport.authenticate('jwt', { session: false }), function
 */
 router.get('/search', function(req, res) {
   var title = req.query.title;
-  SliderModel.find({ status: 'active', title: new RegExp(title, 'i') })
+  SliderModel.find({ status: 'true', title: new RegExp(title, 'i') })
     .populate('user')
     .sort('-date')
     .then(data => {
       res.json(data);
     });
+});
+
+/* ARCHIVE Single Slider. 
+@Route : slider/archive/:id
+*/
+router.put('/archive/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  let query = {
+    _id: req.params.id
+  };
+  SliderModel.findByIdAndUpdate(
+    query,
+    {
+      $set: { status: false }
+    },
+    { new: true }
+  )
+    .then(event => res.json(event))
+    .catch(err => res.status(400).json(err));
+});
+
+/* UNARCHIVE Single Slider. 
+@Route : slider/unarchive/:id
+*/
+router.put('/unarchive/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+  let query = {
+    _id: req.params.id
+  };
+  SliderModel.findByIdAndUpdate(
+    query,
+    {
+      $set: { status: true }
+    },
+    { new: true }
+  )
+    .then(event => res.json(event))
+    .catch(err => res.status(400).json(err));
 });
 
 /* Search all Slider by title . 

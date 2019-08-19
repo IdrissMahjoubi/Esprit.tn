@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { editPress, getPress } from '../../actions/pressActions';
+import { editPartnership, getPartnership } from '../../actions/partnershipActions';
 import {
   Card,
   CardBody,
@@ -17,60 +17,50 @@ import {
 
 import { connect } from 'react-redux';
 
-class updatePress extends Component {
+class updatePartnership extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      press: {},
+      partnership: {},
       title: '',
       description: '',
       type: '',
       image: '',
-      archived: false,
-      selectedFile: null,
       selectedImage: null,
       imageLoaded: false,
-      fileLoaded: false,
-      file: '',
       url: ''
     };
   }
 
   componentDidMount() {
-    this.props.getPress(this.props.match.params.id);
+    this.props.getPartnership(this.props.match.params.id);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
-      title: nextProps.press.title,
-      description: nextProps.press.description,
-      type: nextProps.press.type,
-      image: nextProps.press.image,
-      file: nextProps.press.file,
-      url: nextProps.press.url,
-      archived: nextProps.press.archived
+      title: nextProps.partnership.title,
+      description: nextProps.partnership.description,
+      type: nextProps.partnership.type,
+      image: nextProps.partnership.image,
+      sport: nextProps.partnership.sport,
+      url: nextProps.partnership.url
     });
   }
 
   handleSubmit = event => {
-    const updateArticle = new FormData();
+    const updatePartnership = new FormData();
 
-    if (this.state.fileLoaded) {
-      updateArticle.append('files', this.state.selectedFile, this.state.selectedFile.name);
-      this.state.press.file = this.state.selectedFile.name;
-    }
     if (this.state.imageLoaded) {
-      updateArticle.append('files', this.state.selectedImage, this.state.selectedImage.name);
-      this.state.press.image = this.state.selectedImage.name;
+      updatePartnership.append('image', this.state.selectedImage, this.state.selectedImage.name);
+      this.state.partnership.image = this.state.selectedImage.name;
     }
-    updateArticle.append('title', this.state.title);
-    updateArticle.append('description', this.state.description);
-    updateArticle.append('archived', this.state.archived);
-    updateArticle.append('type', this.state.type);
-    updateArticle.append('url', this.state.url);
+    updatePartnership.append('title', this.state.title);
+    updatePartnership.append('description', this.state.description);
+    updatePartnership.append('type', this.state.type);
+    updatePartnership.append('url', this.state.url);
 
-    this.props.editPress(updateArticle, this.props.match.params.id);
+    this.props.editPartnership(updatePartnership, this.props.match.params.id);
 
-    this.props.history.push('/presse');
+    this.props.history.push('/partnership');
   };
 
   handleInputChange = event => {
@@ -86,14 +76,8 @@ class updatePress extends Component {
     });
   };
 
-  fileSelectedHandler = event => {
-    this.setState({
-      selectedFile: event.target.files[0],
-      fileLoaded: true
-    });
-  };
   render() {
-    const { press } = this.props;
+    const { partnership } = this.props;
     return (
       <div className="animated fadeIn">
         <Row>
@@ -101,10 +85,13 @@ class updatePress extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i>
-                <strong>Evénement : Image</strong>
+                <strong>Partnership : Image</strong>
               </CardHeader>
               <CardBody>
-                <CardImg src={`http://localhost:4000/${press.image}`} alt={press.image} />
+                <CardImg
+                  src={`http://localhost:4000/${partnership.image}`}
+                  alt={partnership.image}
+                />
               </CardBody>
             </Card>
           </Col>
@@ -112,7 +99,7 @@ class updatePress extends Component {
           <Col xs="12" xl="6">
             <Card>
               <CardHeader>
-                <strong> Evénement : </strong> Modifer
+                <strong> Partnership : </strong> Modifer
               </CardHeader>
               <CardBody>
                 <FormGroup row>
@@ -127,7 +114,7 @@ class updatePress extends Component {
                       onChange={this.handleInputChange}
                       placeholder="Titre..."
                     />
-                    <FormText color="muted">Titre de l'article</FormText>
+                    <FormText color="muted">Titre du partnership</FormText>
                   </Col>
                 </FormGroup>
 
@@ -157,14 +144,10 @@ class updatePress extends Component {
                       value={this.state.type}
                       onChange={this.handleInputChange}
                     >
-                      <option disabled value="empty">
-                        veuillez choisir le type
-                      </option>
-                      <option value="0">veuillez choisir le type</option>
-                      <option value="rapport">rapport</option>
-                      <option value="article">article</option>
-                      <option value="brochure">brochure</option>
-                      <option value="communique">communique</option>
+                      <option value="0">veuillez choisir le type du partnership</option>
+                      <option value="technological">Technologique</option>
+                      <option value="academic">Académique</option>
+                      <option value="industrial">Industirelle</option>
                     </Input>
                   </Col>
                 </FormGroup>
@@ -178,28 +161,17 @@ class updatePress extends Component {
                 </FormGroup>
                 <FormGroup row>
                   <Col md="3">
-                    <Label htmlFor="text-input">File :</Label>
-                  </Col>
-                  <Col xs="12" md="9">
-                    <Input type="file" name="file" onChange={this.fileSelectedHandler} />
-                  </Col>
-                  <Col xs="12" md="9">
-                    <a href={`http://localhost:4000/${press.file}`}>{this.state.file}</a>
-                  </Col>
-                </FormGroup>
-                <FormGroup row>
-                  <Col md="3">
                     <Label htmlFor="text-input">Url :</Label>
                   </Col>
                   <Col xs="12" md="9">
                     <Input
                       name="url"
-                      value={this.state.url || ''}
+                      value={this.state.url}
                       onChange={this.handleInputChange}
                       type="text"
                       placeholder="text..."
                     />
-                    <FormText color="muted">url de l'article presse</FormText>
+                    <FormText color="muted">url de l'article partnership</FormText>
                   </Col>
                 </FormGroup>
                 <CardFooter>
@@ -224,10 +196,10 @@ class updatePress extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  press: state.press.press
+  partnership: state.partnership.partnership
 });
 
 export default connect(
   mapStateToProps,
-  { getPress, editPress }
-)(updatePress);
+  { getPartnership, editPartnership }
+)(updatePartnership);

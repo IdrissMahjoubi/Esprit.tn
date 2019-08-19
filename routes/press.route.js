@@ -53,10 +53,10 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
     let pdf = '';
     if (req.files.length > 0) {
       req.files.forEach(file => {
-        if (allowedFiles.indexOf(path.extname(file.filename)) > -1) {
+        if (allowedFiles.indexOf(path.extname(file.filename).toLocaleLowerCase()) > -1) {
           pdf = file.path;
         }
-        if (allowedImages.indexOf(path.extname(file.filename)) > -1) {
+        if (allowedImages.indexOf(path.extname(file.filename).toLocaleLowerCase()) > -1) {
           img = file.path;
         }
       });
@@ -89,43 +89,48 @@ router.put('/update/:id', passport.authenticate('jwt', { session: false }), (req
     let pdf = '';
     if (req.files.length > 0) {
       req.files.forEach(file => {
-        if (allowedFiles.indexOf(path.extname(file.filename)) > -1) {
+        if (allowedFiles.indexOf(path.extname(file.filename).toLocaleLowerCase()) > -1) {
           pdf = file.path;
         }
-        if (allowedImages.indexOf(path.extname(file.filename)) > -1) {
+        if (allowedImages.indexOf(path.extname(file.filename).toLocaleLowerCase()) > -1) {
           img = file.path;
         }
       });
-      //Delete old files
-      PressModel.findById(req.params.id).then(old => {
-        cleaner(old.image);
-        cleaner(old.file);
-      });
+      
     }
-    let eventUpdated = {
-      title: req.body.title,
-      description: req.body.description,
-      archived: req.body.archived,
-      type: req.body.type,
-      url: req.body.url,
-      user: req.user._id
-    };
-    if (pdf.length > 0) {
-      eventUpdated.file = pdf;
-    }
-    if (img.length > 0) {
-      eventUpdated.image = img;
-    }
-    PressModel.findOneAndUpdate(
-      query,
-      {
-        $set: eventUpdated
-      },
-      { new: true }
-    )
-      .then(event => res.json(event))
-      .catch(err => res.status(400).json(err));
-  });
+    //Delete old files
+    PressModel.findById(req.params.id).then(old => {
+      if(img!=='')
+      cleaner(old.image);
+      if(pdf!='')
+      cleaner(old.file);
+
+      let eventUpdated = {
+        title: req.body.title,
+        description: req.body.description,
+        archived: req.body.archived,
+        type: req.body.type,
+        url: req.body.url,
+        user: req.user._id
+      };
+      if (pdf.length > 0) {
+        eventUpdated.file = pdf;
+      }
+      if (img.length > 0) {
+        eventUpdated.image = img;
+      }
+      PressModel.findByIdAndUpdate(
+        query,
+        {
+          $set: eventUpdated
+        },
+        { new: true }
+      )
+        .then(event => res.json(event))
+        .catch(err => res.status(400).json(err));
+    });
+    });
+    
 });
 
 /* ARCHIVE Single Press. 
@@ -135,7 +140,7 @@ router.put('/archive/:id', passport.authenticate('jwt', { session: false }), (re
   let query = {
     _id: req.params.id
   };
-  PressModel.findOneAndUpdate(
+  PressModel.findByIdAndUpdate(
     query,
     {
       $set: { archived: true }
@@ -153,7 +158,7 @@ router.put('/unarchive/:id', passport.authenticate('jwt', { session: false }), (
   let query = {
     _id: req.params.id
   };
-  PressModel.findOneAndUpdate(
+  PressModel.findByIdAndUpdate(
     query,
     {
       $set: { archived: false }

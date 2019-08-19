@@ -30,7 +30,7 @@ router.post(
       date: new Date(),
       type: req.body.type,
       sport: req.body.sport,
-      desciption: req.body.desciption,
+      description: req.body.description,
       url: req.body.url,
       image: req.file.path,
       user: req.user._id
@@ -54,27 +54,25 @@ router.put(
       //Delete old image
       ClubModel.findById(req.params.id).then(old => {
         cleaner(old.image);
+        ClubModel.findByIdAndUpdate(
+          req.params.id,
+          {
+            $set: {
+              title: req.body.title,
+              date: new Date(),
+              type: req.body.type,
+              sport: req.body.sport,
+              description: req.body.description,
+              url: req.body.url,
+              image: req.file.path,
+              user: req.user._id
+            }
+          },
+          { new: true }
+        ).then(club => res.json(club))
+        .catch(err => res.status(400).json(err));
       });
-      ClubModel.findOneAndUpdate(
-        req.params.id,
-        {
-          $set: {
-            title: req.body.title,
-            date: new Date(),
-            type: req.body.type,
-            sport: req.body.sport,
-            desciption: req.body.desciption,
-            url: req.body.url,
-            image: req.file.path,
-            user: req.user._id
-          }
-        },
-
-        function(err, newValue) {
-          if (err) return res.send(err);
-          res.json(newValue);
-        }
-      );
+      
     } else {
       ClubModel.findByIdAndUpdate(
         req.params.id,
@@ -84,17 +82,14 @@ router.put(
             date: new Date(),
             type: req.body.type,
             sport: req.body.sport,
-            desciption: req.body.desciption,
+            description: req.body.description,
             url: req.body.url,
             user: req.user._id
           }
         },
-
-        function(err, newValue) {
-          if (err) return res.send(err);
-          res.json(newValue);
-        }
-      );
+        { new: true }
+      ).then(club => res.json(club))
+      .catch(err => res.status(400).json(err));
     }
   }
 );
@@ -113,15 +108,16 @@ router.delete('/delete/:id', passport.authenticate('jwt', { session: false }), f
   //Delete old image
   ClubModel.findById(req.params.id).then(old => {
     cleaner(old.image);
+    ClubModel.remove(query, err => {
+      if (err) {
+        res.status(500).json(err);
+        return;
+      } else {
+        res.status(204).send('Club deleted');
+      }
+    });
   });
-  ClubModel.remove(query, err => {
-    if (err) {
-      res.status(500).json(err);
-      return;
-    } else {
-      res.status(204).send('Club deleted');
-    }
-  });
+  
 });
 
 /* GET Club by Id . 

@@ -1,25 +1,25 @@
 import axios from "../api";
 import {
-  ADD_PRESS,
-  GET_ALL_PRESS,
-  GET_PRESS,
-  GET_ARCHIVED,
-  DELETE_PRESS,
-  PRESS_LOADING,
+  ADD_SLIDER,
+  GET_ALL_SLIDER,
+  GET_SLIDER,
+  GET_INACTIVE_SLIDER,
+  DELETE_SLIDER,
+  SLIDER_LOADING,
   CLEAR_ERRORS,
   GET_ERRORS,
-  EDIT_PRESS,
-  ARCHIVE_PRESS,
-  UNARCHIVE_PRESS
+  EDIT_SLIDER,
+  ARCHIVE_SLIDER,
+  UNARCHIVE_SLIDER
   // SEARCH_EVENT,
 } from "../actions/types";
 
-export const addPress = (eventData) => dispatch => {
+export const addSlider = (eventData) => dispatch => {
   dispatch(clearErrors());
-  axios.post("/press/add", eventData)
+  axios.post("/slider/add", eventData)
     .then(res =>
         dispatch({
-        type: ADD_PRESS,
+        type: ADD_SLIDER,
         payload: res.data
       })
     )
@@ -39,15 +39,16 @@ export const addPress = (eventData) => dispatch => {
 
 
 
-export const getAllPress = () => dispatch => {
-  dispatch(setPressLoading());
+export const getAllSlider = () => dispatch => {
+  dispatch(setSliderLoading());
   axios
-    .get("/press")
+    .get("/slider")
     .then(res => {
       dispatch({
-        type: GET_ALL_PRESS,
+        type: GET_ALL_SLIDER,
         payload: res.data
       });
+      console.log(res.data);
     })
     .catch(error => {
       if (error.response && error.response.data) {
@@ -62,12 +63,12 @@ export const getAllPress = () => dispatch => {
     })
 };
 
-export const archivePress = (id) => dispatch => {
+export const archiveSlider = (id) => dispatch => {
   dispatch(clearErrors());
-  axios.put(`/press/archive/${id}`)
+  axios.put(`/slider/archive/${id}`)
     .then(res =>
       dispatch({
-        type: ARCHIVE_PRESS,
+        type: ARCHIVE_SLIDER,
         payload: res.data
       })
     )
@@ -84,12 +85,12 @@ export const archivePress = (id) => dispatch => {
     })
 };
 
-export const unarchivePress = (id) => dispatch => {
+export const unarchiveSlider = (id) => dispatch => {
   dispatch(clearErrors());
-  axios.put(`/press/unarchive/${id}`)
+  axios.put(`/slider/unarchive/${id}`)
     .then(res =>
       dispatch({
-        type: UNARCHIVE_PRESS,
+        type: UNARCHIVE_SLIDER,
         payload: res.data
       })
     )
@@ -108,12 +109,12 @@ export const unarchivePress = (id) => dispatch => {
 
 
 export const getArchived = () => dispatch => {
-  dispatch(setPressLoading());
+  dispatch(setSliderLoading());
   axios
-    .get("/press/archived")
+    .get("/slider/all")
     .then(res => {
       dispatch({
-        type: GET_ARCHIVED,
+        type: GET_INACTIVE_SLIDER,
         payload: res.data
       });
     })
@@ -130,13 +131,13 @@ export const getArchived = () => dispatch => {
     })
 };
 
-export const getPress = id => dispatch => {
-  dispatch(setPressLoading());
+export const getSlider = id => dispatch => {
+  dispatch(setSliderLoading());
   axios
-    .get(`/press/get/${id}`)
+    .get(`/slider/id/${id}`)
     .then(res =>
       dispatch({
-        type: GET_PRESS,
+        type: GET_SLIDER,
         payload: res.data
       })
     )
@@ -145,13 +146,13 @@ export const getPress = id => dispatch => {
 
 
 
-export const deletePress = id => dispatch => {
+export const deleteSlider = id => dispatch => {
   dispatch(clearErrors());
   axios
-    .delete(`/press/delete/${id}`)
+    .delete(`/slider/delete/${id}`)
     .then(res =>
       dispatch({
-        type: DELETE_PRESS,
+        type: DELETE_SLIDER,
         payload: id
       })
     )
@@ -168,12 +169,12 @@ export const deletePress = id => dispatch => {
     })
 };
 
-export const editPress = (eventData,id) => dispatch => {
+export const editSlider = (eventData,id) => dispatch => {
   dispatch(clearErrors());
-  axios.put(`/press/update/${id}`, eventData)
+  axios.put(`/slider/update/${id}`, eventData)
     .then(res =>
       dispatch({
-        type: EDIT_PRESS,
+        type: EDIT_SLIDER,
         payload: res.data
       })
     )
@@ -217,9 +218,9 @@ export const editPress = (eventData,id) => dispatch => {
 // }
 
 // Set loading state
-export const setPressLoading = () => {
+export const setSliderLoading = () => {
   return {
-    type: PRESS_LOADING
+    type: SLIDER_LOADING
   };
 };
 

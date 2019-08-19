@@ -34,7 +34,7 @@ router.post(
       title: req.body.title,
       date: new Date(),
       memebers: req.body.memebers,
-      desciption: req.body.desciption,
+      description: req.body.description,
       url: req.body.url,
       image: img,
       user: req.user._id
@@ -58,25 +58,22 @@ router.put(
       //Delete old image
       RdiModel.findById(req.params.id).then(old => {
         cleaner(old.image);
-        RdiModel.findOneAndUpdate(
+        RdiModel.findByIdAndUpdate(
           req.params.id,
           {
             $set: {
               title: req.body.title,
               date: new Date(),
               memebers: req.body.memebers,
-              desciption: req.body.desciption,
+              description: req.body.description,
               url: req.body.url,
               image: req.file.path,
               user: req.user._id
             }
           },
-
-          function(err, newValue) {
-            if (err) return res.send(err);
-            res.json(newValue);
-          }
-        );
+          { new: true }
+        ).then(rdi => res.json(rdi))
+        .catch(err => res.status(400).json(err));
       });
     } else {
       RdiModel.findByIdAndUpdate(
@@ -86,17 +83,14 @@ router.put(
             title: req.body.title,
             date: new Date(),
             memebers: req.body.memebers,
-            desciption: req.body.desciption,
+            description: req.body.description,
             url: req.body.url,
             user: req.user._id
           }
         },
-
-        function(err, newValue) {
-          if (err) return res.send(err);
-          res.json(newValue);
-        }
-      );
+        { new: true }
+      ).then(rdi => res.json(rdi))
+      .catch(err => res.status(400).json(err));
     }
   }
 );

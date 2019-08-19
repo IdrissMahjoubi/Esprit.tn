@@ -11,18 +11,17 @@ import {
   Button,
   FormText
 } from 'reactstrap';
-import { addPress } from '../../actions/pressActions';
+import { addClub } from '../../actions/clubActions';
 import { connect } from 'react-redux';
 
-class addPresses extends Component {
+class addClubs extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
       description: '',
       type: '',
-      files: null,
-      selectedFile: null,
+      sport: '',
       selectedImage: null,
       url: ''
     };
@@ -31,16 +30,15 @@ class addPresses extends Component {
   handleSubmit = event => {
     const newArticle = new FormData();
     try {
-      if(this.state.fileLoaded)
-    newArticle.append('files', this.state.selectedFile,this.state.selectedFile.name);
     if(this.state.imageLoaded)
-    newArticle.append('files', this.state.selectedImage,this.state.selectedImage.name);
+    newArticle.append('image', this.state.selectedImage,this.state.selectedImage.name);
     newArticle.append('title', this.state.title);
     newArticle.append('description', this.state.description);
     newArticle.append('type', this.state.type);
+    newArticle.append('sport', this.state.sport);
     newArticle.append('url', this.state.url);
-    this.props.addPress(newArticle);
-    this.props.history.push("/presse");
+    this.props.addClub(newArticle);
+    this.props.history.push("/club");
     } catch (error) {
       console.log(error);
     }
@@ -51,9 +49,8 @@ class addPresses extends Component {
       title: '',
       description: '',
       type: '',
+      sport: '',
       image: null,
-      file: null,
-      selectedFile: null,
       selectedImage: null,
       url: ''
     });
@@ -72,18 +69,11 @@ class addPresses extends Component {
     });
   };
 
-  fileSelectedHandler = event => {
-    this.setState({
-      selectedFile: event.target.files[0],
-      fileLoaded: true
-    });
-  };
-
   render() {
     return (
       <Card>
         <CardHeader>
-          <strong> Presse : </strong> Ajouter
+          <strong> Club : </strong> Ajouter
         </CardHeader>
         <CardBody>
           <FormGroup row>
@@ -98,7 +88,7 @@ class addPresses extends Component {
                 onChange={this.handleInputChange}
                 placeholder="Titre..."
               />
-              <FormText color="muted">Titre de l'article à ajouter</FormText>
+              <FormText color="muted">Titre du club à ajouter</FormText>
             </Col>
           </FormGroup>
 
@@ -128,11 +118,26 @@ class addPresses extends Component {
                 value={this.state.type}
                 onChange={this.handleInputChange}
               >
+                <option value="0">veuillez choisir le type du club</option>
+                <option value="sports">sports</option>
+                <option value="other">autre</option>
+              </Input>
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Col md="3">
+              <Label htmlFor="text-input">Type de sport :</Label>
+            </Col>
+            <Col xs="12" md="9">
+              <Input
+                type="select"
+                name="sport"
+                value={this.state.sport}
+                onChange={this.handleInputChange}
+              >
                 <option value="0">veuillez choisir le type</option>
-                <option value="rapport">rapport</option>
-                <option value="article">article</option>
-                <option value="brochure">brochure</option>
-                <option value="communique">communique</option>
+                <option value="team">Équipe</option>
+                <option value="individual">Individuel</option>
               </Input>
             </Col>
           </FormGroup>
@@ -142,14 +147,6 @@ class addPresses extends Component {
             </Col>
             <Col xs="12" md="9">
               <Input type="file" name="image" onChange={this.imageSelectedHandler} />
-            </Col>
-          </FormGroup>
-          <FormGroup row>
-            <Col md="3">
-              <Label htmlFor="text-input">File :</Label>
-            </Col>
-            <Col xs="12" md="9">
-              <Input type="file" name="file" onChange={this.fileSelectedHandler} />
             </Col>
           </FormGroup>
           <FormGroup row>
@@ -164,7 +161,7 @@ class addPresses extends Component {
                 type="text"
                 placeholder="url..."
               />
-              <FormText color="muted">url de l'article à ajouter</FormText>
+              <FormText color="muted">url du club à ajouter</FormText>
             </Col>
           </FormGroup>
           <CardFooter>
@@ -186,10 +183,10 @@ class addPresses extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  press: state.press
+  club: state.club
 });
 
 export default connect(
   mapStateToProps,
-  { addPress }
-)(addPresses);
+  { addClub }
+)(addClubs);

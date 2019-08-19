@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {  getArchived } from '../../actions/pressActions';
-import Press from '../components/Press';
+import { getAllRdi } from '../../actions/rdiActions';
+import Rdi from '../components/Rdi';
 import { connect } from 'react-redux';
 import {
   FormGroup,
@@ -16,20 +16,19 @@ import {
   Form
 } from 'reactstrap';
 
-class ArchivePress extends Component {
+class showRdi extends Component {
   state = {
-    allPress: [],
+    allRdi: [],
     search: '',
-    type: '',
     etat: false
   };
 
   componentWillMount() {
-    this.props.getArchived();
+    this.props.getAllRdi();
   }
 
-  handleArchivedEventsButton = () => {
-    this.props.history.push('/presse');
+  handleAddRedirect = () => {
+    this.props.history.push('/rdi/ajouter');
   };
 
   handleInputChange = event => {
@@ -37,21 +36,13 @@ class ArchivePress extends Component {
       [event.target.name]: event.target.value
     });
   };
-
   render() {
-    const { allPress } = this.props.press;
+    const { allRdi } = this.props.rdi;
 
-    let presses = allPress.filter(press => {
-      return press.archived === true;
-    });
+    let rdis = allRdi;
     if (this.state.search !== '') {
-      presses = presses.filter(press => {
-        return press.title.indexOf(this.state.search) !== -1;
-      });
-    }
-    if (this.state.type !== '') {
-      presses = presses.filter(press => {
-        return press.type.indexOf(this.state.type) !== -1;
+      rdis = rdis.filter(rdi => {
+        return rdi.title.indexOf(this.state.search) !== -1;
       });
     }
 
@@ -80,40 +71,13 @@ class ArchivePress extends Component {
                         />
                       </InputGroup>
                     </Col>
-                    <Col md="4" sm="4">
-                      <InputGroup className="mt-2">
-                        <InputGroupAddon addonType="prepend">
-                          <Button type="button" color="primary">
-                            Type:
-                          </Button>
-                        </InputGroupAddon>
-                        <Input
-                          type="select"
-                          value={this.state.type}
-                          name="type"
-                          placeholder="Inserer un titre"
-                          onChange={this.handleInputChange}
-                        >
-                          <option value="">veuillez choisir le type</option>
-                          <option value="rapport">rapport</option>
-                          <option value="article">article</option>
-                          <option value="brochure">brochure</option>
-                          <option value="communique">communique</option>
-                        </Input>
-                      </InputGroup>
-                    </Col>
                   </FormGroup>
                   <FormGroup row>
                     <Col md="4" sm="4">
                       <InputGroup className="mt-2">
-                        <Button
-                          onClick={this.handleArchivedEventsButton}
-                          block
-                          color="danger"
-                          outline
-                        >
+                        <Button block onClick={this.handleAddRedirect} color="success" outline>
                           <i className="fa fa-plus" />
-                          &nbsp;Article Presse Non Archiveés
+                          &nbsp;Ajouter un partenariat
                         </Button>
                       </InputGroup>
                     </Col>
@@ -124,7 +88,9 @@ class ArchivePress extends Component {
                 <Row>
                   {this.props.loading
                     ? 'Loading...'
-                    : presses.map((press, index) => <Press key={index} press={press} />)}
+                    : rdis.map((rdi, index) => (
+                        <Rdi key={index} rdi={rdi} />
+                      ))}
                 </Row>
               </CardBody>
             </Card>
@@ -138,11 +104,11 @@ class ArchivePress extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  press: state.press,
-  loading: state.press.loading
+  rdi: state.rdi,
+  loading: state.rdi.loading
 });
 
 export default connect(
   mapStateToProps,
-  { getArchived }
-)(ArchivePress);
+  { getAllRdi }
+)(showRdi);
