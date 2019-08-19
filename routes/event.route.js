@@ -85,7 +85,6 @@ router.put(
         dateEnd: req.body.dateEnd,
         description: req.body.description,
         type: req.body.type,
-        archived: req.body.archived,
         url: req.body.url,
         image: req.file.path,
         user: req.body.user
@@ -97,7 +96,6 @@ router.put(
         dateEnd: req.body.dateEnd,
         description: req.body.description,
         type: req.body.type,
-        archive: req.body.archive,
         url: req.body.url,
         user: req.body.user
       };

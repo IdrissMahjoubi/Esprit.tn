@@ -88,33 +88,7 @@ class BlogOne extends Component {
           </div>
         ));
 
-    // //BlogOne loop start
-    // const blogonedata = this.props.blogonesData.map((blogone, index) => (
-    //     <div className="col-md-6 col-lg-6" key={index}>
-    //         <div className="blog-item">
-    //             <Link to={blogone.postLink} className="blog-img"><img src={blogone.postImage} alt="blog-one" /></Link>
-    //             <div className="blog-info">
-    //                 <div className="date-box">
-    //                     {blogone.date} <span className="month">{blogone.month}</span>
-    //                 </div>
-    //                 <div className="title-meta">
-    //                     <h2><Link to={blogone.postLink}>{blogone.posttitle}</Link></h2>
-    //                     <div className="post-meta">
-    //                         <ul>
-    //                             <li><Icofont icon="icofont-funky-man" /> Posted By: <Link to={blogone.authorLink}>{blogone.authorName}</Link></li>
-    //                             <li><Icofont icon="icofont-speech-comments" /> Comments: <Link to={blogone.CommentsLink}>{blogone.TotalComments}</Link></li>
-    //                             <li><Icofont icon="icofont-tags" /> Tags: <Link to={blogone.TagLink}>{blogone.TagName}</Link></li>
-    //                         </ul>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //             <div className="post-content">
-    //                 <p>{blogone.postContent}</p>
-    //             </div>
-    //         </div>
-    //     </div>
-    // ));
-    //BlogOne loop END
+
     return (
       <React.Fragment>
         {/*NavBar: src/components/NavBer.jsx */}
@@ -181,7 +155,7 @@ BlogOne.propTypes = {
 
 //Default Props
 BlogOne.defaultProps = {
-  Title: 'Our Blog',
+  Title: 'Actualités',
   Content:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.',
   blogonesData: [

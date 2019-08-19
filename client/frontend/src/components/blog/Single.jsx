@@ -58,7 +58,7 @@ class Single extends Component {
                                 <div className="row">
                                     <div className="col-lg-7">
                                         <h1>Detailed Event</h1>
-                                        <p>{event.description}</p>
+                                        <p>{event.title}</p>
                                     </div>
                                 </div>
                             </div>

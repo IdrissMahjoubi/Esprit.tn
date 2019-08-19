@@ -63,6 +63,7 @@ router.post('/login', (req, res) => {
       return res.status(400).json('user not found');
     }
     // Check Password
+
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         const { id, username, email, avatar } = user;

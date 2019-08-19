@@ -47,22 +47,14 @@ class updateEvents extends Component {
     });
   }
 
+  handleCancel = event => {
+    this.props.history.push('/events');
+  }
   handleInputChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
-
-  // onChangeDateStart = date => {
-  //   this.setState({
-  //     dateStart: date
-  //   });
-  // };
-  // onChangeDateEnd = date => {
-  //   this.setState({
-  //     dateEnd: date
-  //   });
-  // };
 
   fileSelectedHandler = event => {
     event.preventDefault(); 
@@ -91,7 +83,6 @@ class updateEvents extends Component {
     newEvent.append('description', this.state.description);
     newEvent.append('type', this.state.type);
     newEvent.append('url', this.state.url);
-    newEvent.append('user', this.props.user.id);
 
     this.props.editEvent(newEvent, this.props.match.params.id);
 
@@ -231,7 +222,7 @@ class updateEvents extends Component {
                     <Button type="submit" block onClick={this.handleSubmit} color="primary">
                       <i className="fa fa-dot-circle-o"></i> Modifier
                     </Button>
-                    <Button type="reset" block color="danger">
+                    <Button type="reset" block onClick={this.handleCancel} color="danger">
                       <i className="fa fa-ban"></i> Annuler
                     </Button>
                   </center>
