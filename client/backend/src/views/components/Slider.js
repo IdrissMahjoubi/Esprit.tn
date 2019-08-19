@@ -3,63 +3,63 @@ import { connect } from 'react-redux';
 import { Card, CardBody, CardImg, Button, Col, CardHeader, Badge } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-import { deletePress, archivePress, unarchivePress } from '../../actions/pressActions';
+import { deleteSlider, archiveSlider, unarchiveSlider } from '../../actions/sliderActions';
 
-class Press extends Component {
+class Slider extends Component {
   handleDetailsButton = id => {
-    this.props.history.push('/presse/details/' + id);
+    this.props.history.push('/slider/details/' + id);
   };
   handleDeleteButton = id => {
-    this.props.deletePress(id);
+    this.props.deleteSlider(id);
   };
   handleEditButton = id => {
-    this.props.history.push('/presse/update/' + id);
+    this.props.history.push('/slider/update/' + id);
   };
 
   handleChange = (archived, id) => {
-    if (archived) this.props.unarchivePress(id);
-    else this.props.archivePress(id);
+    if (archived) this.props.archiveSlider(id);
+    else this.props.unarchiveSlider(id);
   };
 
   handleDelete = id => {
-    this.props.deletePress(id);
+    this.props.deleteSlider(id);
   };
   render() {
-    const { press } = this.props;
+    const { slider } = this.props;
 
     return (
       <Col xs="12" sm="8" md="4">
         <Card>
           <CardHeader>
-            <b>{press.title}</b>
+            <b>{slider.title}</b>
             <Badge color={'warning'} className={'ml-1 mr-1'}>
-              {press.type}
+              {slider.type}
             </Badge>
             <div className="card-header-actions">
-            <Button
+              <Button
                 className={'float-right'}
-                color={!press.archived ? 'success' : 'danger'}
+                color={!slider.status ? 'success' : 'danger'}
                 size={'sm'}
-                onClick={() => this.handleChange(press.archived, press._id)}
+                onClick={() => this.handleChange(slider.status, slider._id)}
               >
-                {!press.archived ? 'Archive' : 'Unarchive'}
+                {!slider.status ? 'Actif' : 'Inactif'}
               </Button>
             </div>
           </CardHeader>
           <CardBody>
             <p>
-              Publié le <b>{moment(press.dateDebut).format('dddd, MMMM Do YYYY, h:mm:ss a')}</b>
+              Publié le <b>{moment(slider.date).format('dddd, MMMM Do YYYY, h:mm:ss a')}</b>
             </p>
             <hr className="my-2" />
-            <CardImg src={`http://localhost:4000/${press.image}`} alt={press.image} />
+            <CardImg src={`http://localhost:4000/${slider.image}`} alt={slider.image} />
             <hr className="my-2" />
-            <Button onClick={() => this.handleDetailsButton(press._id)} block color="primary">
+            <Button onClick={() => this.handleDetailsButton(slider._id)} block color="primary">
               Details
             </Button>
-            <Button onClick={() => this.handleEditButton(press._id)} block color="warning">
+            <Button onClick={() => this.handleEditButton(slider._id)} block color="warning">
               Modifier
             </Button>
-            <Button onClick={() => this.handleDeleteButton(press._id)} block color="danger">
+            <Button onClick={() => this.handleDeleteButton(slider._id)} block color="danger">
               Supprimer
             </Button>
           </CardBody>
@@ -76,6 +76,6 @@ const mapStateToProps = state => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { deletePress, archivePress, unarchivePress }
-  )(Press)
+    { deleteSlider, unarchiveSlider, archiveSlider }
+  )(Slider)
 );

@@ -92,74 +92,79 @@ export default {
       icon: "fa fa-newspaper-o",
       children: [
         {
-          name: "Rapports d'Activités",
-          url: "/ajouter",
-          icon: "fa fa-print",
-          children: [
-            {
-              name: "Ajouter",
-              url: "/ajouter",
-              icon: "fa fa-plus"
-            },
-            {
-              name: "Afficher",
-              url: "/afficher",
-              icon: "fa fa-bars"
-            },
-          ]
+          name: "Ajouter",
+          url: "/presse/ajouter",
+          icon: "fa fa-plus"
         },
         {
-          name: "Articles",
-          url: "/afficher",
-          icon: "fa fa-print",
-          children: [
-            {
-              name: "Ajouter",
-              url: "/ajouter",
-              icon: "fa fa-plus"
-            },
-            {
-              name: "Afficher",
-              url: "/afficher",
-              icon: "fa fa-bars"
-            },
-          ]
+          name: "Afficher",
+          url: "/presse",
+          icon: "fa fa-bars"
+        },
+      ]
+    },
+    {
+      name: "Club",
+      icon: "fa fa-group",
+      children: [
+        {
+          name: "Ajouter",
+          url: "/club/ajouter",
+          icon: "fa fa-plus"
         },
         {
-          name: "Brochures",
-          url: "/afficher",
-          icon: "fa fa-print",
-          children: [
-            {
-              name: "Ajouter",
-              url: "/ajouter",
-              icon: "fa fa-plus"
-            },
-            {
-              name: "Afficher",
-              url: "/afficher",
-              icon: "fa fa-bars"
-            },
-          ]
+          name: "Afficher",
+          url: "/club",
+          icon: "fa fa-bars"
+        },
+      ]
+    },
+    {
+      name: "Slider",
+      icon: "fa fa-home",
+      children: [
+        {
+          name: "Ajouter",
+          url: "/slider/ajouter",
+          icon: "fa fa-plus"
         },
         {
-          name: "Communiqué",
-          url: "/afficher",
-          icon: "fa fa-print",
-          children: [
-            {
-              name: "Ajouter",
-              url: "/ajouter",
-              icon: "fa fa-plus"
-            },
-            {
-              name: "Afficher",
-              url: "/afficher",
-              icon: "fa fa-bars"
-            },
-          ]
+          name: "Afficher",
+          url: "/slider",
+          icon: "fa fa-bars"
         },
-        
+      ]
+    },
+    {
+      name: "Partenariat",
+      icon: "fa fa-home",
+      children: [
+        {
+          name: "Ajouter",
+          url: "/partnership/ajouter",
+          icon: "fa fa-plus"
+        },
+        {
+          name: "Afficher",
+          url: "/partnership",
+          icon: "fa fa-bars"
+        },
+      ]
+    },
+    {
+      name: "RDI",
+      icon: "fa fa-home",
+      children: [
+        {
+          name: "Ajouter",
+          url: "/rdi/ajouter",
+          icon: "fa fa-plus"
+        },
+        {
+          name: "Afficher",
+          url: "/rdi",
+          icon: "fa fa-bars"
+        },
       ]
     },
     {

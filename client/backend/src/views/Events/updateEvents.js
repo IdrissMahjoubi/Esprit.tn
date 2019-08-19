@@ -25,6 +25,7 @@ class updateEvents extends Component {
     dateEnd:'',
     description: '',
     type: '',
+    archived: '',
     imageData: null,
     url: '',
     selectedFile: null,
@@ -42,6 +43,7 @@ class updateEvents extends Component {
       dateStart: nextProps.event.dateStart,
       dateEnd: nextProps.event.dateEnd,
       description: nextProps.event.description,
+      archived: nextProps.event.archived,
       type: nextProps.event.type,
       url: nextProps.event.url
     });
@@ -89,6 +91,7 @@ class updateEvents extends Component {
     newEvent.append('dateStart', this.state.dateStart);
     newEvent.append('dateEnd', this.state.dateEnd);
     newEvent.append('description', this.state.description);
+    newEvent.append('archived', this.state.archived);
     newEvent.append('type', this.state.type);
     newEvent.append('url', this.state.url);
     newEvent.append('user', this.props.user.id);

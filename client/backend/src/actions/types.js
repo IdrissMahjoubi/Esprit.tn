@@ -22,6 +22,47 @@ export const DELETE_PRESS = 'DELETE_PRESS';
 export const SEARCH_PRESS = 'SEARCH_PRESS';
 export const EDIT_PRESS = 'EDIT_PRESS';
 export const GET_ARCHIVED = 'GET_ARCHIVED';
+export const ARCHIVE_PRESS = 'ARCHIVE_PRESS';
+export const UNARCHIVE_PRESS = 'UNARCHIVE_PRESS';
+
+// CLUB TYPES
+export const CLUB_LOADING = 'CLUB_LOADING';
+export const GET_CLUB = 'GET_CLUB';
+export const GET_ALL_CLUB = 'GET_ALL_CLUB';
+export const ADD_CLUB = 'ADD_CLUB';
+export const DELETE_CLUB = 'DELETE_CLUB';
+export const SEARCH_CLUB = 'SEARCH_CLUB';
+export const EDIT_CLUB = 'EDIT_CLUB';
+
+// SLIDER TYPES
+export const SLIDER_LOADING = 'SLIDER_LOADING';
+export const GET_SLIDER = 'GET_SLIDER';
+export const GET_ALL_SLIDER = 'GET_ALL_SLIDER';
+export const ADD_SLIDER = 'ADD_SLIDER';
+export const DELETE_SLIDER = 'DELETE_SLIDER';
+export const SEARCH_SLIDER = 'SEARCH_SLIDER';
+export const EDIT_SLIDER = 'EDIT_SLIDER';
+export const GET_INACTIVE_SLIDER = 'GET_INACTIVE_SLIDER';
+export const ARCHIVE_SLIDER = 'ARCHIVE_SLIDER';
+export const UNARCHIVE_SLIDER = 'UNARCHIVE_SLIDER';
+
+// PARTNERSHIP TYPES
+export const PARTNERSHIP_LOADING = 'PARTNERSHIP_LOADING';
+export const GET_PARTNERSHIP = 'GET_PARTNERSHIP';
+export const GET_ALL_PARTNERSHIP = 'GET_ALL_PARTNERSHIP';
+export const ADD_PARTNERSHIP = 'ADD_PARTNERSHIP';
+export const DELETE_PARTNERSHIP = 'DELETE_PARTNERSHIP';
+export const SEARCH_PARTNERSHIP = 'SEARCH_PARTNERSHIP';
+export const EDIT_PARTNERSHIP = 'EDIT_PARTNERSHIP';
+
+// RDI TYPES
+export const RDI_LOADING = 'RDI_LOADING';
+export const GET_RDI = 'GET_RDI';
+export const GET_ALL_RDI = 'GET_ALL_RDI';
+export const ADD_RDI = 'ADD_RDI';
+export const DELETE_RDI = 'DELETE_RDI';
+export const SEARCH_RDI = 'SEARCH_RDI';
+export const EDIT_RDI = 'EDIT_RDI';
 
 // NEWS TYPES
 export const NEWS_LOADING = 'NEWS_LOADING';
