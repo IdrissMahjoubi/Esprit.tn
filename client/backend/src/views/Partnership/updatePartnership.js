@@ -45,6 +45,8 @@ class updatePartnership extends Component {
       sport: nextProps.partnership.sport,
       url: nextProps.partnership.url
     });
+    if( nextProps.isModified)
+    this.props.history.push('/partnership');
   }
 
   handleSubmit = event => {
@@ -60,7 +62,6 @@ class updatePartnership extends Component {
     updatePartnership.append('url', this.state.url);
 
     this.props.editPartnership(updatePartnership, this.props.match.params.id);
-    if( nextProps.isModified)
     this.props.history.push('/partnership');
   };
 

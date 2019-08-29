@@ -47,6 +47,8 @@ class updateRdi extends Component {
       members: nextProps.rdi.members,
       url: nextProps.rdi.url
     });
+    if( nextProps.isModified)
+    this.props.history.push('/rdi');
   }
 
   handleMemberAdd = () => {
@@ -84,7 +86,6 @@ class updateRdi extends Component {
       updateRdi.append('members', name)
     ));
     this.props.editRdi(updateRdi, this.props.match.params.id);
-    if (nextProps.isModified)
     this.props.history.push('/rdi');
   };
 

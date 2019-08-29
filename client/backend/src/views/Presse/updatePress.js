@@ -50,6 +50,8 @@ class updatePress extends Component {
       url: nextProps.press.url,
       archived: nextProps.press.archived
     });
+    if( nextProps.isModified)
+    this.props.history.push('/presse');
   }
 
   handleSubmit = event => {
@@ -70,7 +72,6 @@ class updatePress extends Component {
     updateArticle.append('url', this.state.url);
 
     this.props.editPress(updateArticle, this.props.match.params.id);
-    if (nextProps.isModified)
     this.props.history.push('/presse');
   };
 

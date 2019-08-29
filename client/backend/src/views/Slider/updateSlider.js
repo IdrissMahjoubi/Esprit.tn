@@ -46,6 +46,8 @@ class updateslider extends Component {
       image: nextProps.slider.image,
       url: nextProps.slider.url
     });
+    if( nextProps.isModified)
+    this.props.history.push('/slider');
   }
 
   handleSubmit = event => {
@@ -62,7 +64,6 @@ class updateslider extends Component {
     updateSlider.append('url', this.state.url);
 
     this.props.editSlider(updateSlider, this.props.match.params.id);
-    if(nextProps.isModified)
     this.props.history.push('/slider');
   };
 
