@@ -13,7 +13,7 @@ import {
   Row,
   CardImg
 } from 'reactstrap';
-import { getEvent, editEvent,setEditEventLoading } from '../../actions/eventActions';
+import { getEvent, editEvent,setIsModifiedEventLoading } from '../../actions/eventActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
@@ -34,7 +34,7 @@ class updateEvents extends Component {
   };
 
   componentDidMount() {
-    this.props.setEditEventLoading();
+    this.props.setIsModifiedEventLoading();
     this.props.getEvent(this.props.match.params.id);
   }
 
@@ -250,6 +250,6 @@ const mapStateToProps = state => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { getEvent, editEvent ,setEditEventLoading}
+    { getEvent, editEvent ,setIsModifiedEventLoading}
   )(updateEvents)
 );

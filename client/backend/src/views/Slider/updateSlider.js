@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { editSlider, getSlider } from '../../actions/sliderActions';
+import { editSlider, getSlider, setIsModifiedSliderLoading } from '../../actions/sliderActions';
 import {
   Card,
   CardBody,
@@ -34,6 +34,7 @@ class updateslider extends Component {
   }
 
   componentDidMount() {
+    this.props.setIsModifiedSliderLoading();
     this.props.getSlider(this.props.match.params.id);
   }
   componentWillReceiveProps(nextProps) {
@@ -61,7 +62,7 @@ class updateslider extends Component {
     updateSlider.append('url', this.state.url);
 
     this.props.editSlider(updateSlider, this.props.match.params.id);
-
+    if(nextProps.isModified)
     this.props.history.push('/slider');
   };
 
@@ -177,10 +178,11 @@ class updateslider extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  slider: state.slider.slider
+  slider: state.slider.slider,
+  isModified: state.slider.isModified
 });
 
 export default connect(
   mapStateToProps,
-  { getSlider, editSlider }
+  { getSlider, editSlider, setIsModifiedSliderLoading }
 )(updateslider);

@@ -10,7 +10,8 @@ import {
   GET_ERRORS,
   EDIT_SLIDER,
   ARCHIVE_SLIDER,
-  UNARCHIVE_SLIDER
+  UNARCHIVE_SLIDER,
+  IS_MODIFIED_SLIDER
   // SEARCH_EVENT,
 } from "../actions/types";
 
@@ -191,31 +192,11 @@ export const editSlider = (eventData,id) => dispatch => {
     })
 };
 
-
-
-
-// export const searchEvents = (min, max) => dispatch => {
-//   const body = { min, max };
-//   axios
-//   .post('/EVENTs/search/',body)
-//   .then(res =>
-//     dispatch({
-//       type: SEARCH_EVENT,
-//       payload: res.data
-//     })
-//   )
-//   .catch(error => {
-//     if (error.response && error.response.data) {
-//       dispatch({
-//         type: GET_ERRORS,
-//         payload: {
-//           message: error.response.data,
-//           visible: true
-//         }
-//       })
-//     }
-//   })
-// }
+export const setIsModifiedSliderLoading = () => {
+  return {
+    type: IS_MODIFIED_SLIDER
+  };
+};
 
 // Set loading state
 export const setSliderLoading = () => {

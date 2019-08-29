@@ -10,7 +10,8 @@ import {
   GET_ERRORS,
   EDIT_PRESS,
   ARCHIVE_PRESS,
-  UNARCHIVE_PRESS
+  UNARCHIVE_PRESS,
+  IS_MODIFIED_PRESS
   // SEARCH_EVENT,
 } from "../actions/types";
 
@@ -190,31 +191,11 @@ export const editPress = (eventData,id) => dispatch => {
     })
 };
 
-
-
-
-// export const searchEvents = (min, max) => dispatch => {
-//   const body = { min, max };
-//   axios
-//   .post('/EVENTs/search/',body)
-//   .then(res =>
-//     dispatch({
-//       type: SEARCH_EVENT,
-//       payload: res.data
-//     })
-//   )
-//   .catch(error => {
-//     if (error.response && error.response.data) {
-//       dispatch({
-//         type: GET_ERRORS,
-//         payload: {
-//           message: error.response.data,
-//           visible: true
-//         }
-//       })
-//     }
-//   })
-// }
+export const setIsModifiedPressLoading = () => {
+  return {
+    type: IS_MODIFIED_PRESS
+  };
+};
 
 // Set loading state
 export const setPressLoading = () => {

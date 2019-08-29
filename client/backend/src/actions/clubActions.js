@@ -7,7 +7,8 @@ import {
   CLEAR_ERRORS,
   GET_ERRORS,
   EDIT_CLUB,
-  GET_ALL_CLUB
+  GET_ALL_CLUB,
+  IS_MODIFIED_CLUB
   // SEARCH_EVENT,
 } from "./types";
 
@@ -119,6 +120,11 @@ export const editClub = (eventData,id) => dispatch => {
     })
 };
 
+export const setIsModifiedClubLoading = () => {
+  return {
+    type: IS_MODIFIED_CLUB
+  };
+};
 
 // Set loading state
 export const setClubLoading = () => {

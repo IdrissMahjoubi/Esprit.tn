@@ -7,7 +7,7 @@ import {
   EDIT_EVENT,
   UNARCHIVE_EVENT,
   ARCHIVE_EVENT,
-  EDIT_EVENT_LOADING
+  IS_MODIFIED_EVENT
 } from "../actions/types";
 
 const initialState = {
@@ -26,7 +26,7 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
-      case EDIT_EVENT_LOADING:
+      case IS_MODIFIED_EVENT:
         return {
           ...state,
           isModified:false

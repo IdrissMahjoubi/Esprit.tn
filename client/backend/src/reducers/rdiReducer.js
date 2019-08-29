@@ -5,7 +5,8 @@ import {
   RDI_LOADING,
   SEARCH_RDI,
   EDIT_RDI,
-  GET_ALL_RDI
+  GET_ALL_RDI,
+  IS_MODIFIED_RDI
 } from '../actions/types';
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
   rdi: {},
   loading: false,
   search: [],
-  searching: false
+  searching: false,
+  isModified: false,
 };
 
 export default function(state = initialState, action) {
@@ -23,6 +25,11 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+      case IS_MODIFIED_RDI:
+        return {
+          ...state,
+          isModified:false
+        };
       case GET_ALL_RDI:
       return {
         ...state,
@@ -44,6 +51,7 @@ export default function(state = initialState, action) {
     case EDIT_RDI:
       return {
         ...state,
+        isModified: true,
         allRdi: state.allRdi.map((rdi) => rdi._id === action.payload._id ? rdi = action.payload : rdi)
       };
     case DELETE_RDI:

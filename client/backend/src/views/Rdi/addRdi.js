@@ -22,7 +22,9 @@ class addRdis extends Component {
       description: '',
       sport: '',
       selectedImage: null,
-      url: ''
+      url: '',
+      members: [],
+      newMember: ''
     };
   }
 
@@ -33,6 +35,10 @@ class addRdis extends Component {
         newArticle.append('image', this.state.selectedImage, this.state.selectedImage.name);
       newArticle.append('title', this.state.title);
       newArticle.append('description', this.state.description);
+      this.state.members.map((name, index) => (
+        newArticle.append('members', name)
+      ));
+      //newArticle.append('members', this.state.members);
       newArticle.append('url', this.state.url);
       this.props.addRdi(newArticle);
       this.props.history.push('/rdi');
@@ -47,13 +53,34 @@ class addRdis extends Component {
       description: '',
       image: null,
       selectedImage: null,
-      url: ''
+      url: '',
+      members: []
     });
   };
 
   handleInputChange = event => {
     this.setState({
       [event.target.name]: event.target.value
+    });
+  };
+
+  handleMemberAdd = () => {
+    this.setState(state => {
+      const members = [...state.members,state.newMember]
+      state.newMember= '';
+      return {members};
+    });
+  };
+
+  handleMemberDelete = (event) => {
+    const name = event.target.previousElementSibling.value;
+    this.setState(state => {
+      const members = [...state.members];
+      var index = members.indexOf(name);
+      if (index !== -1) {
+        members.splice(index, 1);
+      }
+      return {members};
     });
   };
 
@@ -121,7 +148,32 @@ class addRdis extends Component {
                 type="text"
                 placeholder="url..."
               />
-              <FormText color="muted">url du partenaire à ajouter</FormText>
+              <FormText color="muted">url de l'équipe rdi</FormText>
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Col md="3">
+              <Label htmlFor="text-input">Members :</Label>
+            </Col>
+            <Col xs="12" md="9">
+              {this.state.members.map((name, index) => (
+                 <Col xs="12" md="9"  key={index}>
+                <Input name="members" readOnly={true} value={name}></Input>
+                <Button onClick={this.handleMemberDelete}>Supprimer</Button>
+                </Col>
+              ))}
+           </Col>
+            <Col xs="12" md="9">
+              <Input
+                name="newMember"
+                value={this.state.newMember}
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Nouveau membre..."
+              />
+              <FormText color="muted">Nom du membre</FormText>
+              <Button onClick={this.handleMemberAdd}>Ajouter un membre</Button>
+              
             </Col>
           </FormGroup>
           <CardFooter>

@@ -8,7 +8,8 @@ import {
   SEARCH_PRESS,
   EDIT_PRESS,
   ARCHIVE_PRESS,
-  UNARCHIVE_PRESS
+  UNARCHIVE_PRESS,
+  IS_MODIFIED_PRESS
 } from '../actions/types';
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
   press: {},
   loading: false,
   search: [],
-  searching: false
+  searching: false,
+  isModified: false,
 };
 
 export default function(state = initialState, action) {
@@ -26,6 +28,11 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+      case IS_MODIFIED_PRESS:
+        return {
+          ...state,
+          isModified:false
+        };
     case GET_ALL_PRESS:
       return {
         ...state,
@@ -53,6 +60,7 @@ export default function(state = initialState, action) {
     case EDIT_PRESS:
       return {
         ...state,
+        isModified: true,
         allPress: state.allPress.map((press) => press._id === action.payload._id ? press = action.payload : press),
         press: action.payload
       };

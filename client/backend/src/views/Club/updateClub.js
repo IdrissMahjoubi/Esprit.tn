@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { editClub, getClub } from '../../actions/clubActions';
+import { editClub, getClub, setIsModifiedClubLoading } from '../../actions/clubActions';
 import {
   Card,
   CardBody,
@@ -34,6 +34,7 @@ class updateclub extends Component {
   }
 
   componentDidMount() {
+    this.props.setIsModifiedClubLoading();
     this.props.getClub(this.props.match.params.id);
   }
   componentWillReceiveProps(nextProps) {
@@ -45,6 +46,8 @@ class updateclub extends Component {
       sport: nextProps.club.sport,
       url: nextProps.club.url
     });
+    if (nextProps.isModified)
+    this.props.history.push('/club');
   }
 
   handleSubmit = event => {
@@ -212,10 +215,11 @@ class updateclub extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  club: state.club.club
+  club: state.club.club,
+  isModified: state.club.isModified
 });
 
 export default connect(
   mapStateToProps,
-  { getClub, editClub }
+  { getClub, editClub, setIsModifiedClubLoading }
 )(updateclub);

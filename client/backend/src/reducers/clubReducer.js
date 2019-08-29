@@ -4,7 +4,8 @@ import {
   DELETE_CLUB,
   CLUB_LOADING,
   EDIT_CLUB,
-  GET_ALL_CLUB
+  GET_ALL_CLUB,
+  IS_MODIFIED_CLUB
 } from '../actions/types';
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   club: {},
   loading: false,
   search: [],
-  searching: false
+  searching: false,
+  isModified: false,
 };
 
 export default function(state = initialState, action) {
@@ -22,11 +24,17 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+      case IS_MODIFIED_CLUB:
+        return {
+          ...state,
+          isModified:false
+        };
       case GET_ALL_CLUB:
       return {
         ...state,
         allClub: action.payload,
-        loading: false
+        loading: false,
+        isModified:false
       };
     case GET_CLUB:
       return {
@@ -43,6 +51,7 @@ export default function(state = initialState, action) {
     case EDIT_CLUB:
       return {
         ...state,
+        isModified: true,
         allClub: state.allClub.map((club) => club._id === action.payload._id ? club = action.payload : club),
         club: action.payload
       };

@@ -5,7 +5,8 @@ import {
   PARTNERSHIP_LOADING,
   SEARCH_PARTNERSHIP,
   EDIT_PARTNERSHIP,
-  GET_ALL_PARTNERSHIP
+  GET_ALL_PARTNERSHIP,
+  IS_MODIFIED_PARTNERSHIP
 } from '../actions/types';
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
   partnership: {},
   loading: false,
   search: [],
-  searching: false
+  searching: false,
+  isModified: false,
 };
 
 export default function(state = initialState, action) {
@@ -23,6 +25,11 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+      case IS_MODIFIED_PARTNERSHIP:
+        return {
+          ...state,
+          isModified:false
+        };
       case GET_ALL_PARTNERSHIP:
       return {
         ...state,
@@ -44,6 +51,7 @@ export default function(state = initialState, action) {
     case EDIT_PARTNERSHIP:
       return {
         ...state,
+        isModified: true,
         allPartnership: state.allPartnership.map((partnership) => partnership._id === action.payload._id ? partnership = action.payload : partnership)
       };
     case DELETE_PARTNERSHIP:

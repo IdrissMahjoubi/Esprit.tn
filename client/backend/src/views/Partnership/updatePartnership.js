@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { editPartnership, getPartnership } from '../../actions/partnershipActions';
+import { editPartnership, getPartnership, setIsModifiedPartnershipLoading } from '../../actions/partnershipActions';
 import {
   Card,
   CardBody,
@@ -33,6 +33,7 @@ class updatePartnership extends Component {
   }
 
   componentDidMount() {
+    this.props.setIsModifiedPartnershipLoading();
     this.props.getPartnership(this.props.match.params.id);
   }
   componentWillReceiveProps(nextProps) {
@@ -59,7 +60,7 @@ class updatePartnership extends Component {
     updatePartnership.append('url', this.state.url);
 
     this.props.editPartnership(updatePartnership, this.props.match.params.id);
-
+    if( nextProps.isModified)
     this.props.history.push('/partnership');
   };
 
@@ -196,10 +197,11 @@ class updatePartnership extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  partnership: state.partnership.partnership
+  partnership: state.partnership.partnership,
+  isModified: state.partnership.isModified
 });
 
 export default connect(
   mapStateToProps,
-  { getPartnership, editPartnership }
+  { getPartnership, editPartnership, setIsModifiedPartnershipLoading }
 )(updatePartnership);

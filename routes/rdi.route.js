@@ -33,7 +33,7 @@ router.post(
     newRdi = new RdiModel({
       title: req.body.title,
       date: new Date(),
-      memebers: req.body.memebers,
+      members: req.body.members,
       description: req.body.description,
       url: req.body.url,
       image: img,
@@ -64,7 +64,7 @@ router.put(
             $set: {
               title: req.body.title,
               date: new Date(),
-              memebers: req.body.memebers,
+              members: req.body.members,
               description: req.body.description,
               url: req.body.url,
               image: req.file.path,
@@ -82,7 +82,7 @@ router.put(
           $set: {
             title: req.body.title,
             date: new Date(),
-            memebers: req.body.memebers,
+            members: req.body.members,
             description: req.body.description,
             url: req.body.url,
             user: req.user._id

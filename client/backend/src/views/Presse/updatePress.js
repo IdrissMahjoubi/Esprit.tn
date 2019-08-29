@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { editPress, getPress } from '../../actions/pressActions';
+import { editPress, getPress, setIsModifiedPressLoading } from '../../actions/pressActions';
 import {
   Card,
   CardBody,
@@ -37,6 +37,7 @@ class updatePress extends Component {
   }
 
   componentDidMount() {
+    this.props.setIsModifiedPressLoading();
     this.props.getPress(this.props.match.params.id);
   }
   componentWillReceiveProps(nextProps) {
@@ -69,7 +70,7 @@ class updatePress extends Component {
     updateArticle.append('url', this.state.url);
 
     this.props.editPress(updateArticle, this.props.match.params.id);
-
+    if (nextProps.isModified)
     this.props.history.push('/presse');
   };
 
@@ -224,10 +225,11 @@ class updatePress extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  press: state.press.press
+  press: state.press.press,
+  isModified: state.press.isModified
 });
 
 export default connect(
   mapStateToProps,
-  { getPress, editPress }
+  { getPress, editPress , setIsModifiedRdiLoading }
 )(updatePress);

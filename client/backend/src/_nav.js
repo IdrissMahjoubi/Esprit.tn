@@ -79,14 +79,14 @@ export default {
         },
       ]
     },
-    {
-      name: "Calendrier",
-      icon:"fa fa-calendar"
-    },
-    {
-      name: "Services de l'école",
-      icon:"fa fa-rocket"
-    },
+    // {
+    //   name: "Calendrier",
+    //   icon:"fa fa-calendar"
+    // },
+    // {
+    //   name: "Services de l'école",
+    //   icon:"fa fa-rocket"
+    // },
     {
       name: "Presse",
       icon: "fa fa-newspaper-o",
@@ -167,17 +167,17 @@ export default {
         },
       ]
     },
-    {
-      name: "Grille Tarifaire",
-      icon:"fa fa-money"
-    },
-    {
-      name: "Foyer",
-      icon:"fa fa-university"
-    },
-    {
-      name: "Vie étudiante",
-      icon:"fa fa-group"
-    },
+    // {
+    //   name: "Grille Tarifaire",
+    //   icon:"fa fa-money"
+    // },
+    // {
+    //   name: "Foyer",
+    //   icon:"fa fa-university"
+    // },
+    // {
+    //   name: "Vie étudiante",
+    //   icon:"fa fa-group"
+    // },
   ]
 };

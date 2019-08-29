@@ -8,7 +8,8 @@ import {
   SEARCH_SLIDER,
   EDIT_SLIDER,
   ARCHIVE_SLIDER,
-  UNARCHIVE_SLIDER
+  UNARCHIVE_SLIDER,
+  IS_MODIFIED_SLIDER
 } from '../actions/types';
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
   slider: {},
   loading: false,
   search: [],
-  searching: false
+  searching: false,
+  isModified: false,
 };
 
 export default function(state = initialState, action) {
@@ -26,6 +28,11 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+      case IS_MODIFIED_SLIDER:
+        return {
+          ...state,
+          isModified:false
+        };
     case GET_ALL_SLIDER:
       return {
         ...state,
@@ -55,6 +62,7 @@ export default function(state = initialState, action) {
     case EDIT_SLIDER:
       return {
         ...state,
+        isModified: true,
         allSlider: state.allSlider.map((slider) => slider._id === action.payload._id ? slider = action.payload : slider)
       };
     case UNARCHIVE_SLIDER:

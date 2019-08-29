@@ -10,7 +10,7 @@ import {
   EDIT_EVENT,
   UNARCHIVE_EVENT,
   ARCHIVE_EVENT,
-  EDIT_EVENT_LOADING
+  IS_MODIFIED_EVENT
 } from "../actions/types";
 
 export const addEvent = (eventData) => dispatch => {
@@ -204,9 +204,9 @@ export const setEventLoading = () => {
     type: EVENT_LOADING
   };
 };
-export const setEditEventLoading = () => {
+export const setIsModifiedEventLoading = () => {
   return {
-    type: EDIT_EVENT_LOADING
+    type: IS_MODIFIED_EVENT
   };
 };
 

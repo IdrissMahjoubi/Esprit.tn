@@ -7,7 +7,8 @@ import {
   CLEAR_ERRORS,
   GET_ERRORS,
   EDIT_RDI,
-  GET_ALL_RDI
+  GET_ALL_RDI,
+  IS_MODIFIED_RDI
   // SEARCH_EVENT,
 } from "./types";
 
@@ -119,6 +120,11 @@ export const editRdi = (eventData,id) => dispatch => {
     })
 };
 
+export const setIsModifiedRdiLoading = () => {
+  return {
+    type: IS_MODIFIED_RDI
+  };
+};
 
 // Set loading state
 export const setRdiLoading = () => {

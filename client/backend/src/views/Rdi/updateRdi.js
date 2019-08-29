@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { editRdi, getRdi } from '../../actions/rdiActions';
+import { editRdi, getRdi, setIsModifiedRdiLoading } from '../../actions/rdiActions';
 import {
   Card,
   CardBody,
@@ -28,11 +28,14 @@ class updateRdi extends Component {
       image: '',
       selectedImage: null,
       imageLoaded: false,
-      url: ''
+      url: '',
+      members: [],
+      newMember: ''
     };
   }
 
   componentDidMount() {
+    this.props.setIsModifiedRdiLoading();
     this.props.getRdi(this.props.match.params.id);
   }
   componentWillReceiveProps(nextProps) {
@@ -41,9 +44,31 @@ class updateRdi extends Component {
       description: nextProps.rdi.description,
       image: nextProps.rdi.image,
       sport: nextProps.rdi.sport,
+      members: nextProps.rdi.members,
       url: nextProps.rdi.url
     });
   }
+
+  handleMemberAdd = () => {
+    this.setState(state => {
+      const members = [...state.members,state.newMember]
+      state.newMember= '';
+      return {members};
+    });
+  };
+
+  handleMemberDelete = (event) => {
+    const name = event.target.previousElementSibling.value;
+    this.setState(state => {
+      const members = [...state.members];
+      var index = members.indexOf(name);
+      if (index !== -1) {
+        members.splice(index, 1);
+      }
+      return {members};
+    });
+  };
+
 
   handleSubmit = event => {
     const updateRdi = new FormData();
@@ -55,9 +80,11 @@ class updateRdi extends Component {
     updateRdi.append('title', this.state.title);
     updateRdi.append('description', this.state.description);
     updateRdi.append('url', this.state.url);
-
+    this.state.members.map((name, index) => (
+      updateRdi.append('members', name)
+    ));
     this.props.editRdi(updateRdi, this.props.match.params.id);
-
+    if (nextProps.isModified)
     this.props.history.push('/rdi');
   };
 
@@ -150,9 +177,34 @@ class updateRdi extends Component {
                       type="text"
                       placeholder="text..."
                     />
-                    <FormText color="muted">url de l'article rdi</FormText>
+                    <FormText color="muted">url de l'equipe rdi</FormText>
                   </Col>
                 </FormGroup>
+                <FormGroup row>
+            <Col md="3">
+              <Label htmlFor="text-input">Members :</Label>
+            </Col>
+            <Col xs="12" md="9">
+              {this.state.members.map((name, index) => (
+                 <Col xs="12" md="9"  key={index}>
+                <Input name="members" readOnly={true} value={name}></Input>
+                <Button onClick={this.handleMemberDelete}>Supprimer</Button>
+                </Col>
+              ))}
+           </Col>
+            <Col xs="12" md="9">
+              <Input
+                name="newMember"
+                value={this.state.newMember}
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Nouveau membre..."
+              />
+              <FormText color="muted">Nom du membre</FormText>
+              <Button onClick={this.handleMemberAdd}>Ajouter un membre</Button>
+              
+            </Col>
+          </FormGroup>
                 <CardFooter>
                   <center>
                     <Button type="submit" block onClick={this.handleSubmit} color="primary">
@@ -175,10 +227,11 @@ class updateRdi extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  rdi: state.rdi.rdi
+  rdi: state.rdi.rdi,
+  isModified: state.rdi.isModified
 });
 
 export default connect(
   mapStateToProps,
-  { getRdi, editRdi }
+  { getRdi, editRdi, setIsModifiedRdiLoading }
 )(updateRdi);

@@ -14,7 +14,7 @@ var rdiSchema = mongoose.Schema({
     type: String,
     required: false
   },
-  memebers: [
+  members: [
     {
       type: String,
       required: false

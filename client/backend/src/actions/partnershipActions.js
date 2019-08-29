@@ -7,7 +7,8 @@ import {
   CLEAR_ERRORS,
   GET_ERRORS,
   EDIT_PARTNERSHIP,
-  GET_ALL_PARTNERSHIP
+  GET_ALL_PARTNERSHIP,
+  IS_MODIFIED_PARTNERSHIP
   // SEARCH_EVENT,
 } from "./types";
 
@@ -119,6 +120,11 @@ export const editPartnership = (eventData,id) => dispatch => {
     })
 };
 
+export const setIsModifiedPartnershipLoading = () => {
+  return {
+    type: IS_MODIFIED_PARTNERSHIP
+  };
+};
 
 // Set loading state
 export const setPartnershipLoading = () => {
