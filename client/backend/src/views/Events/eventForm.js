@@ -156,7 +156,7 @@ class eventForm extends Component {
                 </Col>
                 <Col xs="12" md="9">
                   <Input
-                    type="text"
+                    type="textarea"
                     name="description"
                     value={this.state.description}
                     onChange={this.handleInputChange}
