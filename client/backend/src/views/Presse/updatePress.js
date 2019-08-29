@@ -232,5 +232,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPress, editPress , setIsModifiedRdiLoading }
+  { getPress, editPress , setIsModifiedPressLoading }
 )(updatePress);
