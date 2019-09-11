@@ -3,14 +3,20 @@ import PropTypes from "prop-types";
 import OwlCarousel from "react-owl-carousel3";
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { getPartners } from '../actions/partnersActions';
+import { connect } from 'react-redux';
 
 class Partners extends Component {
+    componentWillMount() {
+        this.props.getPartners();
+    }
+    
     render() {
         //Partner loop start
-        const partnerData = this.props.partnersData.map((partner, index) => (
+        const partnerData = this.props.partners.map((partner, index) => (
             <div className="single-partner-logo" key={index}>
-                <Link to={partner.partnerLink} className="logo-preview">
-                    <img src={partner.partnerLogo} alt="partnerLogo" />
+                <Link to={partner.url} className="logo-preview">
+                    <img src={`http://localhost:4000/${partner.image}`} alt="partnerLogo" />
                 </Link>
             </div>
         ));
@@ -64,7 +70,6 @@ class Partners extends Component {
     }
 }
 
-//Props Types
 Partners.propTypes = {
     SectionbgTitle: PropTypes.string,
     sectionTitle: PropTypes.string,
@@ -72,7 +77,6 @@ Partners.propTypes = {
     partnersData: PropTypes.array
 };
 
-//Default Props
 Partners.defaultProps = {
     SectionbgTitle: "Partners",
     sectionTitle: "Our Partners",
@@ -104,4 +108,14 @@ Partners.defaultProps = {
         }
     ]
 };
-export default Partners;
+
+const mapStateToProps = state => ({
+    errors: state.errors,
+    partners: state.partners.partners,
+    loading: state.partners.loading
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { getPartners }
+  )(Partners);

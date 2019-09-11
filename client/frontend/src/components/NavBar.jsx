@@ -8,19 +8,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import SearchModal from "./SearchModal";
 
 class NavBar extends Component {
-    componentDidMount() {
-        let elem = document.getElementById("navbar");
-        document.addEventListener("scroll", () => {
-            if (window.scrollY > 170) {
-                elem.classList.add("menu-shrink");
-                elem.classList.add("fixed-top");
-            } else {
-                elem.classList.remove("menu-shrink");
-                elem.classList.remove("fixed-top");
-            }
-        });
-        window.scrollTo(0, 0);
-    }
+
 
     closeNavbar() {
         if (window.matchMedia("screen and (max-width: 991px)").matches) {
@@ -101,129 +89,6 @@ class NavBar extends Component {
                         id="navbarSupportedContent"
                     >
                         <Nav className="navbar-nav ml-auto">
-                        {this.props.pageName === "home" ? (
-                            <React.Fragment>
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="home"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className=" nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        ESPRIT
-                                    </Link>
-                                </Nav.Item>
-
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="#"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className="nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        ADMISSION
-                                    </Link>
-                                </Nav.Item>
-
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="#"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className="nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        FORMATIONS
-                                    </Link>
-                                </Nav.Item>
-
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="#"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className="nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        R.D.I
-                                    </Link>
-                                </Nav.Item>
-
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="#"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className="nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        ENTREPRISES
-                                    </Link>
-                                </Nav.Item>
-
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="#"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className="nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        INTERNATIONAL
-                                    </Link>
-                                </Nav.Item>
-
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="#"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className="nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        VIE ETUDIANTE
-                                    </Link>
-                                </Nav.Item>
-
-                                <Nav.Item>
-                                    <Link
-                                        activeclass="active"
-                                        to="#"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-200}
-                                        duration={800}
-                                        className="nav-link"
-                                        onClick={this.closeNavbar}
-                                    >
-                                        CONTACT
-                                    </Link>
-                                </Nav.Item>
-                            </React.Fragment>
-                        ) : (
                             <React.Fragment>
                                 <Nav.Item>
                                     <NavLink
@@ -257,7 +122,7 @@ class NavBar extends Component {
 
                                 <Nav.Item>
                                     <NavLink
-                                        to="/"
+                                        to="/recherche_et_developement"
                                         className="nav-link"
                                         activeClassName=""
                                     >
@@ -305,7 +170,6 @@ class NavBar extends Component {
                                     </NavLink>
                                 </Nav.Item>
                             </React.Fragment>
-                        )}
                         </Nav>
                     </Navbar.Collapse>
                     

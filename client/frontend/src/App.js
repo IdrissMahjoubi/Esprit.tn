@@ -25,20 +25,9 @@ import SingleBlog from './pages/SingleBlog';
 import ScrollUpBtn from './components/ScrollUp';
 import Events from './pages/Events';
 import Recrutment from './pages/Recrutment';
+import RDI from './pages/RDI';
 
-// if (localStorage.token) {
-//     const decoded = jwt_decode(localStorage.token);
-//     // Set user and isAuthenticated
-//     store.dispatch(setCurrentUser(decoded));
-//     // Check for expired token
-//     const currentTime = Date.now() / 1000;
-//     if (decoded.exp < currentTime) {
-//       // Logout user
-//       store.dispatch(logoutUser());
-//       // Redirect to login
-//       window.location.href = "/login";
-//     }
-//   }
+  
 class App extends Component {
   render() {
     return (
@@ -70,6 +59,7 @@ class App extends Component {
                           <Route path="/home-three" render={(props) => <HomeThree {...props} />} />
                           <Route path="/home-two" render={(props) => <HomeTwo {...props} />}  />
                           <Route path="/recrutment" render={(props) => <Recrutment {...props} />} />
+                          <Route path="/recherche_et_developement" render={(props) => <RDI {...props} />} />
                           <Route path="/" render={(props) => <HomeOne {...props} />} />
                           <Redirect to="/not-found" />
                         </Switch>
@@ -77,7 +67,6 @@ class App extends Component {
                     </CSSTransition>
                   )}
                 />
-                {/* ScrollUpBtn: src/components/ScrollUp.jsx */}
                 <ScrollUpBtn />
               </div>
             </Page>
