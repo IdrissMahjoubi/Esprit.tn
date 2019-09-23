@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getRdis } from '../actions/rdiActions';
+import { getClubs } from '../actions/clubActions';
 import { connect } from 'react-redux';
 //Import Component
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-class RDI extends Component {
+
+class Clubs extends Component {
   componentWillMount() {
-    this.props.getRdis();
+    this.props.getClubs();
     console.log('componentWillMount');
   }
 
   render() {
-    const { rdis } = this.props.rdis;
+    const { clubs } = this.props.clubs;
 
-    const rdisData = this.props.loading
+    const clubsData = this.props.loading
       ? 'LOADING...'
-      : rdis.map(function(rdi, index) {
+      : clubs.map(function(club, index) {
           if (index % 2 === 0) {
             return (
               <React.Fragment key={index}>
                 <div class="row">
                   <div class="col-sm-6 col-md-4 text-center">
                     <div class="service-item-rdi">
-                      <a href={rdi.url}>
+                      <a href={club.url}>
                       <img
-                        src={`http://localhost:4000/${rdi.image}`}
-                        alt={rdi.title}
+                        src={`http://localhost:4000/${club.image}`}
+                        alt={club.title}
                         class="img-responsive"
                       />
                       </a>
@@ -35,16 +36,9 @@ class RDI extends Component {
 
                   <div class="col-sm-6 col-md-8 text-center">
                     <div class="service-item-rdi">
-                      <h3>{rdi.title}</h3>
-                      <p class="club-description">{rdi.description}</p>
-                      <div class="members">
-                      <h4>Les Membres</h4>
-                      <ul>
-                        {rdi.members.map(member => (
-                          <li>{member}</li>
-                        ))}
-                      </ul>
-                      </div>
+                      <h3>{club.title}</h3>
+                      <h4 class="sport-type">Type du club: {club.type} {club.sport}</h4>
+                      <p class="club-description">{club.description}</p>
                     </div>
                   </div>
                 </div>
@@ -56,24 +50,17 @@ class RDI extends Component {
                 <div class="row">
                   <div class="col-sm-6 col-md-8 text-center">
                     <div class="service-item-rdi">
-                      <h3>{rdi.title}</h3>
-                      <p class="club-description">{rdi.description}</p>
-                      <div class="members">
-                      <h4>Les Membres</h4>
-                      <ul>
-                        {rdi.members.map(member => (
-                          <li>{member}</li>
-                        ))}
-                      </ul>
-                      </div>
+                      <h3>{club.title}</h3>
+                      <h4 class="sport-type">Type du club: {club.type} {club.sport}</h4>
+                      <p class="club-description">{club.description}</p>
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-4 text-center">
                     <div class="service-item-rdi">
-                    <a href={rdi.url}>
+                    <a href={club.url}>
                       <img
-                        src={`http://localhost:4000/${rdi.image}`}
-                        alt={rdi.title}
+                        src={`http://localhost:4000/${club.image}`}
+                        alt={club.title}
                         class="img-responsive"
                       />
                       </a>
@@ -94,8 +81,8 @@ class RDI extends Component {
               <div className="container">
                 <div className="row">
                   <div className="col-lg-7">
-                    <h1>Les équipes de recherche et développement</h1>
-                    <p>Nos préstigieuses équipes! Rejoignez les!</p>
+                    <h1>Les clubs</h1>
+                    <p>Découvrez les clubs d'ESPRIT</p>
                   </div>
                 </div>
               </div>
@@ -104,7 +91,7 @@ class RDI extends Component {
         </div>
 
         <section id="services" className="services-rdi ptb-100">
-          <div className="container">{rdisData}</div>
+          <div className="container">{clubsData}</div>
         </section>
         <Footer />
       </React.Fragment>
@@ -113,19 +100,19 @@ class RDI extends Component {
 }
 
 //Props Types
-RDI.propTypes = {
+Clubs.propTypes = {
   Title: PropTypes.string,
   Content: PropTypes.string,
-  rdisData: PropTypes.array
+  clubsData: PropTypes.array
 };
 
 const mapStateToProps = state => ({
   errors: state.errors,
-  rdis: state.rdis,
-  loading: state.rdis.loading
+  clubs: state.clubs,
+  loading: state.clubs.loading
 });
 
 export default connect(
   mapStateToProps,
-  { getRdis }
-)(RDI);
+  { getClubs }
+)(Clubs);

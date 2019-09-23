@@ -26,7 +26,7 @@ import ScrollUpBtn from './components/ScrollUp';
 import Events from './pages/Events';
 import Recrutment from './pages/Recrutment';
 import RDI from './pages/RDI';
-
+import Clubs from './pages/Clubs';
   
 class App extends Component {
   render() {
@@ -60,6 +60,7 @@ class App extends Component {
                           <Route path="/home-two" render={(props) => <HomeTwo {...props} />}  />
                           <Route path="/recrutment" render={(props) => <Recrutment {...props} />} />
                           <Route path="/recherche_et_developement" render={(props) => <RDI {...props} />} />
+                          <Route path="/clubs" render={(props) => <Clubs {...props} />} />
                           <Route path="/" render={(props) => <HomeOne {...props} />} />
                           <Redirect to="/not-found" />
                         </Switch>

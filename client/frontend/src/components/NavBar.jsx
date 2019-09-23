@@ -129,6 +129,15 @@ class NavBar extends Component {
                                         R.D.I
                                     </NavLink>
                                 </Nav.Item>
+                                <Nav.Item>
+                                    <NavLink
+                                        to="/Clubs"
+                                        className="nav-link"
+                                        activeClassName=""
+                                    >
+                                        Clubs
+                                    </NavLink>
+                                </Nav.Item>
 
                                 <Nav.Item>
                                     <NavLink

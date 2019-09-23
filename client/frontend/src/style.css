@@ -684,6 +684,37 @@ button {
 /* =========================
 Services Area CSS 
 ========================= */
+.service-item-rdi {
+	background-color: #ed1c24;
+    padding: 25px;
+    margin-top: 30px;
+    transition: .5s;
+    -webkit-transition: .5s;
+}
+.service-item-rdi:hover {
+	background-color: #af0e14;
+}
+.service-item-rdi p {
+    color:black;
+    margin: 0;
+}
+.service-item-rdi h4 {
+    color:black;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+.service-item-rdi h3 {
+    color:black;
+    margin-bottom: 15px;
+}
+.service-item-rdi ul {
+    color:black;
+    margin-bottom: 15px;
+}
+.services-rdi {
+    background-color: #fff;
+    /* margin-top: 130px; */
+}
 .services {
     background-color: #fff;
     margin-top: 130px;
@@ -701,9 +732,13 @@ Services Area CSS
 .service-item p {
     margin: 0;
 }
+.service-item h4 {
+    margin-bottom: 15px;
+}
 .service-item h3 {
     margin-bottom: 15px;
 }
+
 .section-title p {
     margin: 0 0 30px;
 }
@@ -2503,6 +2538,23 @@ h3,h2{
     transform: translateX(-50%) translateY(-50%);
   }
 
+.img-responsive{
+    max-width: 100%;
+    height: auto;
+}
 
+.members{
+    text-align: left
+}
+.members ul{
+    padding-inline-start: 40px!important;
+    margin: unset;
+    list-style: circle;
+}
 
-
+.sport-type{
+    text-align: right
+}
+.club-description{
+    text-align: justify;
+}
