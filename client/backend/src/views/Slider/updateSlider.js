@@ -55,7 +55,6 @@ class updateslider extends Component {
 
     if (this.state.imageLoaded) {
       updateSlider.append('image', this.state.selectedImage, this.state.selectedImage.name);
-      this.state.slider.image = this.state.selectedImage.name;
     }
     updateSlider.append('title', this.state.title);
     updateSlider.append('description', this.state.description);

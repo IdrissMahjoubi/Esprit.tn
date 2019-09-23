@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getRdi } from '../../actions/rdiActions';
 import { connect } from 'react-redux';
-import { Card, CardImg, CardBody, CardHeader, Badge, Col, Row } from 'reactstrap';
+import { Card, CardImg, CardBody, CardHeader, Col, Row } from 'reactstrap';
 
 class detailsRdi extends Component {
   state = {

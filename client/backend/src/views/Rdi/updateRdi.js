@@ -77,7 +77,6 @@ class updateRdi extends Component {
 
     if (this.state.imageLoaded) {
       updateRdi.append('image', this.state.selectedImage, this.state.selectedImage.name);
-      this.state.rdi.image = this.state.selectedImage.name;
     }
     updateRdi.append('title', this.state.title);
     updateRdi.append('description', this.state.description);

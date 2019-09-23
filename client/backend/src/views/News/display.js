@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardBody, Table, Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import axios from 'axios';
-import { getAllNews, deleteNews } from '../../actions/newsActions';
+import { getAllNews } from '../../actions/newsActions';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 class display extends Component {
 	constructor(props) {

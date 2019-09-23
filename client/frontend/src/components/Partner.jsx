@@ -60,7 +60,9 @@ class Partners extends Component {
                                     }
                                 }}
                             >
-                                {partnerData}
+                                {this.props.loading
+                                    ? 'Loading...' :
+                                    partnerData}
                             </OwlCarousel>
                         </div>
                     </div>

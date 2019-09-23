@@ -497,7 +497,7 @@ button {
 
 /* OVERLAY BANNER */
 .overlay {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.4);
     top: 0;
     left: 0;
     width: 100%;
@@ -521,6 +521,29 @@ button {
     font-weight: 500;
     display: inline-block;
 }
+
+/* HOME-SLIDER */
+
+.home-slides .owl-nav div {
+    top: 50%;
+    margin-top: -20px !important;
+    opacity: 0.8;
+    position: absolute;
+    background-color: transparent !important;
+    left: 0px;
+    text-align: center;
+      transition: all 0.4s ease 0s;
+      -webkit-transition: all 0.4s ease 0s;
+  }
+  .home-slides .owl-nav span:hover {
+      opacity: 1;
+      color: #ed1c24;
+  }
+  .home-slides .owl-nav div.owl-next {
+    left: auto;
+    right: 0;
+  }
+  /* END-HOME-SLIDER */
 .home-banner-area {
     background-image: url(assets/img/slide-bg-1.jpg);
 	background-size: cover;
@@ -579,87 +602,6 @@ button {
 }
 /* END VIDEO-AREA */
 
-/* Styling Thumbs */
-.owl-thumbs {
-    position: absolute;
-    bottom: -100px;
-    left: 0;
-    display: table;
-    width: 100%;
-    text-align: center;
-    z-index: 9;
-}
-.owl-thumb-item {
-    display: inline-block;
-    border: none;
-    width: 360px;
-    height: 200px;
-    margin: 0 15px;
-    cursor: pointer;
-	background-color: #fdfdfd;
-	padding: 18px;
-    border-radius: 10px;
-    position: relative;
-    color: #848484;
-    transform: translateX(0%) rotateZ(-11deg) scale(.95);
-    -webkit-transform: translateX(0%) rotateZ(-11deg) scale(.95);
-    -ms-transform: translateX(0%) rotateZ(-11deg) scale(.95);
-	transition: transform .4s ease-out;
-}
-.owl-thumb-item i {
-    font-size: 60px;
-    transition: .4s;
-}
-.owl-thumb-item:hover i, .owl-thumb-item.active i {
-    color: #ffffff;
-}
-.owl-thumb-item.active, .owl-thumb-item:hover {
-	transform: translateX(0) rotateZ(0) scale(.90);
-}
-.owl-thumb-item::before {
-    display: block;
-	content: "";
-	height: 100%;
-	width: 130%;
-	position: absolute;
-	background-image: url(assets/img/shadow.png);
-	background-size: 100% auto;
-	background-repeat: no-repeat;
-	top: 90%;
-	left: -20%;
-	right: 0;
-	transition: all .4s ease-out;
-	transform-origin: 30% 50%;
-	pointer-events: none;
-    z-index: 1;
-    transform: translateX(0) rotateZ(0) scale(.87);
-    -webkit-transform: translateX(0) rotateZ(0) scale(.87);
-    -ms-transform: translateX(0) rotateZ(0) scale(.87);
-    transform: translateX(0) rotateZ(0) scale(.87);
-}
-.owl-thumb-item:hover::before, .owl-thumb-item.active::before {
-    opacity: 0;
-    transform: scaleX(0);
-    -webkit-transform: scaleX(0);
-    -ms-transform: scaleX(0);
-}
-.owl-thumb-item.active, .owl-thumb-item:hover {
-	padding: 18px;
-	transition: .4s;
-	-webkit-transition: .4s;
-    border-radius: 10px;
-    color: #fff;
-}
-.owl-thumb-item h3 {
-    color: #616161;
-    margin-bottom: 15px;
-}
-.owl-thumb-item.active h3, .owl-thumb-item:hover h3 {
-    color: #fff;
-}
-.owl-thumb-item.active .glyph .glyph-icon::before, .owl-thumb-item:hover .glyph .glyph-icon::before {
-	color: #fff;
-}
 
 /* =========================
     End Slider Area CSS 
@@ -686,7 +628,7 @@ Services Area CSS
 ========================= */
 .services {
     background-color: #fff;
-    margin-top: 130px;
+    margin-top: 30px;
 }
 .service-item {
 	background-color: #f5f8f9;
@@ -1751,7 +1693,6 @@ a.button.border {
     color: #fff;
 }
 .box-icon i:before {
-    speak: none;
     font-size: 40px;
     line-height: 90px;
     font-style: normal;
@@ -1931,6 +1872,9 @@ a.button.border {
 .partners-slides .owl-nav .owl-next {
   top: 0;
   right: -10;
+}
+.owl-carousel .owl-stage:after{
+    display: none;
 }
 /* =========================
     End Partners Area CSS 
@@ -2502,7 +2446,4 @@ h3,h2{
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
   }
-
-
-
-
+  

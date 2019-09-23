@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 
 //Import Component
 import Sidebar from "./Sidebar"; 
-import Comments from "./Comment";
 
 class Single extends Component {
 

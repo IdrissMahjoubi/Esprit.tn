@@ -15,6 +15,7 @@ import { addSlider } from '../../actions/sliderActions';
 import { connect } from 'react-redux';
 
 class addSliders extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -99,7 +100,7 @@ class addSliders extends Component {
               <Input
                 type="textarea"
                 name="titleDescription"
-                value={this.state.description}
+                value={this.state.titleDescription}
                 onChange={this.handleInputChange}
                 placeholder="Description..."
               />

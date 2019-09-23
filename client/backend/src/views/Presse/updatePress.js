@@ -59,11 +59,9 @@ class updatePress extends Component {
 
     if (this.state.fileLoaded) {
       updateArticle.append('files', this.state.selectedFile, this.state.selectedFile.name);
-      this.state.press.file = this.state.selectedFile.name;
     }
     if (this.state.imageLoaded) {
       updateArticle.append('files', this.state.selectedImage, this.state.selectedImage.name);
-      this.state.press.image = this.state.selectedImage.name;
     }
     updateArticle.append('title', this.state.title);
     updateArticle.append('description', this.state.description);

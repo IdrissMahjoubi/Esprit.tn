@@ -54,7 +54,6 @@ class updatePartnership extends Component {
 
     if (this.state.imageLoaded) {
       updatePartnership.append('image', this.state.selectedImage, this.state.selectedImage.name);
-      this.state.partnership.image = this.state.selectedImage.name;
     }
     updatePartnership.append('title', this.state.title);
     updatePartnership.append('description', this.state.description);

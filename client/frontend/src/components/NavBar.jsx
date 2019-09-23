@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icofont from 'react-icofont';
 import { NavLink } from "react-router-dom";
-import { Link } from "react-scroll";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import SearchModal from "./SearchModal";
