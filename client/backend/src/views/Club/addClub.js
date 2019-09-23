@@ -23,7 +23,8 @@ class addClubs extends Component {
       type: '',
       sport: '',
       selectedImage: null,
-      url: ''
+      url: '',
+      display:true,
     };
   }
 
@@ -52,7 +53,8 @@ class addClubs extends Component {
       sport: '',
       image: null,
       selectedImage: null,
-      url: ''
+      url: '',
+      display:true
     });
   };
 
@@ -60,6 +62,21 @@ class addClubs extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+  };
+  handleTypeChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+    if(event.target.value==='sports'){
+      this.setState({
+        display:true
+      })
+    }else
+    {
+      this.setState({
+        display:false
+      })
+    }
   };
 
   imageSelectedHandler = event => {
@@ -116,7 +133,7 @@ class addClubs extends Component {
                 type="select"
                 name="type"
                 value={this.state.type}
-                onChange={this.handleInputChange}
+                onChange={this.handleTypeChange}
               >
                 <option value="0">veuillez choisir le type du club</option>
                 <option value="sports">sports</option>
@@ -124,7 +141,7 @@ class addClubs extends Component {
               </Input>
             </Col>
           </FormGroup>
-          <FormGroup row>
+          <FormGroup row  style={{display: this.state.display ? 'flex' : 'none' }}>
             <Col md="3">
               <Label htmlFor="text-input">Type de sport :</Label>
             </Col>
@@ -132,6 +149,7 @@ class addClubs extends Component {
               <Input
                 type="select"
                 name="sport"
+               
                 value={this.state.sport}
                 onChange={this.handleInputChange}
               >

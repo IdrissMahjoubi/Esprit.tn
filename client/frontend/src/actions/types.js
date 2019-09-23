@@ -21,3 +21,12 @@ export const SEARCH_PRESS = "SEARCH_PRESS";
 export const EDIT_PRESS = "EDIT_PRESS";
 export const GET_ARCHIVED = "GET_ARCHIVED";
 
+// RDI TYPES
+export const RDI_LOADING = "RDI_LOADING";
+export const GET_RDIS = "GET_RDIS";
+export const GET_RDI = "GET_RDI";
+
+// CLUB TYPES
+export const CLUB_LOADING = "CLUB_LOADING";
+export const GET_CLUBS = "GET_CLUBS";
+export const GET_CLUB = "GET_CLUB";

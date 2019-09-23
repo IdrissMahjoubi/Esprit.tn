@@ -29,7 +29,8 @@ class updateclub extends Component {
       sport: '',
       selectedImage: null,
       imageLoaded: false,
-      url: ''
+      url: '',
+      display:true,
     };
   }
 
@@ -46,6 +47,12 @@ class updateclub extends Component {
       sport: nextProps.club.sport,
       url: nextProps.club.url
     });
+    if(nextProps.club.type==='sports'){
+      this.setState({display:true});
+    }
+    else{
+      this.setState({display:false});
+    }
     if (nextProps.isModified)
     this.props.history.push('/club');
   }
@@ -80,6 +87,22 @@ class updateclub extends Component {
       selectedImage: event.target.files[0],
       imageLoaded: true
     });
+  };
+
+  handleTypeChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+    if(event.target.value==='sports'){
+      this.setState({
+        display:true
+      })
+    }else
+    {
+      this.setState({
+        display:false
+      })
+    }
   };
 
   render() {
@@ -145,7 +168,7 @@ class updateclub extends Component {
                       type="select"
                       name="type"
                       value={this.state.type}
-                      onChange={this.handleInputChange}
+                      onChange={this.handleTypeChange}
                     >
                       <option value="0">veuillez choisir le type du club</option>
                       <option value="sports">sports</option>
@@ -153,7 +176,7 @@ class updateclub extends Component {
                     </Input>
                   </Col>
                 </FormGroup>
-                <FormGroup row>
+                <FormGroup row style={{display: this.state.display ? 'flex' : 'none' }}>
                   <Col md="3">
                     <Label htmlFor="text-input">Type de sport :</Label>
                   </Col>
