@@ -2481,9 +2481,6 @@ h3,h2{
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
   }
-<<<<<<< HEAD
-  
-=======
 
 .img-responsive{
     max-width: 100%;
@@ -2505,4 +2502,3 @@ h3,h2{
 .club-description{
     text-align: justify;
 }
->>>>>>> 682561345fbe1d6ad4da1aa0012dfc7e68d60332

@@ -1,6 +1,6 @@
-var sys = require('sys')
+var util = require('util')
 var exec = require('child_process').exec;
-function puts(error, stdout, stderr) { sys.puts(stdout,error,stderr) }
+function puts(error, stdout, stderr) { util.puts(stdout,error,stderr) }
 
 var os = require('os');
 
