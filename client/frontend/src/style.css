@@ -473,15 +473,6 @@ button {
 /* =========================
     Slider Area CSS 
    ========================= */
-.slide-bg-1 {
-    background-image: url(assets/img/slide-bg-1.jpg);
-}
-.slide-bg-2 {
-    background-image: url(assets/img/slide-bg-2.jpg);
-}
-.slide-bg-3 {
-    background-image: url(assets/img/slide-bg-3.jpg);
-}
 
 .hompage-slides-wrapper {
 	position: relative;

@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
     .then(data => {
       res.json(data);
     })
-    .catch(err => res.send(err));
-
-});
+    .catch(err =>
+      res.send(err));
+    });
 
 /* GET Single Events . 
 @Route : events/:id

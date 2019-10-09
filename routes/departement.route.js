@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-let newsModel = require('../models/departement');
+let newsModel = require('../models/departement.model');
 const {upload} = require('../utils/Uploader');
 
 /* GET home page. */

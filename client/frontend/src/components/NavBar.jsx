@@ -14,6 +14,7 @@ class NavBar extends Component {
             document.getElementById("collaspe-btn").click();
         }
     }
+    
   render() {
     return (
         <React.Fragment>

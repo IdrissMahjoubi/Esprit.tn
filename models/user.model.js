@@ -5,20 +5,18 @@ const UserSchema = new mongoose.Schema(
     username: {
       type: String,
       unique: true,
-      required: [true, "can't be blank"],
+      required: [true, "Please add your Username."],
       index: true
     },
     email: {
       type: String,
       lowercase: true,
-      required: [true, "can't be blank"],
+      required: [true, "Please add your E-mail."],
     },
     password: {
       type: String,
-      required: [true, "can't be blank"],
-      // select: false,
+      required: [true, "Password Required"],
     },
-    //set the avatar from avatar server || set default avatar
     avatar: {
       type: String
     },
@@ -27,5 +25,5 @@ const UserSchema = new mongoose.Schema(
     timestamps: true
   }
 );
-// changed collection name to users
+
 module.exports = mongoose.model('users', UserSchema);

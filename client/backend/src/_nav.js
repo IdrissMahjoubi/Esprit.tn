@@ -19,12 +19,12 @@ export default {
           children: [
             {
               name: "Ajouter",
-              url: "/ajouter",
+              url: "/slider/ajouter",
               icon: "fa fa-plus"
             },
             {
               name: "Afficher",
-              url: "/afficher",
+              url: "/slider",
               icon: "fa fa-bars"
             },
           ]
@@ -115,22 +115,6 @@ export default {
         {
           name: "Afficher",
           url: "/club",
-          icon: "fa fa-bars"
-        },
-      ]
-    },
-    {
-      name: "Slider",
-      icon: "fa fa-home",
-      children: [
-        {
-          name: "Ajouter",
-          url: "/slider/ajouter",
-          icon: "fa fa-plus"
-        },
-        {
-          name: "Afficher",
-          url: "/slider",
           icon: "fa fa-bars"
         },
       ]

@@ -11,7 +11,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const errorHandler = require('errorhandler');
 const mongoose = require('mongoose');
-const socketIo = require("socket.io");
 const UserModel = require("./models/user.model");
 
 let app = express();
@@ -19,11 +18,13 @@ let server = require('http').createServer(app);
 
 let mongoUrl = process.env.MONGO_CONNECTION_STRING;
 
+mongoose.set('useUnifiedTopology', true);
 
 mongoose
   .connect(mongoUrl, {
     useCreateIndex: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useFindAndModify: false 
   })
   .then(() => {
     console.log('Connected to Local MongoDB');
@@ -52,7 +53,8 @@ app.set('port', process.env.SERVER_PORT || 4000);
 // allow-cors
 app.use(cors());
 
-app.use(logger('dev'));
+app.use(logger('tiny'));
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
