@@ -73,7 +73,7 @@ app.use(errorHandler());
 
 server.listen(app.get('port'), error => {
   if (error) {
-    console.error(`\n${error}`);
+    //console.error(`\n${error}`);
     server.close();
     process.exit(1);
   }

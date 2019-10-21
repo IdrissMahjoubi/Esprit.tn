@@ -1,7 +1,7 @@
-eventTypes = [
+newsTypes = [
     'Administration',
     'Etudiant',
     'Clubs',
 ]
 
-module.exports = eventTypes;
+module.exports = newsTypes;

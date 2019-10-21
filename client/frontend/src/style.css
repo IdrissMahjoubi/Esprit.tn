@@ -692,7 +692,7 @@ Services Area CSS
     CTA Area CSS 
    ========================= */
 .cta-area {
-    background-color: #ddd;
+    background-color: #dddddd;
     background-size: cover;
     background-position: center center;
     padding: 60px 0;
@@ -1566,7 +1566,6 @@ a.button.border {
     color: #fff;
     display: inline-block;
     padding: 1px 10px;
-    float: right;
     background-color: rgba(74,74,76,0.7);
     border-radius: 3px;
     top: 15px;

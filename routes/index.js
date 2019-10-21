@@ -3,6 +3,7 @@ const router = require('express').Router();
 const userRoutes = require('./user.route');
 const clubRouter = require('./club.route');
 const eventRouter = require('./event.route');
+const newsRouter = require('./news.route');
 const pressRouter = require('./press.route');
 const departementRouter = require('./departement.route');
 const rdiRouter = require('./rdi.route');
@@ -18,6 +19,7 @@ router.get('/', (req, res) => {
 router.use('/user', userRoutes);
 router.use('/club', clubRouter);
 router.use('/events', eventRouter);
+router.use('/news', newsRouter);
 router.use('/press', pressRouter);
 router.use('/departement', departementRouter);
 router.use('/rdi', rdiRouter);

@@ -17,8 +17,6 @@ import './assets/css/color/color-red.css';
 
 //Import Component
 import HomeOne from './pages/HomeOne';
-import HomeTwo from './pages/HomeTwo';
-import HomeThree from './pages/HomeThree';
 import BlogOne from './pages/BlogOne';
 import BlogTwo from './pages/BlogTwo';
 import SingleBlog from './pages/SingleBlog';
@@ -34,7 +32,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
-            <Page loader={'comet-spin'} color={'#fe5619'} size={50}>
+            <Page loader={'comet-spin'} color={'#ed1c24'} size={50}>
               <div>
                 <Route
                   render={({ location }) => (
@@ -56,12 +54,10 @@ class App extends Component {
                             path="/blog-one"
                             render={(props) => <BlogOne {...props} />}
                           />
-                          <Route path="/home-three" render={(props) => <HomeThree {...props} />} />
-                          <Route path="/home-two" render={(props) => <HomeTwo {...props} />}  />
                           <Route path="/recrutment" render={(props) => <Recrutment {...props} />} />
                           <Route path="/recherche_et_developement" render={(props) => <RDI {...props} />} />
                           <Route path="/clubs" render={(props) => <Clubs {...props} />} />
-                          <Route path="/" render={(props) => <HomeOne {...props} />} />
+                          <Route path="/" render={() =>  <HomeOne />  }/>
                           <Redirect to="/not-found" />
                         </Switch>
                       </section>

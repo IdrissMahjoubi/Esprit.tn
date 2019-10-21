@@ -2,12 +2,18 @@ import React from 'react';
 
 const Dashboard = React.lazy(() => import('./views/Pages/Dashboard/Dashboard'));
 
-const showNews = React.lazy(() => import('./views/News/display'));
+const showNews = React.lazy(() => import('./views/News/News'));
+const newsForm = React.lazy(() => import('./views/News/newsForm'));
+const updateNews = React.lazy(() => import('./views/News/updateNews'));
+const detailsNews = React.lazy(() => import('./views/News/detailsNews'));
+const archivedNews = React.lazy(() => import('./views/News/archivedNews'));
+
 const showEvents = React.lazy(() => import('./views/Events/Events'));
 const eventForm = React.lazy(() => import('./views/Events/eventForm'));
 const updateEvent = React.lazy(() => import('./views/Events/updateEvents'));
 const detailsEvent = React.lazy(() => import('./views/Events/detailsEvent'));
 const archivedEvents = React.lazy(() => import('./views/Events/archivedEvents'));
+
 const Users = React.lazy(() => import('./views/Pages/Users/Users'));
 const User = React.lazy(() => import('./views/Pages/Users/User'));
 
@@ -38,7 +44,6 @@ const updateSlider = React.lazy(() => import('./views/Slider/updateSlider'));
 const detailsSlider = React.lazy(() => import('./views/Slider/detailsSlider'));
 const inactiveSlider = React.lazy(() => import('./views/Slider/inactiveSlider'));
 
-const addNews = React.lazy(() => import('./views/News/add'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -47,8 +52,12 @@ const routes = [
 	{ path: '/users', exact: true, name: 'Users', component: Users },
 	{ path: '/users/:id', exact: true, name: 'User Details', component: User },
 
-	{ path: '/actualite', exact: true, name: 'Actualité', component: showNews },
-	{ path: '/actualite/ajouter', exact: true, name: 'Ajouter', component: addNews },
+	{ path: '/news', exact: true, name: 'Actualités', component: showNews },
+	{ path: '/news/show', exact: true, name: '', component: showNews },
+	{ path: '/news/add', exact: true, name: 'Ajouter', component: newsForm },
+	{ path: '/news/update/:id', exact: true, name: 'Modifier', component: updateNews },
+	{ path: '/news/details/:id', exact: true, name: 'Details', component: detailsNews },
+	{ path: '/news/archived', exact: true, name: 'Archived', component: archivedNews },
 
 	{ path: '/events', exact: true, name: 'Evénements', component: showEvents },
 	{ path: '/events/show', exact: true, name: '', component: showEvents },
@@ -62,7 +71,6 @@ const routes = [
 	{ path: '/presse/update/:id', exact: true, name: 'Modifier', component: updatePress },
 	{ path: '/presse/details/:id', exact: true, name: 'Details', component: detailsPress },
 	{ path: '/presse/archives', exact: true, name: 'Archives', component: archivePress },
-	{ path: '/actualite/ajouter', exact: true, name: 'Ajouter', component: addNews },
 
 	{ path: '/club', exact: true, name: 'Club', component: showClub },
 	{ path: '/club/ajouter', exact: true, name: 'ajouter', component: addClub },

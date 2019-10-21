@@ -24,6 +24,7 @@ class addSliders extends Component {
       titleDescription: '',
       status: true,
       selectedImage: null,
+      btnName:null,
       url: ''
     };
   }
@@ -36,6 +37,7 @@ class addSliders extends Component {
     newArticle.append('title', this.state.title);
     newArticle.append('description', this.state.description);
     newArticle.append('titleDescription', this.state.titleDescription);
+    newArticle.append('btnName', this.state.btnName);
     newArticle.append('status', this.state.status);
     newArticle.append('url', this.state.url);
     this.props.addSlider(newArticle);
@@ -52,6 +54,7 @@ class addSliders extends Component {
       titleDescription: '',
       image: null,
       selectedImage: null,
+      btnName:null,
       url: ''
     });
   };
@@ -128,6 +131,22 @@ class addSliders extends Component {
               <Input type="file" name="image" onChange={this.imageSelectedHandler} />
             </Col>
           </FormGroup>
+          <FormGroup row>
+            <Col md="3">
+              <Label htmlFor="text-input">Nom du bouton :</Label>
+            </Col>
+            <Col xs="12" md="9">
+              <Input
+                name="btnName"
+                value={this.state.btnName}
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Nom du bouton .."
+              />
+              <FormText color="muted">nom du buton du slider à ajouter</FormText>
+            </Col>
+          </FormGroup>
+
           <FormGroup row>
             <Col md="3">
               <Label htmlFor="text-input">Url :</Label>

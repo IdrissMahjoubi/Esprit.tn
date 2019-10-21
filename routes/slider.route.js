@@ -17,17 +17,6 @@ router.get('/', function(req, res, next) {
     });
 });
 
-/* GET All types Slider . 
-@Route : Slider/all
-*/
-router.get('/all', passport.authenticate('jwt', { session: false }), function(req, res, next) {
-  SliderModel.find()
-    .populate('user')
-    .sort('-date')
-    .then(data => {
-      res.json(data);
-    });
-});
 
 /* GET add Slider . 
 @Route : Slider/add
@@ -44,6 +33,7 @@ router.post(
       url: req.body.url,
       description: req.body.description,
       titleDescription: req.body.titleDescription,
+      btnName: req.body.btnName,
       image: req.file.path,
       user: req.user._id
     });
@@ -77,6 +67,7 @@ router.put(
               image: req.file.path,
               description: req.body.description,
               titleDescription: req.body.titleDescription,
+              btnName:req.body.btnName,
               user: req.user._id
             }
           },
@@ -95,6 +86,7 @@ router.put(
             url: req.body.url,
             description: req.body.description,
             titleDescription: req.body.titleDescription,
+            btnName:req.body.btnName,
             user: req.user._id
           }
         },

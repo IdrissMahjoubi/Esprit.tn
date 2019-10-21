@@ -5,42 +5,22 @@ import { Link } from 'react-router-dom';
 import VisibilitySensor from 'react-visibility-sensor';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import axios from "../../api"
+import { connect } from 'react-redux';
+import { getSliders } from '../../actions/slidersActions';
+import Page from 'react-page-loading';
 
-class BannerOne extends Component {
-
-
-  constructor() {
-    super();
-    this.state = {
-      sliders: [],
-      loaded : false
-    }
-  }
-
+class Slider extends Component {
   componentDidMount() {
-    axios.get("/slider")
-      .then(res => {
-        this.setState({
-          sliders: { ...res.data },
-          loaded : true
-      })
-    })
-    .catch(error => {
-      if (error.response && error.response.data) {
-        console.log(error.response.data);
-      }
-    })
+    this.props.getSliders();
   }
-
-
 
   render() {
-   
-    console.log(this.state.sliders);
-    console.log(this.state.loaded);
-    let banneronedata =  this.state.loaded ? this.state.sliders.map((slider, index) => (
-      <div className="single-slider-item" style={{ backgroundImage : `url(http://localhost:4000/${slider.image})` } } key={index}>
+    let banneronedata = this.props.sliders.map((slider, index) => (
+      <div
+        className="single-slider-item"
+        style={{ backgroundImage: `url(http://localhost:4000/${slider.image})` }}
+        key={index}
+      >
         <div className="diplay-table overlay">
           <div className="display-table-cell">
             <VisibilitySensor>
@@ -52,16 +32,14 @@ class BannerOne extends Component {
                         {slider.titleDescription}
                       </span>
 
-                      <h1 className={isVisible ? 'opacityOne' : 'opacityZero'}>
-                        {slider.title}
-                      </h1>
+                      <h1 className={isVisible ? 'opacityOne' : 'opacityZero'}>{slider.title}</h1>
                       <p className={isVisible ? 'opacityOne' : 'opacityZero'}>
                         {slider.description}
                       </p>
                       <div className="center-wrap">
                         <Link to={slider.url} className="btn-a">
                           <div className="button">
-                            N/A
+                            {slider.btnName}
                             <Icofont icon="icofont-long-arrow-right" />
                             <div className="mask" />
                           </div>
@@ -75,7 +53,7 @@ class BannerOne extends Component {
           </div>
         </div>
       </div>
-    )): 'Loading ..';
+    ));
     //BannerOne loop END
 
     const options = {
@@ -93,15 +71,21 @@ class BannerOne extends Component {
       ]
     };
 
-
-
     //Thumbs loop END
     return (
-      <React.Fragment>
-          <OwlCarousel {...options}>{  banneronedata }</OwlCarousel>
-      </React.Fragment>
+      <Page loader={'comet-spin'} color={'#ed1c24'} size={20}>
+        <OwlCarousel {...options}>{banneronedata}</OwlCarousel>
+      </Page>
     );
   }
 }
 
-export default BannerOne;
+const mapStateToProps = state => ({
+  sliders: state.sliders.sliders,
+  loading: state.sliders.loading
+});
+
+export default connect(
+  mapStateToProps,
+  { getSliders }
+)(Slider);

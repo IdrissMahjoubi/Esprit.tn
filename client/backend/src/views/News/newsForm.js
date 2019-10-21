@@ -13,11 +13,11 @@ import {
   InputGroup,
   Row
 } from 'reactstrap';
-import { addEvent } from '../../actions/eventActions';
+import { addNews } from '../../actions/newsActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-class eventForm extends Component {
+class newsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,7 +25,7 @@ class eventForm extends Component {
       dateStart: '',
       dateEnd: '',
       description: '',
-      type: '',
+      type: 'Administration',
       imageData: null,
       selectedFile: null,
       url: ''
@@ -38,7 +38,7 @@ class eventForm extends Component {
       dateStart: new Date(),
       dateEnd: new Date(),
       description: '',
-      type: 'events',
+      type: '',
       imageData: null,
       selectedFile: null,
       url: '',
@@ -61,21 +61,21 @@ class eventForm extends Component {
   };
 
   handleSubmit = event => {
-    const newEvent = new FormData();
+    const newSingleNews = new FormData();
     if (this.state.loaded) {
-      newEvent.append('imageData', this.state.selectedFile, this.state.selectedFile.name);
+      newSingleNews.append('image', this.state.selectedFile, this.state.selectedFile.name);
     }
-    newEvent.append('title', this.state.title);
-    newEvent.append('dateStart', this.state.dateStart);
-    newEvent.append('dateEnd', this.state.dateEnd);
-    newEvent.append('description', this.state.description);
-    newEvent.append('type', this.state.type);
-    newEvent.append('url', this.state.url);
-    newEvent.append('user', this.props.user.id);
-    newEvent.append('archived', false);
+    newSingleNews.append('title', this.state.title);
+    newSingleNews.append('dateStart', this.state.dateStart);
+    newSingleNews.append('dateEnd', this.state.dateEnd);
+    newSingleNews.append('description', this.state.description);
+    newSingleNews.append('type', this.state.type);
+    newSingleNews.append('url', this.state.url);
+    newSingleNews.append('user', this.props.user.id);
+    newSingleNews.append('archived', false);
 
-    this.props.addEvent(newEvent);
-    this.props.history.push('/events');
+    this.props.addNews(newSingleNews);
+    this.props.history.push('/news');
   };
 
   render() {
@@ -84,7 +84,7 @@ class eventForm extends Component {
         <Row>
           <Card>
             <CardHeader>
-              <strong> Evénement : </strong> Ajouter
+              <strong> Actualité : </strong> Ajouter
             </CardHeader>
             <CardBody>
               <FormGroup row>
@@ -153,8 +153,9 @@ class eventForm extends Component {
                     onChange={this.handleInputChange}
                   >
                     <option disabled>veuillez choisir le type</option>
-                    <option value="events"> Évènements </option>
-                    <option value="news"> Actualités </option>
+                    <option value="Administration"> Administration </option>
+                    <option value="Clubs"> Club </option>
+                    <option value="Etudiant"> Etudiant </option>
                   </Input>
                 </Col>
                 <Col md="8">
@@ -174,7 +175,7 @@ class eventForm extends Component {
                     type="text"
                     placeholder="text..."
                   />
-                  <FormText color="muted">url de l'evenement à ajouter</FormText>
+                  <FormText color="muted">url de l'actualite à ajouter</FormText>
                 </Col>
               </FormGroup>
               <CardFooter>
@@ -198,12 +199,12 @@ class eventForm extends Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   errors: state.errors,
-  event: state.event
+  news: state.news
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { addEvent }
-  )(eventForm)
+    { addNews }
+  )(newsForm)
 );

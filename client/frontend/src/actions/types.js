@@ -6,12 +6,16 @@ export const EVENT_LOADING = "EVENT_LOADING";
 export const GET_EVENTS = "GET_EVENTS";
 export const GET_EVENT = "GET_EVENT";
 
-// EVENT TYPES
+// PARTNERS_ TYPES
 export const PARTNERS_LOADING = "PARTNERS_LOADING";
 export const GET_PARTNERS = "GET_PARTNERS";
 export const GET_PARTNER = "GET_PARTNER";
 
-// PRESS TYPES 
+// SLIDERS TYPES
+export const SLIDERS_LOADING = "SLIDERS_LOADING";
+export const GET_SLIDERS = "GET_SLIDERS";
+
+// PRESS TYPES
 export const PRESS_LOADING = "PRESS_LOADING";
 export const GET_ALL_PRESS = "GET_ALL_PRESS";
 export const GET_PRESS = "GET_PRESS";

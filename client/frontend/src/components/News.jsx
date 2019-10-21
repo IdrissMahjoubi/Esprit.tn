@@ -4,7 +4,7 @@ import Icofont from 'react-icofont';
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-class Blog extends Component {
+class News extends Component {
     componentDidMount() {
         let scrollWithOffset = (el, offset) => {
             const elementPosition = el.offsetTop - offset;
@@ -80,7 +80,7 @@ class Blog extends Component {
   }
 }
 //Props Types
-Blog.propTypes = {
+News.propTypes = {
     SectionbgTitle: PropTypes.string,
     sectionTitle: PropTypes.string,
     sectionDescription: PropTypes.string,
@@ -90,9 +90,9 @@ Blog.propTypes = {
 };
 
 //Default Props
-Blog.defaultProps = {
-    SectionbgTitle: "Blog",
-    sectionTitle: "Our Blog",
+News.defaultProps = {
+    SectionbgTitle: "Actualitées",
+    sectionTitle: "Nos Actualitées",
     sectionDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.",
     btnLink: "/blog-one",
@@ -158,4 +158,4 @@ Blog.defaultProps = {
     ]
 };
 
-export default Blog;
+export default News;

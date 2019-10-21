@@ -18,6 +18,10 @@ var SliderSchema = mongoose.Schema({
     type: String,
     required: false
   },
+  btnName: {
+    type: String,
+    required: false
+  },
   image: {
     type: String,
     required: false

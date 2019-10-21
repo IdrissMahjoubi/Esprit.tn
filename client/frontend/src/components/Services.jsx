@@ -61,39 +61,39 @@ Services.defaultProps = {
     servicesData: [
         {
             icon: "icofont-education",
-            heading: "Creative Solutions",
+            heading: "Une pédagogie innovante",
             description:
-                "We strive to embrace and drive change in our industry which allows us to keep our clients relevant."
+                "L’APP (Apprentissage Par Projets/Problèmes) rend l’étudiant pleinement acteur de sa formation."
         },
         {
             icon: "icofont-certificate-alt-2",
-            heading: "Excellent Features",
+            heading: "Une reconnaissance internationale des formations d’ingénieur acquise depuis 2014",
             description:
-                "We strive to embrace and drive change in our industry which allows us to keep our clients relevant."
-        },
-        {
-            icon: "icofont-globe-alt",
-            heading: "Friendly Support",
-            description:
-                "We strive to embrace and drive change in our industry which allows us to keep our clients relevant."
+                "Une reconnaissance internationale des formations d’ingénieur acquise depuis 2014"
         },
         {
             icon: "icofont-search-job",
-            heading: "SEO & Advertising",
+            heading: "Le suivi de l'employabilité de nos étudiants à travers l'enquête 1er emploi",
             description:
-                "We strive to embrace and drive change in our industry which allows us to keep our clients relevant."
+                "Chaque année pour une adaptation continuelle de nos formations aux besoins des entreprises."
+        },
+        {
+            icon: "icofont-globe-alt ",
+            heading: "Une grande mobilité à l'international",
+            description:
+                "Plus de 40 possibilités d'avoir une expérience de vie dans un milieu multiculturel"
         },
         {
             icon: "icofont-graduate-alt",
-            heading: "Marketing & Consulting",
+            heading: "Le développement des qualités humaines des étudiants",
             description:
-                "We strive to embrace and drive change in our industry which allows us to keep our clients relevant."
+                "A travers les enseignements de langue, de culture générale, l'engagement associatif..."
         },
         {
             icon: "icofont-rocket-alt-1",
-            heading: "Design & Development",
+            heading: "La valorisation des compétences opérationnelles",
             description:
-                "We strive to embrace and drive change in our industry which allows us to keep our clients relevant."
+                "Des activités effectivement réalisées par des ingénieurs en situation professionnelle."
         },
     ]
 };

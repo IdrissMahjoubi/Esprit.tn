@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 //Import Component
 import NavBar from "../components/NavBar";
-import BannerOne from "../components/banner/BannerOne";
+import Slider from "../components/banner/Slider";
 import Services from "../components/Services";
-import WelcomeServices from "../components/WelcomeServices";
+import Calender from "../components/Calender";
 import About from "../components/About";
-import Blog from "../components/Blog";
+import News from "../components/News";
 import VideoArea from "../components/VideoArea";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
@@ -14,20 +14,24 @@ import Partner from "../components/Partner";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
+
 class HomeOne extends Component {
+
+
+
   render() {
     return (
         <React.Fragment>
             <NavBar pageName="home" />
-            <BannerOne />
+            <Slider/>
             <Services />
-            <WelcomeServices />
+            <News />
+            <Calender />
             <About />
-            <Blog />
             <VideoArea />
             <Testimonials />
             <FAQ />
-            <Partner />
+            <Partner/>
             <Contact />
             <Footer />
         </React.Fragment>
@@ -35,4 +39,6 @@ class HomeOne extends Component {
   }
 }
 
-export default HomeOne;
+
+
+export default HomeOne

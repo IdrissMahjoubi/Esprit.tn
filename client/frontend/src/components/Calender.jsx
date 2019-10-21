@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Link } from 'react-router-dom';
 
-class WelcomeServices extends Component {
+class Calender extends Component {
     render() {
         return (
             <React.Fragment>
-                <section className="cta-area cta-bg-img">
+                <section className="cta-area">
                     <div className="diplay-table">
                         <div className="display-table-cell">
                             <div className="container">
@@ -17,12 +17,22 @@ class WelcomeServices extends Component {
                                         <div className="col-sm-6 col-md-7 col-lg-7">
                                             <div className="cta-info">
                                                 <h2>{this.props.Title}</h2>
-                                                <p>{this.props.Content}</p>
+                                                <p>{this.props.Section[0].Content}</p>
                                                 
                                                 <div className="center-wrap">
-                                                    <Link to={this.props.BtnLink} className="btn-a">
+                                                    <Link to={this.props.Section[0].BtnLink} className="btn-a">
                                                         <div className="button">
-                                                            {this.props.BtnName}
+                                                            {this.props.Section[0].BtnName}
+                                                            <Icofont icon="icofont-long-arrow-right" />
+                                                        <div className="mask" /></div>
+                                                    </Link>
+                                                </div>
+                                                <p>{this.props.Section[1].Content}</p>
+                                                
+                                                <div className="center-wrap">
+                                                    <Link to={this.props.Section[1].BtnLink} className="btn-a">
+                                                        <div className="button">
+                                                            {this.props.Section[1].BtnName}
                                                             <Icofont icon="icofont-long-arrow-right" />
                                                         <div className="mask" /></div>
                                                     </Link>
@@ -44,7 +54,7 @@ class WelcomeServices extends Component {
 }
 
 //Props Types
-WelcomeServices.propTypes = {
+Calender.propTypes = {
     Title: PropTypes.string,
     Content: PropTypes.string,
     BtnLink: PropTypes.string,
@@ -54,11 +64,22 @@ WelcomeServices.propTypes = {
 };
 
 //Default Props
-WelcomeServices.defaultProps = {
-    Title: "We offer best in class service for your needs",
-    Content: "We strive to embrace and drive change in our industry which allows us to keep our clients relevant.",
-    BtnLink: "/#0",
-    BtnName: "PURCHASE NOW",
-    Image: require("../assets/img/mac-pro.png"),
+Calender.defaultProps = {
+    Title: "Calendrier 2018/2019",
+    Image: require("../assets/img/calendar.png"),
+    Section: [
+        {
+            Content: "Etudiants en 1ère, 2ème, 3ème et 4ème année",
+            BtnLink: "http://esprit.tn/wp-content/uploads/2019/09/calendrier-1A-2A-3A-4A-1920.pdf",
+            BtnName: "Télécharger",
+        },
+        {
+            Content: "Etudiants en 5ème année",
+            BtnLink: "http://esprit.tn/wp-content/uploads/2019/09/calendrier-5A-1920.pdf",
+            BtnName: "Télécharger",
+        }
+        
+    ]
+
 };
-export default WelcomeServices;
+export default Calender;

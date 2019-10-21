@@ -32,22 +32,6 @@ export default {
       ]
     },
     {
-      name: "Formations",
-      icon: "fa fa-mortar-board",
-      children: [
-        {
-          name: "Ajouter",
-          url: "/ajouter",
-          icon: "fa fa-plus"
-        },
-        {
-          name: "Afficher",
-          url: "/afficher",
-          icon: "fa fa-bars"
-        },
-      ]
-    },
-    {
       name: "Evénements",
       icon: "fa fa-quote-right",
       children: [
@@ -69,12 +53,12 @@ export default {
       children: [
         {
           name: "Ajouter",
-          url: "/actualite/ajouter",
+          url: "/news/add",
           icon: "fa fa-plus"
         },
         {
           name: "Afficher",
-          url: "/actualite",
+          url: "/news",
           icon: "fa fa-bars"
         },
       ]

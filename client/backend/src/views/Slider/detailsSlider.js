@@ -68,6 +68,11 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
                         <p className="mb-3">{slider.description}</p>
                       </div>
                       <div className="item">
+                        <h5>Nom du bouton:</h5>
+
+                        <p className="mb-3">{slider.btnName}</p>
+                      </div>
+                      <div className="item">
                         <h5>Url :</h5>
     
                         <p className="mb-3">{slider.url}</p>

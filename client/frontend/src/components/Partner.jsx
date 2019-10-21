@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import OwlCarousel from "react-owl-carousel3";
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { connect } from "react-redux"
 import { getPartners } from '../actions/partnersActions';
-import { connect } from 'react-redux';
 
 class Partners extends Component {
-    componentWillMount() {
+
+    componentDidMount() {
         this.props.getPartners();
     }
-    
     render() {
         //Partner loop start
         const partnerData = this.props.partners.map((partner, index) => (
@@ -72,52 +71,14 @@ class Partners extends Component {
     }
 }
 
-Partners.propTypes = {
-    SectionbgTitle: PropTypes.string,
-    sectionTitle: PropTypes.string,
-    sectionDescription: PropTypes.string,
-    partnersData: PropTypes.array
-};
 
-Partners.defaultProps = {
-    SectionbgTitle: "Partners",
-    sectionTitle: "Our Partners",
-    sectionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.",
-    partnersData: [
-        {
-            partnerLogo: require("../assets/img/partners-logo/img1.png"),
-            partnerLink: "/#0"
-        },
-        {
-            partnerLogo: require("../assets/img/partners-logo/img2.png"),
-            partnerLink: "/#0"
-        },
-        {
-            partnerLogo: require("../assets/img/partners-logo/img3.png"),
-            partnerLink: "/#0"
-        },
-        {
-            partnerLogo: require("../assets/img/partners-logo/img4.png"),
-            partnerLink: "/#0"
-        },
-        {
-            partnerLogo: require("../assets/img/partners-logo/img5.png"),
-            partnerLink: "/#0"
-        },
-        {
-            partnerLogo: require("../assets/img/partners-logo/img3.png"),
-            partnerLink: "/#0"
-        }
-    ]
-};
-
-const mapStateToProps = state => ({
-    errors: state.errors,
-    partners: state.partners.partners,
-    loading: state.partners.loading
-  });
   
-  export default connect(
-    mapStateToProps,
-    { getPartners }
-  )(Partners);
+const mapStateToProps = state => ({
+  partners: state.partners.partners,
+  loading: state.partners.loading,
+});
+
+export default connect(
+  mapStateToProps,
+  { getPartners }
+)(Partners);

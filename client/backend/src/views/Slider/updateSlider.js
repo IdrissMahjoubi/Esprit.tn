@@ -29,6 +29,7 @@ class updateslider extends Component {
       image: '',
       selectedImage: null,
       imageLoaded: false,
+      btnName:null,
       url: ''
     };
   }
@@ -60,6 +61,7 @@ class updateslider extends Component {
     updateSlider.append('description', this.state.description);
     updateSlider.append('titleDescription', this.state.titleDescription);
     updateSlider.append('status', this.state.status);
+    updateSlider.append('btnName', this.state.btnName);
     updateSlider.append('url', this.state.url);
 
     this.props.editSlider(updateSlider, this.props.match.params.id);
@@ -139,6 +141,21 @@ class updateslider extends Component {
                   </Col>
                   <Col xs="12" md="9">
                     <Input type="file" name="image" onChange={this.imageSelectedHandler} />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="3">
+                    <Label htmlFor="text-input">Nom du bouton :</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input
+                      name="btnName"
+                      value={this.state.btnName}
+                      onChange={this.handleInputChange}
+                      type="text"
+                      placeholder="text..."
+                    />
+                    <FormText color="muted">Nom du bouton de l'article slider</FormText>
                   </Col>
                 </FormGroup>
                 <FormGroup row>
