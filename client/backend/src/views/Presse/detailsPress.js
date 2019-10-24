@@ -30,7 +30,7 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
                 <Card>
                   <CardHeader>
                     <i className="fa fa-align-justify"></i>
-                    <strong>Evénement : Image</strong>
+                    <strong>Presse : Image</strong>
                   </CardHeader>
                   <CardBody>
                   <CardImg src={`http://localhost:4000/${press.image}`} alt={press.image} />
@@ -40,7 +40,7 @@ import { Card, CardImg,CardBody, CardHeader, Badge, Col, Row } from 'reactstrap'
               <Col xs="12" xl="6">
                 <Card>
                   <CardHeader>
-                    <i className="fa fa-align-justify"></i> Evénement <small>Détails</small>
+                    <i className="fa fa-align-justify"></i> Presse <small>Détails</small>
                     <div className="card-header-actions">
                       <Badge>{press.type}</Badge>
                     </div>

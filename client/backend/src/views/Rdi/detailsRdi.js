@@ -28,7 +28,7 @@ class detailsRdi extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i>
-                <strong>Partenariat : Image</strong>
+                <strong>RDI : Image</strong>
               </CardHeader>
               <CardBody>
                 <CardImg src={`http://localhost:4000/${rdi.image}`} alt={rdi.image} />
@@ -38,7 +38,7 @@ class detailsRdi extends Component {
           <Col xs="12" xl="6">
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> Partenariat <small>Détails</small>
+                <i className="fa fa-align-justify"></i> RDI <small>Détails</small>
               </CardHeader>
               <CardBody>
                 <div id="exampleAccordion" data-children=".item">

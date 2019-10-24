@@ -100,7 +100,9 @@ class updateRdi extends Component {
       imageLoaded: true
     });
   };
-
+  handleCancel = event => {
+    this.props.history.push('/rdi');
+  }
   render() {
     const { rdi } = this.props;
     return (
@@ -210,7 +212,7 @@ class updateRdi extends Component {
                     <Button type="submit" block onClick={this.handleSubmit} color="primary">
                       <i className="fa fa-dot-circle-o"></i> Modifier
                     </Button>
-                    <Button type="reset" block color="danger">
+                    <Button type="reset" block onClick={this.handleCancel} color="danger">
                       <i className="fa fa-ban"></i> Annuler
                     </Button>
                   </center>

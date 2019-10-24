@@ -28,7 +28,8 @@ class updatePartnership extends Component {
       image: '',
       selectedImage: null,
       imageLoaded: false,
-      url: ''
+      url: '',
+      imagePreviewUrl :''
     };
   }
 
@@ -71,11 +72,24 @@ class updatePartnership extends Component {
   };
 
   imageSelectedHandler = event => {
-    this.setState({
-      selectedImage: event.target.files[0],
-      imageLoaded: true
-    });
+    event.preventDefault();
+    let reader = new FileReader();
+    let selectedImage = event.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        selectedImage,
+        imagePreviewUrl: reader.result,
+        loaded: true,
+        imageLoaded: true
+      });
+    };
+    reader.readAsDataURL(selectedImage);
   };
+
+  handleCancel = event => {
+    this.props.history.push('/partnership');
+  }
 
   render() {
     const { partnership } = this.props;
@@ -90,7 +104,10 @@ class updatePartnership extends Component {
               </CardHeader>
               <CardBody>
                 <CardImg
-                  src={`http://localhost:4000/${partnership.image}`}
+                  src={
+                    this.state.imagePreviewUrl
+                      ? this.state.imagePreviewUrl
+                      : `http://localhost:4000/${partnership.image}`}
                   alt={partnership.image}
                 />
               </CardBody>
@@ -180,7 +197,7 @@ class updatePartnership extends Component {
                     <Button type="submit" block onClick={this.handleSubmit} color="primary">
                       <i className="fa fa-dot-circle-o"></i> Modifier
                     </Button>
-                    <Button type="reset" block color="danger">
+                    <Button type="reset" block onClick={this.handleCancel} color="danger">
                       <i className="fa fa-ban"></i> Annuler
                     </Button>
                   </center>

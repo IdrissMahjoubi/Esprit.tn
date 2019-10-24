@@ -4,11 +4,13 @@ const PressModel = require("./presse.model");
 const RdiModel = require("./rdi.model");
 const PartnershipModel = require("./partnership.model");
 const SliderModel = require("./slider.model");
+const CalendarModel= require("./calendar.model");
 module.exports = {
   UserModel,
   ClubModel,
   PressModel,
   RdiModel,
   PartnershipModel,
-  SliderModel
+  SliderModel,
+  CalendarModel
 };

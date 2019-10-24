@@ -34,3 +34,7 @@ export const GET_RDI = "GET_RDI";
 export const CLUB_LOADING = "CLUB_LOADING";
 export const GET_CLUBS = "GET_CLUBS";
 export const GET_CLUB = "GET_CLUB";
+
+// CALENDAR TYPES
+export const CALENDAR_LOADING = "CALENDAR_LOADING";
+export const GET_CALENDAR = "GET_CALENDAR";

@@ -9,6 +9,7 @@ const departementRouter = require('./departement.route');
 const rdiRouter = require('./rdi.route');
 const partnershipRouter = require('./partnership.route');
 const sliderRouter = require('./slider.route');
+const calendarRouter = require('./calendar.route');
 
 router.get('/', (req, res) => {
   res.send({
@@ -25,5 +26,5 @@ router.use('/departement', departementRouter);
 router.use('/rdi', rdiRouter);
 router.use('/partnership', partnershipRouter);
 router.use('/slider', sliderRouter);
-
+router.use('/calendar', calendarRouter);
 module.exports = router;

@@ -63,10 +63,11 @@ export default {
         },
       ]
     },
-    // {
-    //   name: "Calendrier",
-    //   icon:"fa fa-calendar"
-    // },
+    {
+      name: "Calendrier",
+      url:"/calendar",
+      icon:"fa fa-calendar"
+    },
     // {
     //   name: "Services de l'école",
     //   icon:"fa fa-rocket"

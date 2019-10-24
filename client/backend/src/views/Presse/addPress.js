@@ -46,18 +46,9 @@ class addPresses extends Component {
     }
   };
 
-  handlerCancel = e => {
-    this.setState({
-      title: '',
-      description: '',
-      type: '',
-      image: null,
-      file: null,
-      selectedFile: null,
-      selectedImage: null,
-      url: ''
-    });
-  };
+  handleCancel = event => {
+    this.props.history.push('/presse');
+  }
 
   handleInputChange = event => {
     this.setState({
@@ -172,7 +163,7 @@ class addPresses extends Component {
               <Button type="submit" size="sm" onClick={this.handleSubmit} color="primary">
                 <i className="fa fa-dot-circle-o"></i> Ajouter
               </Button>
-              <Button type="reset" size="sm" onClick={this.handlerCancel} color="danger">
+              <Button type="reset" size="sm" onClick={this.handleCancel} color="danger">
                 <i className="fa fa-ban"></i> Annuler
               </Button>
             </center>

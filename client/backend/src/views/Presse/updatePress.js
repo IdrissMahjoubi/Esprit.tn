@@ -32,7 +32,8 @@ class updatePress extends Component {
       imageLoaded: false,
       fileLoaded: false,
       file: '',
-      url: ''
+      url: '',
+      imagePreviewUrl: ''
     };
   }
 
@@ -50,8 +51,7 @@ class updatePress extends Component {
       url: nextProps.press.url,
       archived: nextProps.press.archived
     });
-    if( nextProps.isModified)
-    this.props.history.push('/presse');
+    if (nextProps.isModified) this.props.history.push('/presse');
   }
 
   handleSubmit = event => {
@@ -72,17 +72,12 @@ class updatePress extends Component {
     this.props.editPress(updateArticle, this.props.match.params.id);
     this.props.history.push('/presse');
   };
-
+  handleCancel = event => {
+    this.props.history.push('/presse');
+  };
   handleInputChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    });
-  };
-
-  imageSelectedHandler = event => {
-    this.setState({
-      selectedImage: event.target.files[0],
-      imageLoaded: true
     });
   };
 
@@ -92,6 +87,23 @@ class updatePress extends Component {
       fileLoaded: true
     });
   };
+
+  imageSelectedHandler = event => {
+    event.preventDefault();
+    let reader = new FileReader();
+    let selectedImage = event.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        selectedImage,
+        imagePreviewUrl: reader.result,
+        loaded: true,
+        imageLoaded: true
+      });
+    };
+    reader.readAsDataURL(selectedImage);
+  };
+
   render() {
     const { press } = this.props;
     return (
@@ -101,10 +113,17 @@ class updatePress extends Component {
             <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i>
-                <strong>Evénement : Image</strong>
+                <strong>Presse : Image</strong>
               </CardHeader>
               <CardBody>
-                <CardImg src={`http://localhost:4000/${press.image}`} alt={press.image} />
+                <CardImg
+                  src={
+                    this.state.imagePreviewUrl
+                      ? this.state.imagePreviewUrl
+                      : `http://localhost:4000/${press.image}`
+                  }
+                  alt={press.image}
+                />
               </CardBody>
             </Card>
           </Col>
@@ -112,7 +131,7 @@ class updatePress extends Component {
           <Col xs="12" xl="6">
             <Card>
               <CardHeader>
-                <strong> Evénement : </strong> Modifer
+                <strong> Presse : </strong> Modifer
               </CardHeader>
               <CardBody>
                 <FormGroup row>
@@ -207,7 +226,7 @@ class updatePress extends Component {
                     <Button type="submit" block onClick={this.handleSubmit} color="primary">
                       <i className="fa fa-dot-circle-o"></i> Modifier
                     </Button>
-                    <Button type="reset" block color="danger">
+                    <Button type="reset" block onClick={this.handleCancel} color="danger">
                       <i className="fa fa-ban"></i> Annuler
                     </Button>
                   </center>
@@ -230,5 +249,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPress, editPress , setIsModifiedPressLoading }
+  { getPress, editPress, setIsModifiedPressLoading }
 )(updatePress);

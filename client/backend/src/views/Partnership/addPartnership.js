@@ -43,16 +43,9 @@ class addPartnerships extends Component {
     }
   };
 
-  handlerCancel = e => {
-    this.setState({
-      title: '',
-      description: '',
-      type: '',
-      image: null,
-      selectedImage: null,
-      url: ''
-    });
-  };
+  handleCancel = event => {
+    this.props.history.push('/partnership');
+  }
 
   handleInputChange = event => {
     this.setState({
@@ -152,7 +145,7 @@ class addPartnerships extends Component {
               <Button type="submit" size="sm" onClick={this.handleSubmit} color="primary">
                 <i className="fa fa-dot-circle-o"></i> Ajouter
               </Button>
-              <Button type="reset" size="sm" onClick={this.handlerCancel} color="danger">
+              <Button type="reset" size="sm" onClick={this.handleCancel} color="danger">
                 <i className="fa fa-ban"></i> Annuler
               </Button>
             </center>

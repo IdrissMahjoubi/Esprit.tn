@@ -47,16 +47,9 @@ class addRdis extends Component {
     }
   };
 
-  handlerCancel = e => {
-    this.setState({
-      title: '',
-      description: '',
-      image: null,
-      selectedImage: null,
-      url: '',
-      members: []
-    });
-  };
+  handleCancel = event => {
+    this.props.history.push('/rdi');
+  }
 
   handleInputChange = event => {
     this.setState({
@@ -110,7 +103,7 @@ class addRdis extends Component {
                 onChange={this.handleInputChange}
                 placeholder="Titre..."
               />
-              <FormText color="muted">Titre du partenariat à ajouter</FormText>
+              <FormText color="muted">Titre de l'équipe RDI à ajouter</FormText>
             </Col>
           </FormGroup>
 
@@ -181,7 +174,7 @@ class addRdis extends Component {
               <Button type="submit" size="sm" onClick={this.handleSubmit} color="primary">
                 <i className="fa fa-dot-circle-o"></i> Ajouter
               </Button>
-              <Button type="reset" size="sm" onClick={this.handlerCancel} color="danger">
+              <Button type="reset" size="sm" onClick={this.handleCancel} color="danger">
                 <i className="fa fa-ban"></i> Annuler
               </Button>
             </center>

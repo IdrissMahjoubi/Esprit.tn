@@ -45,18 +45,9 @@ class addClubs extends Component {
     }
   };
 
-  handlerCancel = e => {
-    this.setState({
-      title: '',
-      description: '',
-      type: '',
-      sport: '',
-      image: null,
-      selectedImage: null,
-      url: '',
-      display:true
-    });
-  };
+  handleCancel = event => {
+    this.props.history.push('/club');
+  }
 
   handleInputChange = event => {
     this.setState({
@@ -187,7 +178,7 @@ class addClubs extends Component {
               <Button type="submit" size="sm" onClick={this.handleSubmit} color="primary">
                 <i className="fa fa-dot-circle-o"></i> Ajouter
               </Button>
-              <Button type="reset" size="sm" onClick={this.handlerCancel} color="danger">
+              <Button type="reset" size="sm" onClick={this.handleCancel} color="danger">
                 <i className="fa fa-ban"></i> Annuler
               </Button>
             </center>

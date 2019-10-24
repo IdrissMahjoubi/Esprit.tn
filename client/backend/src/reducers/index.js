@@ -8,6 +8,7 @@ import clubReducer from './clubReducer';
 import sliderReducer from './sliderReducer';
 import partnershipReducer from './partnershipReducer';
 import rdiReducer from './rdiReducer';
+import calendarReducer from './calendarReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
   slider: sliderReducer,
   partnership: partnershipReducer,
   rdi: rdiReducer,
+  calendar: calendarReducer,
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import calendar from './views/Calendar/calendar';
 
 const Dashboard = React.lazy(() => import('./views/Pages/Dashboard/Dashboard'));
 
@@ -93,6 +94,7 @@ const routes = [
 	{ path: '/slider/details/:id', exact: true, name: 'Details', component: detailsSlider },
 	{ path: '/slider/archived', exact: true, name: 'Inactif', component: inactiveSlider },
 	
+	{ path: '/calendar', exact: true, name: 'Calendar', component: calendar },
 ];
 
 export default routes;
