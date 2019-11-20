@@ -1,4 +1,4 @@
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width : 1024px) {
     .top-header {
         display: none;
     }
@@ -328,6 +328,7 @@
     .navbar-light .navbar-nav .nav-link {
         padding-right: 8px;
         padding-left: 8px;
+        font-size: 12px;
     }
     .header-search {
         right: -31px;
