@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import Icofont from 'react-icofont';
 import PropTypes from 'prop-types';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { Link } from 'react-router-dom';
 import { getCalendar } from '../actions/calendarActions';
 import { connect } from 'react-redux';
 class Calender extends Component {
   componentDidMount() {
     this.props.getCalendar();
+    if(this.props.calendar.fileOne == null || this.props.calendar.fileOne == undefined )
+    {
+      this.props.calendar.fileOne="#";
+    }
+    if(this.props.calendar.fileTwo == null || this.props.calendar.fileTwo == undefined )
+    {
+      this.props.calendar.fileTwo="#";
+    }
   }
   handleOneIsEmpty = event => {
     if (!this.props.calendar.fileOne) event.preventDefault();
@@ -32,7 +39,7 @@ class Calender extends Component {
 
                         <div className="center-wrap">
                           <a onClick={this.handleOneIsEmpty}
-                            href={`http://localhost:4000/${this.props.calendar.fileOne}`}
+                            href={this.props.calendar ? `http://localhost:4000/${this.props.calendar.fileOne}` : '#'}
                             className="btn-a"
                           >
                             <div className="button">
@@ -46,7 +53,7 @@ class Calender extends Component {
 
                         <div className="center-wrap">
                           <a onClick={this.handleTwoIsEmpty}
-                            href={`http://localhost:4000/${this.props.calendar.fileTwo}`}
+                            href={this.props.calendar ? `http://localhost:4000/${this.props.calendar.fileTwo}` : '#'}
                             className="btn-a"
                           >
                             <div className="button">

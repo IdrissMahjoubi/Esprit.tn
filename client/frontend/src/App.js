@@ -55,8 +55,32 @@ import ClasseMPSI from './pages/Formations/EspritPrepa/ClasseMPSI';
   // Formation Continue
 import CoursDuSoir from './pages/Formations/FormationContinue/CoursDuSoir';
 import ExecutiveMBA from './pages/Formations/FormationContinue/ExecutiveMBA';
-
-class App extends Component {
+  // Entreprises
+import Fondation from './pages/Entreprises/Fondation';
+import EspritEntreprise from './pages/Entreprises/EspritEntreprise';
+import FormationCertifiante from './pages/Entreprises/FormationCertifiante';
+import Stages from './pages/Entreprises/Stages';
+import APTIS from './pages/Entreprises/EspritLanguageCenter/APTIS';
+import PresentationELC from './pages/Entreprises/EspritLanguageCenter/PresentationELC';
+import TEFTFAQ from './pages/Entreprises/EspritLanguageCenter/TEFTFAQ';
+  // International
+import Experience from './pages/International/Experience';
+import Partenariats from './pages/International/Partenariat';
+import Temoignages from './pages/International/Temoignages';
+import VenirAEsprit from './pages/International/VenirAEsprit';
+  // RDI
+import EspritTech from './pages/RDI/EspritTech';
+import LesEquipes from './pages/RDI/LesEquipes';
+import Production from './pages/RDI/Production';
+  // Vie Etudiante
+import EspritFondation from './pages/VieEtudiante/RentreeScolaire/EspritFondation';
+import Inscription from './pages/VieEtudiante/RentreeScolaire/Inscription';
+import LogementRestauration from './pages/VieEtudiante/RentreeScolaire/LogementRestauration';
+import EvenementChallenges from './pages/VieEtudiante/VieCampus/EvenementChallenges';
+import Infrastructure from './pages/VieEtudiante/VieCampus/Infrastructure';
+import CelluleEcoute from './pages/VieEtudiante/CelluleEcoute';
+import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudiante';
+  class App extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -184,6 +208,102 @@ class App extends Component {
                             render={props => <ExecutiveMBA {...props} />}
                           />
                           {/* Formation Routes*/}
+                          {/* Entreprise Routes*/}
+                          <Route
+                            path="/entreprise/EspritLanguageCenter/APTIS"
+                            render={props => <APTIS {...props} />}
+                          />
+                          <Route
+                            path="/entreprise/EspritLanguageCenter/presentation"
+                            render={props => <PresentationELC {...props} />}
+                          />
+                          <Route
+                            path="/entreprise/EspritLanguageCenter/TEFTFAQ"
+                            render={props => <TEFTFAQ {...props} />}
+                          />
+                          <Route
+                            path="/entreprise/espritEntreprise"
+                            render={props => <EspritEntreprise {...props} />}
+                          />
+                          <Route
+                            path="/entreprise/fondation"
+                            render={props => <Fondation {...props} />}
+                          />
+                          <Route
+                            path="/entreprise/stages"
+                            render={props => <Stages {...props} />}
+                          />
+                           <Route
+                            path="/entreprise/formationCertifiante"
+                            render={props => <FormationCertifiante {...props} />}
+                          />
+                          {/* Entreprise Routes*/}
+                          {/* International Routes*/}
+                          <Route
+                            path="/international/experience"
+                            render={props => <Experience {...props} />}
+                          />
+                          <Route
+                            path="/international/partenariats"
+                            render={props => <Partenariats {...props} />}
+                          />
+                          <Route
+                            path="/international/temoignages"
+                            render={props => <Temoignages {...props} />}
+                          />
+                          <Route
+                            path="/international/veniraesprit"
+                            render={props => <VenirAEsprit {...props} />}
+                          />
+                          {/* International Routes*/}
+                          {/* RDI Routes*/}
+                          <Route
+                            path="/rdi/espritech"
+                            render={props => <EspritTech {...props} />}
+                          />
+                          <Route
+                            path="/rdi/lesequipes"
+                            render={props => <LesEquipes {...props} />}
+                          />
+                          <Route
+                            path="/rdi/production"
+                            render={props => <Production {...props} />}
+                          />
+                          {/* RDI Routes*/}
+                          {/* Vie Etudiante Routes*/}
+                          <Route
+                            path="/vieetudiante/rentreescolaire/espritfondation"
+                            render={props => <EspritFondation {...props} />}
+                          />
+                          <Route
+                            path="/vieetudiante/rentreescolaire/inscription"
+                            render={props => <Inscription {...props} />}
+                          />
+                          <Route
+                            path="/vieetudiante/rentreescolaire/logementrestauration"
+                            render={props => <LogementRestauration {...props} />}
+                          />
+                          <Route
+                            path="/vieetudiante/viecampus/clubs"
+                            render={props => <Clubs {...props} />}
+                          />
+                          <Route
+                            path="/vieetudiante/viecampus/evenementschallenges"
+                            render={props => <EvenementChallenges {...props} />}
+                          />
+                          <Route
+                            path="/vieetudiante/viecampus/infrastructure"
+                            render={props => <Infrastructure {...props} />}
+                          />
+                          <Route
+                            path="/vieetudiante/celluleecoute"
+                            render={props => <CelluleEcoute {...props} />}
+                          />
+                          <Route
+                            path="/vieetudiante/presentation"
+                            render={props => <PresentationVieEtudiante {...props} />}
+                          />
+                          {/* Vie Etudiante Routes*/}
                           <Route path="/" render={() => <HomeOne />} />
                           <Redirect to="/not-found" />
                         </Switch>

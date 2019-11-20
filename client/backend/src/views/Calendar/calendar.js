@@ -36,11 +36,26 @@ class calendar extends Component {
     this.props.getCalendar();
   }
   componentWillReceiveProps(nextProps) {
-    this.setState({
-
-      fileOne: nextProps.calendar.fileOne,
-      fileTwo: nextProps.calendar.fileTwo,
-    });
+    if(!nextProps.calendar)
+    {
+      this.setState ( {
+        calendar: {},
+        selectedFileOne: null,
+        selectedFileTwo: null,
+        fileOneLoaded: false,
+        fileTwoLoaded: false,
+        fileOne: '',
+        fileTwo: '',
+      });
+    }
+    else
+    {
+      this.setState({
+        fileOne: nextProps.calendar.fileOne,
+        fileTwo: nextProps.calendar.fileTwo,
+      });
+    }
+   
     if (nextProps.isModified) this.props.history.push('/');
   }
 
@@ -107,7 +122,7 @@ class calendar extends Component {
                     <Input type="file" name="fileOne" onChange={this.fileSelectedHandler} />
                   </Col>
                   <Col xs="12" md="9">
-                    <a href={`http://localhost:4000/${calendar.fileOne}`}>{this.state.fileOne}</a>
+                    <a href={`http://localhost:4000/${this.state.fileOne}`}>{this.state.fileOne}</a>
                   </Col>
                 </FormGroup>
 
@@ -119,7 +134,7 @@ class calendar extends Component {
                     <Input type="file" name="fileTwo" onChange={this.fileTwoSelectedHandler} />
                   </Col>
                   <Col xs="12" md="9">
-                    <a href={`http://localhost:4000/${calendar.fileTwo}`}>{this.state.fileTwo}</a>
+                    <a href={`http://localhost:4000/${this.state.fileTwo}`}>{this.state.fileTwo}</a>
                   </Col>
                 </FormGroup>
                 

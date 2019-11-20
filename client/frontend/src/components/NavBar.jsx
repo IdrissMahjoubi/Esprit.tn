@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icofont from 'react-icofont';
-import { NavLink } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import SearchModal from './SearchModal';
@@ -108,15 +107,15 @@ class NavBar extends Component {
                     <NavDropdown.Item href="/esprit/motdupresident">Mot du président</NavDropdown.Item>
                     <NavDropdown.Item href="/esprit/valeurs">Valeurs de l'école</NavDropdown.Item>
                     <NavDropdown.Item href="/esprit/leplusesprit">Le plus d'ESPRIT</NavDropdown.Item>
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Gouvernance
                       </a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/esprit/gouvernance/strategique">
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" href="/esprit/gouvernance/strategique">
                           Gouvernance Stratégique
                         </a>
-                        <a class="dropdown-item" href="/esprit/gouvernance/servicesesprit">
+                        <a className="dropdown-item" href="/esprit/gouvernance/servicesesprit">
                           Services de l'école
                         </a>
                       </div>
@@ -136,69 +135,69 @@ class NavBar extends Component {
                   </NavDropdown>
 
                   <NavDropdown title="FORMATIONS" id="basic-nav-dropdown">
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Esprit École d'Ingénieurs
                       </a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/formation/espritIngenieur/presentation">
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" href="/formation/espritIngenieur/presentation">
                           Présentation
                         </a>
-                        <a class="dropdown-item" href="/formation/espritIngenieur/specialitesetoptions">
+                        <a className="dropdown-item" href="/formation/espritIngenieur/specialitesetoptions">
                           Spécialités Et Options
                         </a>
-                        <a class="dropdown-item" href="/formation/espritIngenieur/stages">
+                        <a className="dropdown-item" href="/formation/espritIngenieur/stages">
                           Stages
                         </a>
-                        <a class="dropdown-item" href="/formation/espritIngenieur/languesdevpersonnel">
+                        <a className="dropdown-item" href="/formation/espritIngenieur/languesdevpersonnel">
                           Langues et Dév Personnel
                         </a>
-                        <a class="dropdown-item" href="/formation/espritIngenieur/reglement">
+                        <a className="dropdown-item" href="/formation/espritIngenieur/reglement">
                           Réglement Scolaire
                         </a>
-                        <a class="dropdown-item" href="/formation/espritIngenieur/calendrierexamens">
+                        <a className="dropdown-item" href="/formation/espritIngenieur/calendrierexamens">
                           Calendrier Des Examens
                         </a>
                       </div>
                     </div>
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Esprit School Of Business
                       </a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/formation/ESB/presentation">
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" href="/formation/ESB/presentation">
                           Présentation
                         </a>
-                        <a class="dropdown-item" href="/formation/ESB/specialites">
+                        <a className="dropdown-item" href="/formation/ESB/specialites">
                           Spécialités
                         </a>
-                        <a class="dropdown-item" href="/formation/ESB/reglement">
+                        <a className="dropdown-item" href="/formation/ESB/reglement">
                           Réglement Scolaire
                         </a>
-                        <a class="dropdown-item" href="/formation/ESB/inscription">
+                        <a className="dropdown-item" href="/formation/ESB/inscription">
                           Inscription
                         </a>
                       </div>
                     </div>
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Esprit-prépa
                       </a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/formation/espritPrepa/classeMPSI">
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" href="/formation/espritPrepa/classeMPSI">
                           Classes M.P.S.I.
                         </a>
                       </div>
                     </div>
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Formation Continue
                       </a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/formation/formationcontinue/coursdusoir">
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" href="/formation/formationcontinue/coursdusoir">
                           Cours Du Soir
                         </a>
-                        <a class="dropdown-item" href="/formation/formationcontinue/executiveMBA">
+                        <a className="dropdown-item" href="/formation/formationcontinue/executiveMBA">
                           Executive MBA
                         </a>
                       </div>
@@ -206,78 +205,78 @@ class NavBar extends Component {
                   </NavDropdown>
 
                   <NavDropdown title="R.D.I." id="admission-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Esprit-Tech</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Production</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Les Équipes</NavDropdown.Item>
+                    <NavDropdown.Item href="/rdi/espritech">Esprit-Tech</NavDropdown.Item>
+                    <NavDropdown.Item href="/rdi/production">Production</NavDropdown.Item>
+                    <NavDropdown.Item href="/rdi/lesequipes">Les Équipes</NavDropdown.Item>
                   </NavDropdown>
 
                   <NavDropdown title="ENTREPRISES" id="esprit-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Esprit Entreprises</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Stages</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Fondation Esprit</NavDropdown.Item>
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <NavDropdown.Item href="/entreprise/espritEntreprise">Esprit Entreprises</NavDropdown.Item>
+                    <NavDropdown.Item href="/entreprise/stages">Stages</NavDropdown.Item>
+                    <NavDropdown.Item href="/entreprise/fondation">Fondation Esprit</NavDropdown.Item>
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Esprit Language Center
                       </a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">
+                      <div className="dropdown-menu">
+                        <a className="dropdown-item" href="/entreprise/EspritLanguageCenter/presentation">
                           Présentation
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/entreprise/EspritLanguageCenter/TEFTEFAQ">
                           TEF & TEFAQ
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/entreprise/EspritLanguageCenter/APTIS">
                           APTIS TEST
                         </a>
                       </div>
                     </div>
-                    <NavDropdown.Item href="#action/3.3">Formation Certifiante</NavDropdown.Item>
+                    <NavDropdown.Item href="/entreprise/formationCertifiante">Formation Certifiante</NavDropdown.Item>
                   </NavDropdown>
 
                   <NavDropdown title="INTERNATIONAL" id="admission-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
+                    <NavDropdown.Item href="/international/experience">
                       Avoir une Expérience<br></br>à l'International
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Venir à ESPRIT</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Partenariats</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Témoignages</NavDropdown.Item>
+                    <NavDropdown.Item href="/international/veniraesprit">Venir à ESPRIT</NavDropdown.Item>
+                    <NavDropdown.Item href="/international/partenariats">Partenariats</NavDropdown.Item>
+                    <NavDropdown.Item href="/international/temoignages">Témoignages</NavDropdown.Item>
                   </NavDropdown>
 
                   <NavDropdown title="VIE ÉTUDIANTE" id="vie-nav-dropdown" className="pull-left-level-1">
-                    <NavDropdown.Item href="#action/3.1">Présentation</NavDropdown.Item>
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <NavDropdown.Item href="/vieetudiante/presentation">Présentation</NavDropdown.Item>
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Rentrée Scolaire
                       </a>
-                      <div class="dropdown-menu pull-left">
-                        <a class="dropdown-item" href="#">
+                      <div className="dropdown-menu pull-left">
+                        <a className="dropdown-item" href="/vieetudiante/rentreescolaire/logementrestauration">
                           Logement Et Restauration
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/vieetudiante/rentreescolaire/espritfondation">
                           Fondation
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/vieetudiante/rentreescolaire/inscription">
                           Inscriptions
                         </a>
                       </div>
                     </div>
-                    <div class="dropdown-submenu">
-                      <a href="#" class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                    <div className="dropdown-submenu">
+                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
                         Vie Sur Compus
                       </a>
-                      <div class="dropdown-menu  pull-left">
-                        <a class="dropdown-item" href="#">
+                      <div className="dropdown-menu  pull-left">
+                        <a className="dropdown-item" href="/vieetudiante/viecampus/infrastructure">
                           Infrastructure
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/vieetudiante/viecampus/clubs">
                           Clubs
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="/vieetudiante/viecampus/evenementschallenges">
                           Evénements Et Challenges
                         </a>
                       </div>
                     </div>
-                    <NavDropdown.Item href="#action/3.3">Cellule D'Écoute</NavDropdown.Item>
+                    <NavDropdown.Item href="/vieetudiante/celluleecoute">Cellule D'Écoute</NavDropdown.Item>
                   </NavDropdown>
                 </React.Fragment>
               </Nav>
