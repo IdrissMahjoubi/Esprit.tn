@@ -26,7 +26,7 @@ class VideoArea extends Component {
                                 <ModalVideo
                                     channel="youtube"
                                     isOpen={this.state.isOpen}
-                                    videoId="vr0qNXmkUJ8"
+                                    videoId="JF8lk4rq6Pk"
                                     onClose={() =>
                                         this.setState({
                                             isOpen: false

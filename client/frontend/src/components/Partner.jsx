@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import OwlCarousel from "react-owl-carousel3";
-import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { connect } from "react-redux"
 import { getPartners } from '../actions/partnersActions';
-
+import LinkDuo from './utils/LinkDuo';
 class Partners extends Component {
 
     componentDidMount() {
@@ -14,9 +13,9 @@ class Partners extends Component {
         //Partner loop start
         const partnerData = this.props.partners.map((partner, index) => (
             <div className="single-partner-logo" key={index}>
-                <Link to={partner.url} className="logo-preview">
-                    <img src={`http://localhost:4000/${partner.image}`} alt="partnerLogo" />
-                </Link>
+                <LinkDuo to={partner.url}  className="logo-preview">
+                <img src={`http://localhost:4000/${partner.image}`} alt="partnerLogo" />
+                </LinkDuo>
             </div>
         ));
         //Partner loop END

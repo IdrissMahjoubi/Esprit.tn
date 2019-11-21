@@ -110,7 +110,6 @@ import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudia
                             render={props => <RDI {...props} />}
                           />
                           <Route path="/clubs" render={props => <Clubs {...props} />} />
-                          {/* Esprit Routes */}
                           <Route
                             path="/esprit/motdupresident"
                             render={props => <MotDuPresident {...props} />}
