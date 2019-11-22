@@ -7,6 +7,7 @@ import slidersReducer from './slidersReducer';
 import rdisReducer from './rdiReducer';
 import clubsReducer from './clubReducer';
 import calendarReducer from './calendarReducer';
+import newsReducer from './newsReducer';
 
 export default combineReducers({
   errors: errorReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
   rdis: rdisReducer,
   clubs: clubsReducer,
   calendar: calendarReducer,
+  news: newsReducer,
 });

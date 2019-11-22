@@ -38,3 +38,10 @@ export const GET_CLUB = "GET_CLUB";
 // CALENDAR TYPES
 export const CALENDAR_LOADING = "CALENDAR_LOADING";
 export const GET_CALENDAR = "GET_CALENDAR";
+
+// NEWS TYPES
+export const NEWS_LOADING = 'NEWS_LOADING';
+export const GET_NEWS = 'GET_NEWS';
+export const GET_SINGLE_NEWS = 'GET_SINGLE_NEWS';
+export const SEARCH_NEWS = 'SEARCH_NEWS';
+export const GET_HOME_NEWS = 'GET_HOME_NEWS';

@@ -67,7 +67,7 @@ class App extends Component {
               component={Register}
             />
             <Route path="/404" exact name="Page 404" component={Page404} />
-            <PrivateRoute path="/" name="Home" component={DefaultLayout} />
+            <PrivateRoute path="/" name="Home"  component={DefaultLayout} />
           </Switch>
         </BrowserRouter>
       </Provider>

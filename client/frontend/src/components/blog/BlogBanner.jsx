@@ -31,7 +31,7 @@ BlogBanner.propTypes = {
 
 //Default Props
 BlogBanner.defaultProps = {
-    Title: "Blog with sidebar",
+    Title: "Actualités",
     Content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.",
 };
 

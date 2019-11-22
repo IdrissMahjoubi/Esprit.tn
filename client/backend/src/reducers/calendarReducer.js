@@ -4,8 +4,6 @@ import {
   EDIT_CALENDAR,
   GET_CALENDAR,
   IS_MODIFIED_CALENDAR,
-  GET_ERRORS,
-  CLEAR_ERRORS
 } from '../actions/types';
 
 const initialState = {

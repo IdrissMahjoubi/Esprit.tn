@@ -49,7 +49,6 @@ export const getAllSlider = () => dispatch => {
         type: GET_ALL_SLIDER,
         payload: res.data
       });
-      console.log(res.data);
     })
     .catch(error => {
       if (error.response && error.response.data) {

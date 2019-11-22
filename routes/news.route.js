@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const newsModel = require('../models/news.model');
 const passport = require('passport');
-const {upload,uploadTwo} = require('../utils/Uploader');
-
+const { upload, uploadTwo } = require('../utils/Uploader');
 
 /* GET All Newss . 
 @Route : news/
@@ -15,10 +14,19 @@ router.get('/', (req, res) => {
     .then(data => {
       res.json(data);
     })
-    .catch(err =>
-      res.send(err));
-    });
-
+    .catch(err => res.send(err));
+});
+router.get('/homeNews', (req, res) => {
+  newsModel
+    .find()
+    .populate('user')
+    .sort('-date')
+    .limit(4)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => res.send(err));
+});
 /* GET Single News . 
 @Route : news/:id
 */
@@ -45,9 +53,8 @@ router.post(
   upload.single('image'),
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    var img ='';
-    if(req.file)
-    {
+    var img = '';
+    if (req.file) {
       img = req.file.path;
     }
     newNews = new newsModel({
@@ -135,30 +142,32 @@ router.put('/archive/:id', (req, res) => {
   let query = {
     _id: req.params.id
   };
-  newsModel.findOneAndUpdate(
-    query,
-    {
-      $set: { archived: true }
-    },
-    { new: true }
-  ).then(news => res.json(news))
-  .catch(err => res.status(400).json(err));
+  newsModel
+    .findOneAndUpdate(
+      query,
+      {
+        $set: { archived: true }
+      },
+      { new: true }
+    )
+    .then(news => res.json(news))
+    .catch(err => res.status(400).json(err));
 });
 
 router.put('/unarchive/:id', (req, res) => {
   let query = {
     _id: req.params.id
   };
-  newsModel.findOneAndUpdate(
-    query,
-    {
-      $set: { archived: false }
-    },
-    { new: true }
-  )      .then(news => res.json(news))
-  .catch(err => res.status(400).json(err));
+  newsModel
+    .findOneAndUpdate(
+      query,
+      {
+        $set: { archived: false }
+      },
+      { new: true }
+    )
+    .then(news => res.json(news))
+    .catch(err => res.status(400).json(err));
 });
-
-
 
 module.exports = router;

@@ -12,7 +12,6 @@ export const getPartners = () => dispatch => {
   axios
     .get("/partnership/")
     .then(res => {
-      console.log("Action Partner : " + res.data)
 
       dispatch({
         type: GET_PARTNERS,

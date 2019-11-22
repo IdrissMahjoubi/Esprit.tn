@@ -10,9 +10,7 @@ import {
   Label,
   CardFooter,
   Button,
-  FormText,
   Row,
-  CardImg
 } from 'reactstrap';
 
 import { connect } from 'react-redux';
@@ -103,7 +101,6 @@ class calendar extends Component {
   };
 
   render() {
-    const { calendar } = this.props;
     return (
       <div className="animated fadeIn">
         <Row>

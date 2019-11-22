@@ -11,7 +11,6 @@ export const getSliders = () => dispatch => {
   axios
     .get("/slider/")
     .then(res => {
-      console.log('res:', res.data)
       dispatch({
         type: GET_SLIDERS,
         payload: res.data

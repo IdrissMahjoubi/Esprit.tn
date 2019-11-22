@@ -38,8 +38,7 @@ class BlogPost extends Component {
                 <section id="blog" className="our-blog main-blog">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-8">
-                                <div className="row">
+
 
                                     {blogpostdata}
 
@@ -55,12 +54,7 @@ class BlogPost extends Component {
                                     </div>
                                 </div>
                             </div>
-
-                            {/*Sidebar: src/components/blog/Sidebar.jsx*/}
-                            <Sidebar />
                             
-                        </div>
-                    </div>
                 </section>
             </React.Fragment>
         );

@@ -11,7 +11,6 @@ export const getCalendar = () => dispatch => {
   axios
     .get("/calendar/")
     .then(res => {
-      console.log('res:', res.data)
       dispatch({
         type: GET_CALENDAR,
         payload: res.data
