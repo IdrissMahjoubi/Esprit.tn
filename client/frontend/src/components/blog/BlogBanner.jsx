@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 class BlogBanner extends Component {
     render() {
+        const {title, description} = this.props
         return (
             <React.Fragment>
                 <div className="bread-cumbs-area bread-cumbs-bg">
@@ -11,8 +12,8 @@ class BlogBanner extends Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="col-lg-7">
-                                    <h1>{this.props.Title}</h1>
-                                    <p>{this.props.Content}</p>
+                                    <h1>{title}</h1>
+                                    <p>{description}</p>
                                     </div>
                                 </div>
                             </div>
@@ -23,16 +24,6 @@ class BlogBanner extends Component {
         );
     }
 }
-//Props Types
-BlogBanner.propTypes = {
-    Title: PropTypes.string,
-    Content: PropTypes.string,
-};
 
-//Default Props
-BlogBanner.defaultProps = {
-    Title: "Actualités",
-    Content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.",
-};
 
 export default BlogBanner;

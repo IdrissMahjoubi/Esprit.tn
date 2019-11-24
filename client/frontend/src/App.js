@@ -18,10 +18,9 @@ import './assets/css/color/color-red.css';
 //Import Component
 import HomeOne from './pages/HomeOne';
 import BlogOne from './pages/BlogOne';
-import BlogTwo from './pages/BlogTwo';
+import NewsPage from './pages/NewsPage';
 import SingleBlog from './pages/SingleBlog';
 import ScrollUpBtn from './components/ScrollUp';
-import Events from './pages/Events';
 import Recrutment from './pages/Recrutment';
 import RDI from './pages/RDI';
 import Clubs from './pages/Clubs';
@@ -76,7 +75,7 @@ import Production from './pages/RDI/Production';
 import EspritFondation from './pages/VieEtudiante/RentreeScolaire/EspritFondation';
 import Inscription from './pages/VieEtudiante/RentreeScolaire/Inscription';
 import LogementRestauration from './pages/VieEtudiante/RentreeScolaire/LogementRestauration';
-import EvenementChallenges from './pages/VieEtudiante/VieCampus/EvenementChallenges';
+import EventsPage from './pages/VieEtudiante/VieCampus/EventsPage';
 import Infrastructure from './pages/VieEtudiante/VieCampus/Infrastructure';
 import CelluleEcoute from './pages/VieEtudiante/CelluleEcoute';
 import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudiante';
@@ -101,8 +100,7 @@ import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudia
                             path="/blog-details/:id"
                             render={props => <SingleBlog {...props} />}
                           />
-                          <Route path="/events" render={props => <Events {...props} />} />
-                          <Route path="/blog-two" render={props => <BlogTwo {...props} />} />
+                          <Route path="/news-page" render={props => <NewsPage {...props} />} />
                           <Route exact path="/blog-one" render={props => <BlogOne {...props} />} />
                           <Route path="/recrutment" render={props => <Recrutment {...props} />} />
                           <Route
@@ -288,7 +286,7 @@ import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudia
                           />
                           <Route
                             path="/vieetudiante/viecampus/evenementschallenges"
-                            render={props => <EvenementChallenges {...props} />}
+                            render={props => <EventsPage {...props} />}
                           />
                           <Route
                             path="/vieetudiante/viecampus/infrastructure"

@@ -24,7 +24,7 @@ class updateEvents extends Component {
     dateStart: '',
     dateEnd:'',
     description: '',
-    type: '',
+    type: 'Administration',
     archived: '',
     imageData: null,
     url: '',
@@ -190,11 +190,12 @@ class updateEvents extends Component {
                       value={this.state.type}
                       onChange={this.handleInputChange}
                     >
-                      <option disabled value="empty">
+                      <option disabled value="Administration">
                         veuillez choisir le type
                       </option>
-                      <option value="sportif">Sportif</option>
-                      <option value="autres">Autres</option>
+                      <option value="Administration"> Administration </option>
+                    <option value="Etudiant"> Etudiant </option>
+                    <option value="Clubs"> Clubs </option>
                     </Input>
                   </Col>
                 </FormGroup>

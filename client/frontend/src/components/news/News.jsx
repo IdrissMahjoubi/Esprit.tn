@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Icofont from 'react-icofont';
 import { Link } from 'react-router-dom';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { getHomeNews } from './../actions/newsActions';
+import { getHomeNews } from '../../actions/newsActions';
 import { connect } from 'react-redux';
-import LinkDuo from './../components/utils/LinkDuo'
+import LinkDuo from '../utils/LinkDuo'
 class News extends Component {
   state = {
       homeNews: [],
@@ -35,7 +35,6 @@ class News extends Component {
       
   };
     componentDidMount() {
-      this.props.getHomeNews()
     let scrollWithOffset = (el, offset) => {
       const elementPosition = el.offsetTop - offset;
       window.scroll({
@@ -48,9 +47,9 @@ class News extends Component {
   }
   render() {
     //Blog loop start
-    const { homeNews } = this.props;
+    const { data } = this.props;
 
-    const homeNewsData = homeNews.map((singleNews, index) => (
+    const homeNewsData = data.map((singleNews, index) => (
         <div className="col-md-6 col-lg-6" key={index}>
             <div className="blog-item">
                 <LinkDuo to={singleNews.url} className="blog-img"><img src={`http://localhost:4000/${singleNews.image}`} alt="blog-one" /></LinkDuo>
@@ -94,7 +93,7 @@ class News extends Component {
                         {homeNewsData}
                         <div className="col-lg-12 col-md-12 all-post">
                             <div className="center-wrap">
-                            <Link to='/blog-two' className="btn-a">
+                            <Link to='/news-page' className="btn-a">
                                 <div className="button">
                                     All News <Icofont icon="icofont-long-arrow-right" />
                                     <div className="mask"></div>
