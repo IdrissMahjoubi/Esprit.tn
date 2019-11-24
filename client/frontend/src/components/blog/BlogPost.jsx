@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Icofont from 'react-icofont';
-import PropTypes from "prop-types";
 import LinkDuo from '../utils/LinkDuo';
 
 class BlogPost extends Component {

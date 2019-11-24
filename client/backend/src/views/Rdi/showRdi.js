@@ -77,7 +77,7 @@ class showRdi extends Component {
                       <InputGroup className="mt-2">
                         <Button block onClick={this.handleAddRedirect} color="success" outline>
                           <i className="fa fa-plus" />
-                          &nbsp;Ajouter un partenariat
+                          &nbsp;Ajouter une equipe RDI
                         </Button>
                       </InputGroup>
                     </Col>

@@ -8,7 +8,6 @@ export default class LinkDuo extends Component {
     return isExternal(this.props.to) ?
       <a
         href={this.props.to}
-        target="_blank"
         {...this.props}
       >      {this.props.children}
       </a>
