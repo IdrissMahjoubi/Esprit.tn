@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar';
 import Slider from '../components/banner/Slider';
 import Services from '../components/Services';
 import Calender from '../components/Calender';
-import About from '../components/About';
+// import About from '../components/About';
 import News from '../components/news/News';
 import VideoArea from '../components/VideoArea';
 // import Testimonials from '../components/Testimonials';
@@ -15,6 +15,7 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import { getHomeNews } from '../actions/newsActions';
 import { connect } from 'react-redux';
+
 class HomeOne extends Component {
 
 
@@ -28,15 +29,15 @@ class HomeOne extends Component {
       <React.Fragment>
         <NavBar pageName="home" />
         <Slider />
-        <Services />
+        <Partner />
         {loading ? (
           <h1>Loading..</h1>
         ) : (
           <News data={homeNews} />
           )}
-        <Partner />
+        <Services />
         <Calender />
-        <About />
+        {/* <About /> */}
         <VideoArea />
         {/* <Testimonials /> */}
         {/* <FAQ /> */}

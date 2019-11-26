@@ -5,17 +5,16 @@ import NavBar from '../components/NavBar';
 import BlogBanner from '../components/blog/BlogBanner';
 import BlogPost from '../components/blog/BlogPost';
 import Footer from '../components/Footer';
-import { getHomeNews } from '../actions/newsActions';
+import { getNews } from '../actions/newsActions';
 import { connect } from 'react-redux';
-import Page from 'react-page-loading';
 
 class NewsPage extends Component {
   componentDidMount() {
-    this.props.getHomeNews();
+    this.props.getNews();
   }
 
   render() {
-    const { loading, homeNews } = this.props;
+    const { loading, news } = this.props;
 
     return (
       <React.Fragment>
@@ -27,7 +26,7 @@ class NewsPage extends Component {
         {loading ? (
           <h1>Loading..</h1>
         ) : (
-          <BlogPost data={homeNews} />
+          <BlogPost data={news} />
         )}
         {/* NavBar: src/components/Footer.jsx */}
         <Footer />
@@ -38,11 +37,11 @@ class NewsPage extends Component {
 
 const mapStateToProps = state => ({
   errors: state.errors,
-  homeNews: state.news.homeNews,
+  news: state.news.news,
   loading: state.news.loading
 });
 
 export default connect(
   mapStateToProps,
-  { getHomeNews }
+  { getNews }
 )(NewsPage);

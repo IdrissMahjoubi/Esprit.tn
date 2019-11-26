@@ -5,6 +5,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import SearchModal from './SearchModal';
 import HeaderBar from './headerBar';
+import LinkDuo from './../components/utils/LinkDuo';
+
 class NavBar extends Component {
   closeNavbar() {
     if (window.matchMedia('screen and (max-width: 991px)').matches) {
@@ -23,14 +25,14 @@ class NavBar extends Component {
                 <div className="address-bar">
                   <ul className="list-inline">
                     <li>
-                      <a href={this.props.mailLink}>
+                      <LinkDuo to={this.props.mailLink}>
                         <Icofont icon="icofont-email" /> {this.props.mail}
-                      </a>
+                      </LinkDuo>
                     </li>
                     <li>
-                      <a href={this.props.numberLink}>
+                      <LinkDuo to={this.props.numberLink}>
                         <Icofont icon="icofont-ui-call" /> {this.props.Number}
-                      </a>
+                      </LinkDuo>
                     </li>
                   </ul>
                 </div>
@@ -40,24 +42,40 @@ class NavBar extends Component {
                 <div className="social-icons">
                   <ul className="list-inline">
                     <li>
-                      <a href={this.props.facebookLink} rel="noopener noreferrer" target="_blank">
+                      <LinkDuo
+                        to={this.props.facebookLink}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
                         <Icofont icon="icofont-facebook" />
-                      </a>
+                      </LinkDuo>
                     </li>
                     <li>
-                      <a href={this.props.twitterLink} rel="noopener noreferrer" target="_blank">
+                      <LinkDuo
+                        to={this.props.twitterLink}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
                         <Icofont icon="icofont-twitter" />
-                      </a>
+                      </LinkDuo>
                     </li>
                     <li>
-                      <a href={this.props.youtubeLink} rel="noopener noreferrer" target="_blank">
+                      <LinkDuo
+                        to={this.props.youtubeLink}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
                         <Icofont icon="icofont-youtube" />
-                      </a>
+                      </LinkDuo>
                     </li>
                     <li>
-                      <a href={this.props.linkedinLink} rel="noopener noreferrer" target="_blank">
+                      <LinkDuo
+                        to={this.props.linkedinLink}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
                         <Icofont icon="icofont-linkedin" />
-                      </a>
+                      </LinkDuo>
                     </li>
                   </ul>
                 </div>
@@ -104,182 +122,231 @@ class NavBar extends Component {
               <Nav className="navbar-nav ml-auto">
                 <React.Fragment>
                   <NavDropdown title="ESPRIT" id="esprit-nav-dropdown">
-                    <NavDropdown.Item href="/esprit/motdupresident">
-                      Mot du président
+                    <NavDropdown.Item>
+                      <LinkDuo to="/esprit/motdupresident">Mot du président</LinkDuo>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/esprit/valeurs">Valeurs de l'école</NavDropdown.Item>
-                    <NavDropdown.Item href="/esprit/leplusesprit">
-                      Le plus d'ESPRIT
+                    <NavDropdown.Item>
+                      <LinkDuo to="/esprit/valeurs">Valeurs de l'école</LinkDuo>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <LinkDuo to="/esprit/leplusesprit">Le plus d'ESPRIT</LinkDuo>
                     </NavDropdown.Item>
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Gouvernance
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="/esprit/gouvernance/strategique">
+                        <LinkDuo className="dropdown-item" to="/esprit/gouvernance/strategique">
                           Gouvernance Stratégique
-                        </a>
-                        <a className="dropdown-item" href="/esprit/gouvernance/servicesesprit">
+                        </LinkDuo>
+                        <LinkDuo className="dropdown-item" to="/esprit/gouvernance/servicesesprit">
                           Services de l'école
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
-                    <NavDropdown.Item href="/esprit/politiquequalite">
-                      Politique Qualité
+                    <NavDropdown.Item>
+                      <LinkDuo to="/esprit/politiquequalite">Politique Qualité</LinkDuo>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/esprit/salledepresse">
-                      Salle De Presse
+                    <NavDropdown.Item>
+                      <LinkDuo to="/esprit/salledepresse">Salle De Presse</LinkDuo>
                     </NavDropdown.Item>
                   </NavDropdown>
 
                   <NavDropdown title="ADMISSION" id="admission-nav-dropdown">
-                    <NavDropdown.Item href="/admission/espritingenieur">
-                      Esprit École d'ingénieurs
+                    <NavDropdown.Item>
+                      <LinkDuo to="/admission/espritingenieur">Esprit École d'ingénieurs</LinkDuo>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/admission/espritprepa">Esprit-prépa</NavDropdown.Item>
-                    <NavDropdown.Item href="/admission/espritschoolofbusiness">
-                      Esprit School Of Business
+                    <NavDropdown.Item>
+                      <LinkDuo to="/admission/espritprepa">Esprit-prépa</LinkDuo>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <LinkDuo to="/admission/espritschoolofbusiness">
+                        Esprit School Of Business
+                      </LinkDuo>
                     </NavDropdown.Item>
                   </NavDropdown>
 
                   <NavDropdown title="FORMATIONS" id="basic-nav-dropdown">
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Esprit École d'Ingénieurs
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="/formation/espritIngenieur/presentation">
-                          Présentation
-                        </a>
-                        <a
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/formation/espritIngenieur/specialitesetoptions"
+                          to="/formation/espritIngenieur/presentation"
+                        >
+                          Présentation
+                        </LinkDuo>
+                        <LinkDuo
+                          className="dropdown-item"
+                          to="/formation/espritIngenieur/specialitesetoptions"
                         >
                           Spécialités Et Options
-                        </a>
-                        <a className="dropdown-item" href="/formation/espritIngenieur/stages">
+                        </LinkDuo>
+                        <LinkDuo className="dropdown-item" to="/formation/espritIngenieur/stages">
                           Stages
-                        </a>
-                        <a
+                        </LinkDuo>
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/formation/espritIngenieur/languesdevpersonnel"
+                          to="/formation/espritIngenieur/languesdevpersonnel"
                         >
                           Langues et Dév Personnel
-                        </a>
-                        <a className="dropdown-item" href="/formation/espritIngenieur/reglement">
-                          Réglement Scolaire
-                        </a>
-                        <a
+                        </LinkDuo>
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/formation/espritIngenieur/calendrierexamens"
+                          to="/formation/espritIngenieur/reglement"
+                        >
+                          Réglement Scolaire
+                        </LinkDuo>
+                        <LinkDuo
+                          className="dropdown-item"
+                          to="/formation/espritIngenieur/calendrierexamens"
                         >
                           Calendrier Des Examens
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Esprit School Of Business
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="/formation/ESB/presentation">
+                        <LinkDuo className="dropdown-item" to="/formation/ESB/presentation">
                           Présentation
-                        </a>
-                        <a className="dropdown-item" href="/formation/ESB/specialites">
+                        </LinkDuo>
+                        <LinkDuo className="dropdown-item" to="/formation/ESB/specialites">
                           Spécialités
-                        </a>
-                        <a className="dropdown-item" href="/formation/ESB/reglement">
+                        </LinkDuo>
+                        <LinkDuo className="dropdown-item" to="/formation/ESB/reglement">
                           Réglement Scolaire
-                        </a>
-                        <a className="dropdown-item" href="/formation/ESB/inscription">
+                        </LinkDuo>
+                        <LinkDuo className="dropdown-item" to="/formation/ESB/inscription">
                           Inscription
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Esprit-prépa
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="/formation/espritPrepa/classeMPSI">
+                        <LinkDuo className="dropdown-item" to="/formation/espritPrepa/classeMPSI">
                           Classes M.P.S.I.
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Formation Continue
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu">
-                        <a
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/formation/formationcontinue/coursdusoir"
+                          to="/formation/formationcontinue/coursdusoir"
                         >
                           Cours Du Soir
-                        </a>
-                        <a
+                        </LinkDuo>
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/formation/formationcontinue/executiveMBA"
+                          to="/formation/formationcontinue/executiveMBA"
                         >
                           Executive MBA
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
                   </NavDropdown>
 
                   <NavDropdown title="R.D.I." id="admission-nav-dropdown">
-                    <NavDropdown.Item href="/rdi/espritech">Esprit-Tech</NavDropdown.Item>
-                    <NavDropdown.Item href="/rdi/production">Production</NavDropdown.Item>
-                    <NavDropdown.Item href="/rdi/lesequipes">Les Équipes</NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <LinkDuo to="/rdi/espritech">Esprit-Tech</LinkDuo>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <LinkDuo to="/rdi/production">Production</LinkDuo>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <LinkDuo to="/rdi/lesequipes">Les Équipes</LinkDuo>
+                    </NavDropdown.Item>
                   </NavDropdown>
 
                   <NavDropdown title="ENTREPRISES" id="esprit-nav-dropdown">
-                    <NavDropdown.Item href="/entreprise/espritEntreprise">
-                      Esprit Entreprises
+                    <NavDropdown.Item>
+                      <LinkDuo to="/entreprise/espritEntreprise">Esprit Entreprises</LinkDuo>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/entreprise/stages">Stages</NavDropdown.Item>
-                    <NavDropdown.Item href="/entreprise/fondation">
-                      Fondation Esprit
+                    <NavDropdown.Item>
+                      <LinkDuo to="/entreprise/stages">Stages</LinkDuo>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <LinkDuo to="/entreprise/fondation">Fondation Esprit</LinkDuo>
                     </NavDropdown.Item>
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Esprit Language Center
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu">
-                        <a
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/entreprise/EspritLanguageCenter/presentation"
+                          to="/entreprise/EspritLanguageCenter/presentation"
                         >
                           Présentation
-                        </a>
-                        <a
+                        </LinkDuo>
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/entreprise/EspritLanguageCenter/TEFTEFAQ"
+                          to="/entreprise/EspritLanguageCenter/TEFTEFAQ"
                         >
                           TEF & TEFAQ
-                        </a>
-                        <a className="dropdown-item" href="/entreprise/EspritLanguageCenter/APTIS">
+                        </LinkDuo>
+                        <LinkDuo
+                          className="dropdown-item"
+                          to="/entreprise/EspritLanguageCenter/APTIS"
+                        >
                           APTIS TEST
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
-                    <NavDropdown.Item href="/entreprise/formationCertifiante">
-                      Formation Certifiante
+                    <NavDropdown.Item>
+                      <LinkDuo to="/entreprise/formationCertifiante">Formation Certifiante</LinkDuo>
                     </NavDropdown.Item>
                   </NavDropdown>
 
                   <NavDropdown title="INTERNATIONAL" id="admission-nav-dropdown">
-                    <NavDropdown.Item href="/international/experience">
-                      Avoir une Expérience<br></br>à l'International
+                    <NavDropdown.Item>
+                      <LinkDuo to="/international/experience">
+                        Avoir une Expérience<br></br>à l'International
+                      </LinkDuo>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/international/veniraesprit">
-                      Venir à ESPRIT
+                    <NavDropdown.Item>
+                      <LinkDuo to="/international/veniraesprit">Venir à ESPRIT</LinkDuo>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/international/partenariats">
-                      Partenariats
+                    <NavDropdown.Item>
+                      <LinkDuo to="/international/partenariats">Partenariats</LinkDuo>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/international/temoignages">
-                      Témoignages
+                    <NavDropdown.Item>
+                      <LinkDuo to="/international/temoignages">Témoignages</LinkDuo>
                     </NavDropdown.Item>
                   </NavDropdown>
 
@@ -288,55 +355,66 @@ class NavBar extends Component {
                     id="vie-nav-dropdown"
                     className="pull-left-level-1"
                   >
-                    <NavDropdown.Item href="/vieetudiante/presentation">
-                      Présentation
+                    <NavDropdown.Item>
+                      <LinkDuo to="/vieetudiante/presentation">Présentation</LinkDuo>
                     </NavDropdown.Item>
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Rentrée Scolaire
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu pull-left">
-                        <a
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/vieetudiante/rentreescolaire/logementrestauration"
+                          to="/vieetudiante/rentreescolaire/logementrestauration"
                         >
                           Logement Et Restauration
-                        </a>
-                        <a
+                        </LinkDuo>
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/vieetudiante/rentreescolaire/espritfondation"
+                          to="/vieetudiante/rentreescolaire/espritfondation"
                         >
                           Fondation
-                        </a>
-                        <a
+                        </LinkDuo>
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/vieetudiante/rentreescolaire/inscription"
+                          to="/vieetudiante/rentreescolaire/inscription"
                         >
                           Inscriptions
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
                     <div className="dropdown-submenu">
-                      <a href="#" className="dropdown-toggle dropdown-item" data-toggle="dropdown">
+                      <LinkDuo
+                        to="#"
+                        className="dropdown-toggle dropdown-item"
+                        data-toggle="dropdown"
+                      >
                         Vie Sur Compus
-                      </a>
+                      </LinkDuo>
                       <div className="dropdown-menu  pull-left">
-                        <a className="dropdown-item" href="/vieetudiante/viecampus/infrastructure">
-                          Infrastructure
-                        </a>
-                        <a className="dropdown-item" href="/vieetudiante/viecampus/clubs">
-                          Clubs
-                        </a>
-                        <a
+                        <LinkDuo
                           className="dropdown-item"
-                          href="/vieetudiante/viecampus/evenementschallenges"
+                          to="/vieetudiante/viecampus/infrastructure"
+                        >
+                          Infrastructure
+                        </LinkDuo>
+                        <LinkDuo className="dropdown-item" to="/vieetudiante/viecampus/clubs">
+                          Clubs
+                        </LinkDuo>
+                        <LinkDuo
+                          className="dropdown-item"
+                          to="/vieetudiante/viecampus/evenementschallenges"
                         >
                           Evénements Et Challenges
-                        </a>
+                        </LinkDuo>
                       </div>
                     </div>
-                    <NavDropdown.Item href="/vieetudiante/celluleecoute">
-                      Cellule D'Écoute
+                    <NavDropdown.Item>
+                      <LinkDuo to="/vieetudiante/celluleecoute">Cellule D'Écoute</LinkDuo>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </React.Fragment>
