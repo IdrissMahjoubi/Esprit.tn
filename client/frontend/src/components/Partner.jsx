@@ -27,13 +27,14 @@ class Partners extends Component {
                             <div className="col-lg-8 offset-lg-2 text-center">
                                 <ScrollAnimation animateIn="fadeInUp">
                                     <div className="section-title">
-                                        <h2>{this.props.sectionTitle}</h2>
-                                        <p>{this.props.sectionDescription}</p>
-                                        <span className="section-title-bg">{this.props.SectionbgTitle}</span>
+                                        <h2>Partenaires</h2>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                        <span className="section-title-bg">Partenaires</span>
                                     </div>
                                 </ScrollAnimation>
                             </div>
                         </div>
+                        
 
                         <div className="row">
                             <OwlCarousel

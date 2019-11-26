@@ -220,16 +220,18 @@ Contact.propTypes = {
     Phone: PropTypes.string,
 };
 
+
+
 //Default Props
 Contact.defaultProps = {
     SectionbgTitle: "Contact",
     sectionTitle: "Our Contact",
     sectionDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.",
     AddTitle: "Address",
-    Address: "2750 Quadra Street Victoria, Canada.",
+    Address: "Z.I. Chotrana II B.P. 160 ,Pôle Technologique El Ghazela - Ariana 2083",
     EmailTitle: "Email",
-    Email: "roxy@gmail.com",
+    Email: "contact@esprit.tn",
     PhoneTitle: "Phone",
-    Phone: "+1-325-555-0156",
+    Phone: "T (216) 70 685 685",
 };
 export default Contact;

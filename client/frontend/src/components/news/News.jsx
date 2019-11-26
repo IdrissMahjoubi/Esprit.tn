@@ -95,7 +95,7 @@ class News extends Component {
                             <div className="center-wrap">
                             <Link to='/news-page' className="btn-a">
                                 <div className="button">
-                                    All News <Icofont icon="icofont-long-arrow-right" />
+                                 Actualités  <Icofont icon="icofont-long-arrow-right" />
                                     <div className="mask"></div>
                                 </div>
                             </Link>

@@ -7,11 +7,11 @@ import { connect } from 'react-redux';
 class Calender extends Component {
   componentDidMount() {
     this.props.getCalendar();
-    if(this.props.calendar.fileOne == null || this.props.calendar.fileOne == undefined )
+    if(this.props.calendar.fileOne === null || this.props.calendar.fileOne === undefined )
     {
       this.props.calendar.fileOne="#";
     }
-    if(this.props.calendar.fileTwo == null || this.props.calendar.fileTwo == undefined )
+    if(this.props.calendar.fileTwo === null || this.props.calendar.fileTwo === undefined )
     {
       this.props.calendar.fileTwo="#";
     }
@@ -95,12 +95,10 @@ Calender.defaultProps = {
   Section: [
     {
       Content: 'Etudiants en 1ère, 2ème, 3ème et 4ème année',
-      BtnLink: 'http://esprit.tn/wp-content/uploads/2019/09/calendrier-1A-2A-3A-4A-1920.pdf',
       BtnName: 'Télécharger'
     },
     {
       Content: 'Etudiants en 5ème année',
-      BtnLink: 'http://esprit.tn/wp-content/uploads/2019/09/calendrier-5A-1920.pdf',
       BtnName: 'Télécharger'
     }
   ]
