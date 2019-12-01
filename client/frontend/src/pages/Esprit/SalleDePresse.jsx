@@ -6,7 +6,9 @@ import Footer from '../../components/Footer';
 import {getAllPress} from '../../actions/pressActions'
 class SalleDePresse extends Component {
 
-
+  componentDidMount() {
+    this.props.getAllPress();
+}
   render() {
     const { allPress } = this.props
     const pressData = this.props.loading

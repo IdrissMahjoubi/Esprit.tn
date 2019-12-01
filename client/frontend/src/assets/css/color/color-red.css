@@ -122,10 +122,13 @@
 	border: 1px solid #ed1c24;
 }
 .social-icons.bottom ul li a {
-	background-color: #848484;
+	background-color: #fff;
+	color: #ed1c24;
 }
 .social-icons.bottom ul li a:hover {
-    color: #ed1c24;
+	color: #fff;
+	background-color: #848484;
+
 }
 .about-info i {
     color:#ed1c24;

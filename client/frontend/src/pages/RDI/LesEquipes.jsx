@@ -18,9 +18,9 @@ class LesEquipes extends Component {
           if (index % 2 === 0) {
             return (
               <React.Fragment key={index}>
-                <div className="row">
-                  <div className="col-sm-6 col-md-4 text-center">
-                    <div className="service-item-rdi">
+                <div className="row no-gutters align-items-center">
+                  <div className="col-sm-6 col-md-4">
+                    <div className="service-item-rdi service-item-rdi__img">
                       <a href={rdi.url}>
                       <img
                         src={`http://localhost:4000/${rdi.image}`}
@@ -31,8 +31,8 @@ class LesEquipes extends Component {
                     </div>
                   </div>
 
-                  <div className="col-sm-6 col-md-8 text-center">
-                    <div className="service-item-rdi">
+                  <div className="col-sm-6 col-md-8">
+                    <div className="service-item-rdi service-item-rdi__text">
                       <h3>{rdi.title}</h3>
                       <p className="club-description">{rdi.description}</p>
                       <div className="members">
@@ -51,9 +51,9 @@ class LesEquipes extends Component {
           } else {
             return (
               <React.Fragment key={index}>
-                <div className="row">
-                  <div className="col-sm-6 col-md-8 text-center">
-                    <div className="service-item-rdi">
+                <div className="row no-gutters align-items-center">
+                  <div className="col-sm-6 col-md-8">
+                    <div className="service-item-rdi service-item-rdi__text">
                       <h3>{rdi.title}</h3>
                       <p className="club-description">{rdi.description}</p>
                       <div className="members">
@@ -66,8 +66,8 @@ class LesEquipes extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-sm-6 col-md-4 text-center">
-                    <div className="service-item-rdi">
+                  <div className="col-sm-6 col-md-4">
+                    <div className="service-item-rdi service-item-rdi__img service-item-rdi__img--right">
                     <a href={rdi.url}>
                       <img
                         src={`http://localhost:4000/${rdi.image}`}
