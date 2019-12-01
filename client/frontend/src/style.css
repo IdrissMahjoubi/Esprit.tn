@@ -36,6 +36,7 @@ This files contents are outlined below>>>>>
 ** - Footer Area CSS
 ** - Scroll Top link CSS
 ** - Breadcumbs CSS
+** - Tean CSS
 
 */
 
@@ -58,9 +59,14 @@ html, body {
 .navbar{
     padding: 0;
 }
-a:hover, a:focus {
+a:hover, a:focus, a:active {
     text-decoration: none;
 }
+
+.dropdown-item:active { 
+    background-color: #af0e14;
+}
+
 button:focus, input:focus {outline:0;}
 ul {
     list-style: none;
@@ -183,6 +189,7 @@ button {
     font-weight: 500;
     background: transparent;
     border: transparent;
+    display: inline-block;
 }
 .btn-a:hover {
     color: #fff;
@@ -689,15 +696,30 @@ button {
 Services Area CSS 
 ========================= */
 .service-item-rdi {
-	background-color: #ed1c24;
     padding: 25px;
-    margin-top: 30px;
-    transition: .5s;
+    margin: 30px 0px;
+    transition: .2s;
     -webkit-transition: .5s;
+    box-shadow: 0px 0px 20px 0px #ccc;
+    background-color: #fff;
+    position: relative;
+
 }
-.service-item-rdi:hover {
-	background-color: #af0e14;
+
+.service-item-rdi__img{
+    z-index: 1;
+    margin-right: -20px;
 }
+
+.service-item-rdi__img{
+    margin-right: 0;
+    margin-left: -20px;
+
+}
+.service-item-rdi__text{
+    z-index: 2;
+}
+
 .service-item-rdi p {
     color:black;
     margin: 0;
@@ -772,16 +794,17 @@ Services Area CSS
     background-image: url(assets/img/cta-bg-img.jpg);
 }
 .cta-info {
-	margin-top: 42px;
+	margin-top: 0px;
 }
 .cta-info h2 {
 	font-weight: 600;
 	color: #272727;
 	font-size: 32px;
     line-height: 36px;
+    margin-top: 0px;
 }
 .cta-info p {
-	margin: 12px 0 40px;
+	margin: 12px 0 20px;
 	font-size: 17px;
 	color: #606060;
 }
@@ -2821,3 +2844,12 @@ h3,h2{
 .space-items > * {
     margin-bottom: 20px;
 }
+
+/* ========================= 
+Team CSS
+========================= */
+
+.team-card-cell{}
+/* ========================= 
+End Team CSS
+========================= */

@@ -26,7 +26,7 @@ class Single extends Component {
           'Dec'
         ]
     };
-    componentWillMount() {
+    componentDidMount() {
         this.props.getEvent(this.props.match.params.id);
     }
 

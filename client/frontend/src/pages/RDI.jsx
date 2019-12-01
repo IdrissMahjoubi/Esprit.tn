@@ -6,9 +6,8 @@ import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 class RDI extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getRdis();
-    console.log('componentWillMount');
   }
 
   render() {

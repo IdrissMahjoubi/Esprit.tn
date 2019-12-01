@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 class LePlusDEsprit extends Component {
-  componentWillMount() {
-    console.log('componentWillMount');
-  }
 
   render() {
     

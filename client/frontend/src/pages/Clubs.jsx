@@ -7,9 +7,8 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
 class Clubs extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getClubs();
-    console.log('componentWillMount');
   }
 
   render() {

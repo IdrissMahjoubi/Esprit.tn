@@ -25,7 +25,7 @@ class Events extends Component {
     type: ''
   };
 
-  componentWillMount() {
+  componentDidMount() {
    this.props.getEvents();
   }
 

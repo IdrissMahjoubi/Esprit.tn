@@ -25,7 +25,7 @@ class archivedNews extends Component {
     type: ''
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getNews();
   }
 

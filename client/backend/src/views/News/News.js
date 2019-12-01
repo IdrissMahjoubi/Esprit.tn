@@ -25,7 +25,7 @@ class News extends Component {
     type: ''
   };
 
-  componentWillMount() {
+  componentDidMount() {
    this.props.getNews();
   }
 

@@ -6,9 +6,7 @@ import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { Col, Row } from 'react-bootstrap';
 class PolitiqueQualite extends Component {
-  componentWillMount() {
-    console.log('componentWillMount');
-  }
+
 
   render() {
     return (

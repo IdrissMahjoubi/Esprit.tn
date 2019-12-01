@@ -9,9 +9,7 @@ import { Card } from 'react-bootstrap';
 import photo from '../../assets/img/Naceur-Ammar.jpg';
 
 class MotDuPresident extends Component {
-  componentWillMount() {
-    console.log('componentWillMount');
-  }
+
 
   render() {
     return (

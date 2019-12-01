@@ -45,7 +45,8 @@ class updateslider extends Component {
       titleDescription: nextProps.slider.titleDescription,
       status: nextProps.slider.status,
       image: nextProps.slider.image,
-      url: nextProps.slider.url
+      url: nextProps.slider.url,
+      btnName : nextProps.slider.btnName
     });
     if( nextProps.isModified)
     this.props.history.push('/slider');
@@ -153,7 +154,7 @@ class updateslider extends Component {
                       value={this.state.btnName}
                       onChange={this.handleInputChange}
                       type="text"
-                      placeholder="text..."
+                      placeholder="Nom du bouton.."
                     />
                     <FormText color="muted">Nom du bouton de l'article slider</FormText>
                   </Col>

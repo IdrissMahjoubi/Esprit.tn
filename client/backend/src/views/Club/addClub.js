@@ -20,7 +20,7 @@ class addClubs extends Component {
     this.state = {
       title: '',
       description: '',
-      type: '',
+      type: 'other',
       sport: '',
       selectedImage: null,
       url: '',
@@ -126,7 +126,7 @@ class addClubs extends Component {
                 value={this.state.type}
                 onChange={this.handleTypeChange}
               >
-                <option value="0">veuillez choisir le type du club</option>
+                <option value="other">veuillez choisir le type du club</option>
                 <option value="sports">sports</option>
                 <option value="other">autre</option>
               </Input>

@@ -7,9 +7,7 @@ import Footer from '../../components/Footer';
 import Icofont from 'react-icofont';
 import { Row, Col, ProgressBar } from 'react-bootstrap';
 class GouvernanceStrategique extends Component {
-  componentWillMount() {
-    console.log('componentWillMount');
-  }
+
 
   render() {
     return (

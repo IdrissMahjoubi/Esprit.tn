@@ -24,7 +24,7 @@ class showClub extends Component {
     etat: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAllClub();
   }
 

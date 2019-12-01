@@ -1,16 +1,70 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 //Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import {getAllPress} from '../../actions/pressActions'
 class SalleDePresse extends Component {
-  componentWillMount() {
-    console.log('componentWillMount');
-  }
 
+  componentDidMount() {
+    this.props.getAllPress();
+}
   render() {
-    
+    const { allPress } = this.props
+    const pressData = this.props.loading
+      ? 'LOADING...'
+      : allPress.map(function(press, index) {
+          if (index % 2 === 0) {
+            return (
+              <React.Fragment key={index}>
+                <div className="row">
+                  <div className="col-sm-6 col-md-4 text-center">
+                    <div className="service-item-rdi">
+                      <a href={press.url}>
+                      <img
+                        src={`http://localhost:4000/${press.image}`}
+                        alt={press.title}
+                        className="img-responsive"
+                      />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="col-sm-6 col-md-8 text-center">
+                    <div className="service-item-rdi">
+                      <h3>{press.title}</h3>
+                      <p className="club-description">{press.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </React.Fragment>
+            );
+          } else {
+            return (
+              <React.Fragment key={index}>
+                <div className="row">
+                  <div className="col-sm-6 col-md-8 text-center">
+                    <div className="service-item-rdi">
+                      <h3>{press.title}</h3>
+                      <p className="club-description">{press.description}</p>
+                    </div>
+                  </div>
+                  <div className="col-sm-6 col-md-4 text-center">
+                    <div className="service-item-rdi">
+                    <a href={press.url}>
+                      <img
+                        src={`http://localhost:4000/${press.image}`}
+                        alt={press.title}
+                        className="img-responsive"
+                      />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </React.Fragment>
+            );
+          }
+        });
     return (
       <React.Fragment>
         <NavBar />
@@ -27,24 +81,23 @@ class SalleDePresse extends Component {
             </div>
           </div>
         </div>
+        <section id="services" className="services-rdi ptb-100">
+          <div className="container">{pressData}</div>
+        </section>
         <Footer />
       </React.Fragment>
     );
   }
 }
 
-//Props Types
-SalleDePresse.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
 
 const mapStateToProps = state => ({
   errors: state.errors,
-  loading: state.rdis.loading
+  loading: state.press.loading,
+  allPress:state.press.allPress
 });
 
 export default connect(
   mapStateToProps,
-  { }
+  { getAllPress }
 )(SalleDePresse);

@@ -25,7 +25,7 @@ class archivedEvents extends Component {
     type: ''
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getEvents();
   }
 
