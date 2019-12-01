@@ -12,7 +12,6 @@ export const getRdis = () => dispatch => {
   axios
     .get("/rdi/")
     .then(res => {
-      console.log(res.data);
       dispatch({
         type: GET_RDIS,
         payload: res.data

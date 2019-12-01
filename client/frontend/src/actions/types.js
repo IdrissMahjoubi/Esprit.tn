@@ -17,13 +17,16 @@ export const GET_SLIDERS = "GET_SLIDERS";
 
 // PRESS TYPES
 export const PRESS_LOADING = "PRESS_LOADING";
-export const GET_ALL_PRESS = "GET_ALL_PRESS";
 export const GET_PRESS = "GET_PRESS";
 export const ADD_PRESS = "ADD_PRESS";
 export const DELETE_PRESS = "DELETE_PRESS";
 export const SEARCH_PRESS = "SEARCH_PRESS";
 export const EDIT_PRESS = "EDIT_PRESS";
 export const GET_ARCHIVED = "GET_ARCHIVED";
+export const GET_COMMUNIQUES = "GET_COMMUNIQUES";
+export const GET_BROCHURES = "GET_BROCHURES";
+export const GET_ARTICLES = "GET_ARTICLES";
+export const GET_RAPPORTS = "GET_RAPPORTS";
 
 // RDI TYPES
 export const RDI_LOADING = "RDI_LOADING";

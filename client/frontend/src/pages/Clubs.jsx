@@ -20,24 +20,24 @@ class Clubs extends Component {
           if (index % 2 === 0) {
             return (
               <React.Fragment key={index}>
-                <div class="row">
-                  <div class="col-sm-6 col-md-4 text-center">
-                    <div class="service-item-rdi">
+                <div className="row">
+                  <div className="col-sm-6 col-md-4 text-center">
+                    <div className="service-item-rdi">
                       <a href={club.url}>
                       <img
                         src={`http://localhost:4000/${club.image}`}
                         alt={club.title}
-                        class="img-responsive"
+                        className="img-responsive"
                       />
                       </a>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-8 text-center">
-                    <div class="service-item-rdi">
+                  <div className="col-sm-6 col-md-8 text-center">
+                    <div className="service-item-rdi">
                       <h3>{club.title}</h3>
-                      <h4 class="sport-type">Type du club: {club.type} {club.sport}</h4>
-                      <p class="club-description">{club.description}</p>
+                      <h4 className="sport-type">Type du club: {club.type} {club.sport}</h4>
+                      <p className="club-description">{club.description}</p>
                     </div>
                   </div>
                 </div>
@@ -46,21 +46,21 @@ class Clubs extends Component {
           } else {
             return (
               <React.Fragment key={index}>
-                <div class="row">
-                  <div class="col-sm-6 col-md-8 text-center">
-                    <div class="service-item-rdi">
+                <div className="row">
+                  <div className="col-sm-6 col-md-8 text-center">
+                    <div className="service-item-rdi">
                       <h3>{club.title}</h3>
-                      <h4 class="sport-type">Type du club: {club.type} {club.sport}</h4>
-                      <p class="club-description">{club.description}</p>
+                      <h4 className="sport-type">Type du club: {club.type} {club.sport}</h4>
+                      <p className="club-description">{club.description}</p>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 text-center">
-                    <div class="service-item-rdi">
+                  <div className="col-sm-6 col-md-4 text-center">
+                    <div className="service-item-rdi">
                     <a href={club.url}>
                       <img
                         src={`http://localhost:4000/${club.image}`}
                         alt={club.title}
-                        class="img-responsive"
+                        className="img-responsive"
                       />
                       </a>
                     </div>

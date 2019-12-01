@@ -4,67 +4,21 @@ import { connect } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import {getAllPress} from '../../actions/pressActions'
+import Caroussel from '../../components/Caroussel'
 class SalleDePresse extends Component {
+
 
   componentDidMount() {
     this.props.getAllPress();
 }
   render() {
-    const { allPress } = this.props
-    const pressData = this.props.loading
-      ? 'LOADING...'
-      : allPress.map(function(press, index) {
-          if (index % 2 === 0) {
-            return (
-              <React.Fragment key={index}>
-                <div className="row">
-                  <div className="col-sm-6 col-md-4 text-center">
-                    <div className="service-item-rdi">
-                      <a href={press.url}>
-                      <img
-                        src={`http://localhost:4000/${press.image}`}
-                        alt={press.title}
-                        className="img-responsive"
-                      />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="col-sm-6 col-md-8 text-center">
-                    <div className="service-item-rdi">
-                      <h3>{press.title}</h3>
-                      <p className="club-description">{press.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </React.Fragment>
-            );
-          } else {
-            return (
-              <React.Fragment key={index}>
-                <div className="row">
-                  <div className="col-sm-6 col-md-8 text-center">
-                    <div className="service-item-rdi">
-                      <h3>{press.title}</h3>
-                      <p className="club-description">{press.description}</p>
-                    </div>
-                  </div>
-                  <div className="col-sm-6 col-md-4 text-center">
-                    <div className="service-item-rdi">
-                    <a href={press.url}>
-                      <img
-                        src={`http://localhost:4000/${press.image}`}
-                        alt={press.title}
-                        className="img-responsive"
-                      />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </React.Fragment>
-            );
-          }
-        });
+    const { articles,rapports,brochures,communiques,loading } = this.props
+console.log(articles);
+console.log(rapports);
+console.log(brochures);
+console.log(communiques);
+console.log(loading);
+    
     return (
       <React.Fragment>
         <NavBar />
@@ -82,8 +36,11 @@ class SalleDePresse extends Component {
           </div>
         </div>
         <section id="services" className="services-rdi ptb-100">
-          <div className="container">{pressData}</div>
-        </section>
+            <Caroussel title="Articles" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet." pressData={articles}/>
+            <Caroussel title="Brochures" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet." pressData={brochures}/>
+            <Caroussel title="Rapports" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet." pressData={rapports}/>
+            <Caroussel title="Communiques" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet." pressData={communiques}/>
+            </section>
         <Footer />
       </React.Fragment>
     );
@@ -94,7 +51,10 @@ class SalleDePresse extends Component {
 const mapStateToProps = state => ({
   errors: state.errors,
   loading: state.press.loading,
-  allPress:state.press.allPress
+  articles :state.press.articles,
+  rapports :state.press.rapports,
+  brochures :state.press.brochures,
+  communiques :state.press.communiques,
 });
 
 export default connect(

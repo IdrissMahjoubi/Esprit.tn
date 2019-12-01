@@ -1,12 +1,19 @@
 import {
     GET_PRESS,
     GET_ARCHIVED,
-    GET_ALL_PRESS,
     PRESS_LOADING,
+    GET_COMMUNIQUES,
+    GET_BROCHURES,
+    GET_ARTICLES,
+    GET_RAPPORTS,
   } from "../actions/types";
   
   const initialState = {
     allPress: [],
+    articles :[],
+    rapports :[],
+    brochures :[],
+    communiques :[],
     press: {},
     loading: false,
     search: [],
@@ -20,11 +27,29 @@ import {
           ...state,
           loading: true
         };
-      case GET_ALL_PRESS:
+      case GET_ARTICLES:
         return {
           ...state,
-          allPress: action.payload,
-          loading: false
+          articles: action.payload,
+          //loading: false
+        };
+      case GET_BROCHURES:
+        return {
+          ...state,
+          brochures: action.payload,
+          //loading: false
+        };
+      case GET_COMMUNIQUES:
+        return {
+          ...state,
+          communiques: action.payload,
+          //loading: false
+        };
+      case GET_RAPPORTS:
+        return {
+          ...state,
+          rapports: action.payload,
+          //loading: false
         };
         case GET_ARCHIVED:
           return {
