@@ -23,7 +23,7 @@ class showSlider extends Component {
     etat: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAllSlider();
   }
 

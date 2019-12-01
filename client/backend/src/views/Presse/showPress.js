@@ -25,7 +25,7 @@ class showPress extends Component {
     etat: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAllPress();
   }
 

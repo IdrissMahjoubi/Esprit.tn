@@ -37,9 +37,8 @@ class BlogOne extends Component {
       
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getEvents();
-    console.log('componentWillMount');
   }
 
   render() {

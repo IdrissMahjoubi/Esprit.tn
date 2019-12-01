@@ -24,7 +24,7 @@ class ArchivePress extends Component {
     etat: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getArchived();
   }
 

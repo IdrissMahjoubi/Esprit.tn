@@ -58,9 +58,14 @@ html, body {
 .navbar{
     padding: 0;
 }
-a:hover, a:focus {
+a:hover, a:focus, a:active {
     text-decoration: none;
 }
+
+.dropdown-item:active { 
+    background-color: #af0e14;
+}
+
 button:focus, input:focus {outline:0;}
 ul {
     list-style: none;
@@ -689,14 +694,16 @@ button {
 Services Area CSS 
 ========================= */
 .service-item-rdi {
-	background-color: #ed1c24;
     padding: 25px;
-    margin-top: 30px;
+    margin: 30px 0px;
     transition: .5s;
     -webkit-transition: .5s;
+    border: lightgrey;
+    border-style: dashed;
 }
 .service-item-rdi:hover {
-	background-color: #af0e14;
+    border: #ed1c24;
+    border-style: solid;
 }
 .service-item-rdi p {
     color:black;

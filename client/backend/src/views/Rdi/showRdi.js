@@ -23,7 +23,7 @@ class showRdi extends Component {
     etat: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAllRdi();
   }
 

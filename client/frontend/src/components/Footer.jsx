@@ -11,7 +11,7 @@ class Footer extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-5">
-                                <p className="copyright">{this.props.copyrightText} <LinkDuo to="http://www.idriss-mahjoubi.tn">Idriss Mahjoubi</LinkDuo></p>
+                                <p className="copyright">{this.props.copyrightText} <LinkDuo style={{ color: "white",fontWeight:"500"}}to="http://www.idriss-mahjoubi.tn" >IDRISS MAHJOUBI</LinkDuo></p>
                             </div>
                             <div className="col-md-7">
                                 <div className="social-icons bottom">

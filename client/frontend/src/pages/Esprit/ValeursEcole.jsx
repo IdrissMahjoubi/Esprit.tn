@@ -11,10 +11,9 @@ import CGE from '../../assets/img/CGE.png';
 import photo1 from '../../assets/img/Photo-1.jpg';
 import photo2 from '../../assets/img/photo-2.jpg';
 import { Row, Col, Image, Container } from 'react-bootstrap';
+import LinkDuo from '../../components/utils/LinkDuo'
 class ValeursEcole extends Component {
-  componentWillMount() {
-    console.log('componentWillMount');
-  }
+
 
   render() {
     return (
@@ -68,12 +67,12 @@ class ValeursEcole extends Component {
                     <ul style={{ listStyle: 'circle' }}>
                       <li>
                         Par son adhésion en avril 2014 à la conférence des grandes école{' '}
-                        <a href="http://www.cge.asso.fr/">(CGE )*</a> qui regroupe environ 110
+                        <LinkDuo to="http://www.cge.asso.fr/">(CGE )*</LinkDuo> qui regroupe environ 110
                         établissements français et étrangers qui forment leurs diplômés dans un
                         souci constant d’excellence
                       </li>
                       <li>
-                        Par son adhésion à l’initiative <a href="http://www.cdio.org/">CDIO*</a>{' '}
+                        Par son adhésion à l’initiative <LinkDuo to="http://www.cdio.org/">CDIO*</LinkDuo>{' '}
                         fondé par le MIT (Massachussetts institue of Technology) qui regroupe 116
                         institutions dont 2 seulement sur le continent africain. CDIO a pour
                         objectif est de recentrer la pédagogie des formations d’ingénieurs autour de
@@ -82,26 +81,26 @@ class ValeursEcole extends Component {
                       <li>
                         Et enfin par l’accréditation internationale de ses programmes à travers le
                         label EUR ACE qui lui a été délivrée par la commission française des titres
-                        de l’ingénieur <a href="https://www.cti-commission.fr/">(CTI)*</a> en juin
+                        de l’ingénieur <LinkDuo to="https://www.cti-commission.fr/">(CTI)*</LinkDuo> en juin
                         2014.
                       </li>
                     </ul>
                     <Container>
                       <Row>
                         <Col xs={6} md={4}>
-                          <a href="http://www.cdio.org/">
+                          <LinkDuo to="http://www.cdio.org/">
                             <Image src={CDIO} thumbnail />
-                          </a>
+                          </LinkDuo>
                         </Col>
                         <Col xs={6} md={4}>
-                          <a href="https://www.cti-commission.fr/">
+                          <LinkDuo to="https://www.cti-commission.fr/">
                             <Image src={EURACE} thumbnail />
-                          </a>
+                          </LinkDuo>
                         </Col>
                         <Col xs={6} md={4}>
-                          <a href="http://www.cge.asso.fr/">
+                          <LinkDuo to="http://www.cge.asso.fr/">
                             <Image src={CGE} thumbnail />
-                          </a>
+                          </LinkDuo>
                         </Col>
                       </Row>
                     </Container>
@@ -158,9 +157,9 @@ class ValeursEcole extends Component {
                         cours et obtenir son diplôme. Depuis&nbsp;deux ans, l’école a souhaité
                         amplifier le phénomène par la création de la{' '}
                         <strong>
-                          <a href="http://esprit-fondation.tn/" target="_blank">
+                          <LinkDuo to="http://esprit-fondation.tn/" target="_blank">
                             Fondation Esprit
-                          </a>
+                          </LinkDuo>
                         </strong>
                         &nbsp;en vue d’aider les jeunes à financer leur formation.
                       </p>

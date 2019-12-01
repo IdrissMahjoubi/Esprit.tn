@@ -1,12 +1,8 @@
 import {
-    ADD_PRESS,
     GET_PRESS,
     GET_ARCHIVED,
     GET_ALL_PRESS,
-    DELETE_PRESS,
     PRESS_LOADING,
-    SEARCH_PRESS,
-    EDIT_PRESS
   } from "../actions/types";
   
   const initialState = {
@@ -42,28 +38,6 @@ import {
           press: action.payload,
           loading: false
         };
-      case ADD_PRESS:
-        return {
-          ...state,
-          press: action.payload
-        };
-      case EDIT_PRESS:
-          return {
-            ...state,
-            press: action.payload
-          };
-      case DELETE_PRESS:
-        return {
-          ...state,
-          allPress: state.allPress.filter(press => press._id !== action.payload),
-        };
-      
-      case SEARCH_PRESS: 
-      return {
-        ...state,
-        search: action.payload.allPress,
-        searching: action.payload.searching
-      };
       default:
         return state;
     }

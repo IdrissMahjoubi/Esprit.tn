@@ -4,7 +4,7 @@ import Icofont from 'react-icofont';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import SearchModal from './SearchModal';
-import HeaderBar from './headerBar';
+// import HeaderBar from './headerBar';
 import LinkDuo from './../components/utils/LinkDuo';
 
 class NavBar extends Component {
@@ -122,15 +122,15 @@ class NavBar extends Component {
               <Nav className="navbar-nav ml-auto">
                 <React.Fragment>
                   <NavDropdown title="ESPRIT" id="esprit-nav-dropdown">
-                    <NavDropdown.Item>
-                      <LinkDuo to="/esprit/motdupresident">Mot du président</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/esprit/valeurs">Valeurs de l'école</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/esprit/leplusesprit">Le plus d'ESPRIT</LinkDuo>
-                    </NavDropdown.Item>
+                    <LinkDuo className="dropdown-item" to="/esprit/motdupresident">
+                      Mot du président
+                    </LinkDuo>
+                    <LinkDuo className="dropdown-item" to="/esprit/valeurs">
+                      Valeurs de l'école
+                    </LinkDuo>
+                    <LinkDuo className="dropdown-item" to="/esprit/leplusesprit">
+                      Le plus d'ESPRIT
+                    </LinkDuo>
                     <div className="dropdown-submenu">
                       <LinkDuo
                         to="#"
@@ -148,26 +148,27 @@ class NavBar extends Component {
                         </LinkDuo>
                       </div>
                     </div>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/esprit/politiquequalite">Politique Qualité</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/esprit/salledepresse">Salle De Presse</LinkDuo>
-                    </NavDropdown.Item>
+                    <LinkDuo className="dropdown-item" to="/esprit/politiquequalite">
+                      Politique Qualité
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/esprit/salledepresse">
+                      Salle De Presse
+                    </LinkDuo>
                   </NavDropdown>
 
                   <NavDropdown title="ADMISSION" id="admission-nav-dropdown">
-                    <NavDropdown.Item>
-                      <LinkDuo to="/admission/espritingenieur">Esprit École d'ingénieurs</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/admission/espritprepa">Esprit-prépa</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/admission/espritschoolofbusiness">
-                        Esprit School Of Business
-                      </LinkDuo>
-                    </NavDropdown.Item>
+                    <LinkDuo className="dropdown-item" to="/admission/espritingenieur">
+                      Esprit École d'ingénieurs
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/admission/espritprepa">
+                      Esprit-prépa
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/admission/espritschoolofbusiness">
+                      Esprit School Of Business
+                    </LinkDuo>
                   </NavDropdown>
 
                   <NavDropdown title="FORMATIONS" id="basic-nav-dropdown">
@@ -276,29 +277,33 @@ class NavBar extends Component {
                       </div>
                     </div>
                   </NavDropdown>
-
                   <NavDropdown title="R.D.I." id="admission-nav-dropdown">
-                    <NavDropdown.Item>
-                      <LinkDuo to="/rdi/espritech">Esprit-Tech</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/rdi/production">Production</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/rdi/lesequipes">Les Équipes</LinkDuo>
-                    </NavDropdown.Item>
+                    <LinkDuo className="dropdown-item" to="/rdi/espritech">
+                      Esprit-Tech
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/rdi/production">
+                      Production
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/rdi/lesequipes">
+                      Les Équipes
+                    </LinkDuo>
                   </NavDropdown>
 
                   <NavDropdown title="ENTREPRISES" id="esprit-nav-dropdown">
-                    <NavDropdown.Item>
-                      <LinkDuo to="/entreprise/espritEntreprise">Esprit Entreprises</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/entreprise/stages">Stages</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/entreprise/fondation">Fondation Esprit</LinkDuo>
-                    </NavDropdown.Item>
+                    <LinkDuo className="dropdown-item" to="/entreprise/espritEntreprise">
+                      Esprit Entreprises
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/entreprise/stages">
+                      Stages
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/entreprise/fondation">
+                      Fondation Esprit
+                    </LinkDuo>
+
                     <div className="dropdown-submenu">
                       <LinkDuo
                         to="#"
@@ -328,26 +333,28 @@ class NavBar extends Component {
                         </LinkDuo>
                       </div>
                     </div>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/entreprise/formationCertifiante">Formation Certifiante</LinkDuo>
-                    </NavDropdown.Item>
+
+                    <LinkDuo className="dropdown-item" to="/entreprise/formationCertifiante">
+                      Formation Certifiante
+                    </LinkDuo>
                   </NavDropdown>
 
                   <NavDropdown title="INTERNATIONAL" id="admission-nav-dropdown">
-                    <NavDropdown.Item>
-                      <LinkDuo to="/international/experience">
-                        Avoir une Expérience<br></br>à l'International
-                      </LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/international/veniraesprit">Venir à ESPRIT</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/international/partenariats">Partenariats</LinkDuo>
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/international/temoignages">Témoignages</LinkDuo>
-                    </NavDropdown.Item>
+                    <LinkDuo className="dropdown-item" to="/international/experience">
+                      Avoir une Expérience<br></br>à l'International
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/international/veniraesprit">
+                      Venir à ESPRIT
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/international/partenariats">
+                      Partenariats
+                    </LinkDuo>
+
+                    <LinkDuo className="dropdown-item" to="/international/temoignages">
+                      Témoignages
+                    </LinkDuo>
                   </NavDropdown>
 
                   <NavDropdown
@@ -355,9 +362,10 @@ class NavBar extends Component {
                     id="vie-nav-dropdown"
                     className="pull-left-level-1"
                   >
-                    <NavDropdown.Item>
-                      <LinkDuo to="/vieetudiante/presentation">Présentation</LinkDuo>
-                    </NavDropdown.Item>
+                    <LinkDuo className="dropdown-item" to="/vieetudiante/presentation">
+                      Présentation
+                    </LinkDuo>
+
                     <div className="dropdown-submenu">
                       <LinkDuo
                         to="#"
@@ -413,9 +421,10 @@ class NavBar extends Component {
                         </LinkDuo>
                       </div>
                     </div>
-                    <NavDropdown.Item>
-                      <LinkDuo to="/vieetudiante/celluleecoute">Cellule D'Écoute</LinkDuo>
-                    </NavDropdown.Item>
+
+                    <LinkDuo className="dropdown-item" to="/vieetudiante/celluleecoute">
+                      Cellule D'Écoute
+                    </LinkDuo>
                   </NavDropdown>
                 </React.Fragment>
               </Nav>
@@ -426,7 +435,7 @@ class NavBar extends Component {
             </div>
           </Container>
         </Navbar>
-        <HeaderBar />
+        {/* <HeaderBar /> */}
       </React.Fragment>
     );
   }

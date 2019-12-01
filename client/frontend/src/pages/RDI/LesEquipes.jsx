@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 class LesEquipes extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getRdis();
-    console.log('componentWillMount');
   }
 
   render() {
@@ -19,28 +18,28 @@ class LesEquipes extends Component {
           if (index % 2 === 0) {
             return (
               <React.Fragment key={index}>
-                <div class="row">
-                  <div class="col-sm-6 col-md-4 text-center">
-                    <div class="service-item-rdi">
+                <div className="row">
+                  <div className="col-sm-6 col-md-4 text-center">
+                    <div className="service-item-rdi">
                       <a href={rdi.url}>
                       <img
                         src={`http://localhost:4000/${rdi.image}`}
                         alt={rdi.title}
-                        class="img-responsive"
+                        className="img-responsive"
                       />
                       </a>
                     </div>
                   </div>
 
-                  <div class="col-sm-6 col-md-8 text-center">
-                    <div class="service-item-rdi">
+                  <div className="col-sm-6 col-md-8 text-center">
+                    <div className="service-item-rdi">
                       <h3>{rdi.title}</h3>
-                      <p class="club-description">{rdi.description}</p>
-                      <div class="members">
+                      <p className="club-description">{rdi.description}</p>
+                      <div className="members">
                       <h4>Les Membres</h4>
                       <ul>
-                        {rdi.members.map(member => (
-                          <li>{member}</li>
+                        {rdi.members.map((member,index) => (
+                          <li key={index}>{member}</li>
                         ))}
                       </ul>
                       </div>
@@ -52,28 +51,28 @@ class LesEquipes extends Component {
           } else {
             return (
               <React.Fragment key={index}>
-                <div class="row">
-                  <div class="col-sm-6 col-md-8 text-center">
-                    <div class="service-item-rdi">
+                <div className="row">
+                  <div className="col-sm-6 col-md-8 text-center">
+                    <div className="service-item-rdi">
                       <h3>{rdi.title}</h3>
-                      <p class="club-description">{rdi.description}</p>
-                      <div class="members">
+                      <p className="club-description">{rdi.description}</p>
+                      <div className="members">
                       <h4>Les Membres</h4>
                       <ul>
-                        {rdi.members.map(member => (
-                          <li>{member}</li>
+                      {rdi.members.map((member,index) => (
+                          <li key={index}>{member}</li>
                         ))}
                       </ul>
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-md-4 text-center">
-                    <div class="service-item-rdi">
+                  <div className="col-sm-6 col-md-4 text-center">
+                    <div className="service-item-rdi">
                     <a href={rdi.url}>
                       <img
                         src={`http://localhost:4000/${rdi.image}`}
                         alt={rdi.title}
-                        class="img-responsive"
+                        className="img-responsive"
                       />
                       </a>
                     </div>
