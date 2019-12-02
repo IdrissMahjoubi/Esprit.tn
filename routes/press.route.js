@@ -31,6 +31,15 @@ router.get('/archived', passport.authenticate('jwt', { session: false }), (req, 
     });
 });
 
+router.get('/getPressBy/:type', (req, res) => {
+  PressModel.find({ type: req.params.type })
+    .populate('user')
+    .sort('-date')
+    .then(data => {
+      res.json(data);
+    });
+});
+
 /* GET All Press . 
 @Route : press/archived
 */
