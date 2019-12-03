@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Icofont from 'react-icofont';
-import { Row, Col, ProgressBar } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 class GouvernanceStrategique extends Component {
 
 

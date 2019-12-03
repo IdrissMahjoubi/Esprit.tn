@@ -89,7 +89,7 @@ class PresentationVieEtudiante extends Component {
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      E-mail : vie.etudiante@esprit.tn
+                      vie.etudiante@esprit.tn
                     </LinkDuo>
                   </strong>
                 </Col>

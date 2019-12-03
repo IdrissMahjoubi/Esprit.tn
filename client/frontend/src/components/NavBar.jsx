@@ -8,11 +8,26 @@ import SearchModal from './SearchModal';
 import LinkDuo from './../components/utils/LinkDuo';
 
 class NavBar extends Component {
-  closeNavbar() {
-    if (window.matchMedia('screen and (max-width: 991px)').matches) {
-      document.getElementById('collaspe-btn').click();
+  componentDidMount() {
+    let elem = document.getElementById("navbar");
+    document.addEventListener("scroll", () => {
+        if (window.scrollY > 170) {
+            elem.classList.add("menu-shrink");
+            elem.classList.add("fixed-top");
+        } else {
+            elem.classList.remove("menu-shrink");
+            elem.classList.remove("fixed-top");
+        }
+    });
+    window.scrollTo(0, 0);
+    
+
+}
+closeNavbar() {
+    if (window.matchMedia("screen and (max-width: 991px)").matches) {
+        document.getElementById("collaspe-btn").click();
     }
-  }
+}
 
   render() {
     return (

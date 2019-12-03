@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 //Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import Testimonials from '../../components/Testimonials';
 class Temoignages extends Component {
 
 
@@ -12,19 +13,7 @@ class Temoignages extends Component {
     return (
       <React.Fragment>
         <NavBar />
-        <div className="bread-cumbs-area bread-cumbs-bg">
-          <div className="diplay-table">
-            <div className="display-table-cell">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-7">
-                    <h1>Témoignages</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Testimonials/>
         <Footer />
       </React.Fragment>
     );
