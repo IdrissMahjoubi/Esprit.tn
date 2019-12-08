@@ -36,7 +36,7 @@ class EspritFondation extends Component {
             </Row>
 
             <Row style={{ display: 'block', textAlign: 'center' }}>
-              <img src={fondation}></img>
+              <img src={fondation} alt="ESPRIT Fondation"></img>
             </Row>
             <Row>
               <Col>

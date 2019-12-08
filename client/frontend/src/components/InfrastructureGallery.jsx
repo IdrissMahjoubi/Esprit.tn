@@ -7,20 +7,18 @@ import Lightbox from "react-image-lightbox";
 
 
 const images = [
-    require("../assets/img/foyer1.jpg"),
-    require("../assets/img/foyer2.jpg"),
-    require("../assets/img/foyer3.jpg"),
-    require("../assets/img/foyer4.jpg"),
+    require("../assets/img/bibliotheque.jpg"),
+    require("../assets/img/salle_de_sport.jpg"),
+    require("../assets/img/piscine.jpg"),
   ];
   
   const smallImages = [
-      require("../assets/img/foyer1.jpg"),
-      require("../assets/img/foyer2.jpg"),
-      require("../assets/img/foyer3.jpg"),
-      require("../assets/img/foyer4.jpg"),
+    require("../assets/img/bibliotheque.jpg"),
+    require("../assets/img/salle_de_sport.jpg"),
+    require("../assets/img/piscine.jpg"),
   ];
 
-class Foyer extends Component {
+class InfrastructureGallery extends Component {
     constructor(props) {
         super(props);
     
@@ -34,22 +32,7 @@ class Foyer extends Component {
         const { photoIndex, isOpen } = this.state;
         return (
             <React.Fragment>
-                <section id="works" className="our-works ptb-100">
-                    {/* <div className="container">
-                        <div className="row">
-                            <div className="col-lg-8 offset-lg-2 text-center">
-                                <ScrollAnimation animateIn="fadeInUp">
-                                    <div className="section-title">
-                                        <h2>{this.props.sectionTitle}</h2>
-                                        <p>{this.props.sectionDescription}</p>
-                                        <span className="section-title-bg">
-                                            {this.props.SectionbgTitle}
-                                        </span>
-                                    </div>
-                                </ScrollAnimation>
-                            </div>
-                        </div>
-                    </div> */}
+                <section id="works" className="our-works">
 
                     <MDBContainer>
                         <div className="mdb-lightbox no-margin">
@@ -128,31 +111,6 @@ class Foyer extends Component {
                                         </figure>
                                     </div>
                                 </div>
-
-                                <div className="col-md-6 col-lg-4">
-                                    <div className="work-details">
-                                        <figure>
-                                            <img
-                                            src={smallImages[3]}
-                                            alt="Gallery"
-                                            className="img-fluid"
-                                            />
-                                            <div className="box-content">
-                                                 
-                                                <ul className="icon">
-                                                    <li>
-                                                        <span 
-                                                            href= "ll"
-                                                            onClick={() => this.setState({ photoIndex: 3, isOpen: true })}
-                                                            className="popup-btn">
-                                                            <Icofont icon="icofont-search-2"/>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </figure>
-                                    </div>
-                                </div>
                             </MDBRow>
                         </div>
                         {isOpen && (
@@ -181,18 +139,18 @@ class Foyer extends Component {
     }
 }
 //Props Types
-Foyer.propTypes = {
+InfrastructureGallery.propTypes = {
     SectionbgTitle: PropTypes.string,
     sectionTitle: PropTypes.string,
     sectionDescription: PropTypes.string,
 };
 
 //Default Props
-Foyer.defaultProps = {
+InfrastructureGallery.defaultProps = {
     SectionbgTitle: "works",
     sectionTitle: "works",
     sectionDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat hendrerit dictum. Praesent porta, purus eget sagittis imperdiet.",
 };
 
-export default Foyer;
+export default InfrastructureGallery;

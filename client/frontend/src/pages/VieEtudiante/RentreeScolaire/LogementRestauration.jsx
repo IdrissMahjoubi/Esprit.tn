@@ -134,7 +134,7 @@ class LogementRestauration extends Component {
               </Col>
             </Row>
             <Row style={{ display: 'block', textAlign: 'center' }}>
-                <img src={logement1}></img>
+              <img src={logement1} alt="tarif foyer international"></img>
             </Row>
             <Row>
               <Col>
@@ -142,7 +142,7 @@ class LogementRestauration extends Component {
               </Col>
             </Row>
             <Row style={{ display: 'block', textAlign: 'center' }}>
-                <img src={logement2}></img>
+              <img src={logement2} alt="tarif restaurant international"></img>
             </Row>
             <Row>
               <Col>
@@ -161,14 +161,16 @@ class LogementRestauration extends Component {
               <Col>
                 <h3>Hébergement au Foyer d’ESPRIT</h3>
                 <p>
-                Ces frais couvrent les prestations suivantes : logement en chambre double ou triple, un réfrigérateur par binôme, chauffage centrale, accès à l’internet haut débit, ...
-
-Une caution d’un montant de 220 dinars doit être versée en même temps que le premier versement. Elle est restituée à la fin de l’année scolaire si aucun dégât n’a été causé par le résident concerné.
+                  Ces frais couvrent les prestations suivantes : logement en chambre double ou
+                  triple, un réfrigérateur par binôme, chauffage centrale, accès à l’internet haut
+                  débit, ... Une caution d’un montant de 220 dinars doit être versée en même temps
+                  que le premier versement. Elle est restituée à la fin de l’année scolaire si aucun
+                  dégât n’a été causé par le résident concerné.
                 </p>
               </Col>
             </Row>
             <Row style={{ display: 'block', textAlign: 'center' }}>
-                <img src={logement3}></img>
+              <img src={logement3} alt="tarif foyer tunisien"></img>
             </Row>
             <Row>
               <Col>
@@ -177,7 +179,7 @@ Une caution d’un montant de 220 dinars doit être versée en même temps que l
               </Col>
             </Row>
             <Row style={{ display: 'block', textAlign: 'center' }}>
-                <img src={logement4}></img>
+              <img src={logement4} alt="tarif restaurant tunisien tranche"></img>
             </Row>
             <Row>
               <Col>
@@ -185,11 +187,11 @@ Une caution d’un montant de 220 dinars doit être versée en même temps que l
               </Col>
             </Row>
             <Row style={{ display: 'block', textAlign: 'center' }}>
-                <img src={logement5}></img>
+              <img src={logement5} alt="tarif restaurant tunisien mois"></img>
             </Row>
             <Row>
               <Col>
-              <InformationBox data={info}/>
+                <InformationBox data={info} />
               </Col>
             </Row>
           </div>

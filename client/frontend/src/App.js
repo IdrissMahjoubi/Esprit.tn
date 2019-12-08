@@ -55,7 +55,6 @@ import ClasseMPSI from './pages/Formations/EspritPrepa/ClasseMPSI';
 import CoursDuSoir from './pages/Formations/FormationContinue/CoursDuSoir';
 import ExecutiveMBA from './pages/Formations/FormationContinue/ExecutiveMBA';
   // Entreprises
-import Fondation from './pages/Entreprises/Fondation';
 import EspritEntreprise from './pages/Entreprises/EspritEntreprise';
 import FormationCertifiante from './pages/Entreprises/FormationCertifiante';
 import Stages from './pages/Entreprises/Stages';
@@ -73,7 +72,6 @@ import LesEquipes from './pages/RDI/LesEquipes';
 import Production from './pages/RDI/Production';
   // Vie Etudiante
 import EspritFondation from './pages/VieEtudiante/RentreeScolaire/EspritFondation';
-import Inscription from './pages/VieEtudiante/RentreeScolaire/Inscription';
 import LogementRestauration from './pages/VieEtudiante/RentreeScolaire/LogementRestauration';
 import EventsPage from './pages/VieEtudiante/VieCampus/EventsPage';
 import Infrastructure from './pages/VieEtudiante/VieCampus/Infrastructure';
@@ -224,7 +222,7 @@ import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudia
                           />
                           <Route
                             path="/entreprise/fondation"
-                            render={props => <Fondation {...props} />}
+                            render={props => <EspritFondation {...props} />}
                           />
                           <Route
                             path="/entreprise/stages"
@@ -274,7 +272,7 @@ import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudia
                           />
                           <Route
                             path="/vieetudiante/rentreescolaire/inscription"
-                            render={props => <Inscription {...props} />}
+                            render={props => <VenirAEsprit {...props} />}
                           />
                           <Route
                             path="/vieetudiante/rentreescolaire/logementrestauration"
