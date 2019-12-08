@@ -4,7 +4,7 @@ import Icofont from 'react-icofont';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import SearchModal from './SearchModal';
-// import HeaderBar from './headerBar';
+import HeaderBar from './headerBar';
 import LinkDuo from './../components/utils/LinkDuo';
 
 class NavBar extends Component {
@@ -33,9 +33,14 @@ closeNavbar() {
     return (
       <React.Fragment>
         {/* Start Top Header */}
+        <div className="header-fill">
+          <HeaderBar/>
+        </div>
+        <div className="fade-header"></div>
+        
         <div className="top-header">
           <div className="container">
-            <div className="row">
+            <div className="row white-line">
               <div className="col-md-7 col-lg-7">
                 <div className="address-bar">
                   <ul className="list-inline">
@@ -106,11 +111,12 @@ closeNavbar() {
           className="navbar navbar-expand-md navbar-light"
           collapseOnSelect={true}
         >
+          <div className="navbar-mask"></div>
           <Container>
             <Navbar.Brand className="navbar-brand logo">
               <React.Fragment>
                 <LinkContainer exact to="/">
-                  <img src={this.props.MainLogo} alt="Logo" />
+                  <img src={this.props.Logo2} alt="Logo" />
                 </LinkContainer>
               </React.Fragment>
             </Navbar.Brand>

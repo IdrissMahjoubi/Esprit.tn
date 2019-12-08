@@ -55,9 +55,11 @@ html, body {
     letter-spacing: .5;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    background-color: #f5f8f9;
 }
 .navbar{
     padding: 0;
+    margin-bottom: 80px;
 }
 a:hover, a:focus, a:active {
     text-decoration: none;
@@ -321,11 +323,11 @@ button {
     font-size: 60px;
 }
 .address-bar {
-	background-color: #eee;
-	margin-left: 104px;
+	/* background-color: #eee; */
+	/* margin-left: 104px; */
 }
 .address-bar ul li a {
-	color: #9a9a9a;
+	color: white; /*#9a9a9a;*/
 	font-size: 14px;
 }
 .social-icons {
@@ -335,7 +337,7 @@ button {
 	display: block;
 	width: 25px;
 	height: 25px;
-	color: #9a9a9a;
+	color: white ; /*#9a9a9a;*/
 	border-radius: 50%;
 	text-align: center;
 	line-height: 27px;
@@ -350,10 +352,10 @@ button {
 .navbar-light {
     transition: .6s;
     -webkit-transition: .6s;
-    background-color: #f5f6fa !important;
+    /* background-color: #f5f6fa !important; */
 }
 .navbar-light .navbar-nav .nav-link {
-    color: #2f3640;
+    color: white; /*#2f3640;*/
     padding: 15px 15px;
     text-transform: uppercase;
     cursor: pointer;
@@ -376,7 +378,7 @@ button {
 }
 .navbar-light .navbar-brand {
     position: absolute;
-    top: -50px;
+    /* top: -50px; */
     z-index: 99999;
     padding: 0;
 }
@@ -384,7 +386,7 @@ button {
     cursor: pointer;
 }
 .menu-shrink {
-    box-shadow: 0 0 10px #ebebeb;
+    box-shadow: 0 0 10px #cd1211;
 }
 .menu-shrink .navbar-nav .nav-link {
     color: #2f3640 !important;
@@ -474,6 +476,11 @@ button {
 .navbar-light .container{
   position: relative;
 }
+.white-line {
+    padding-bottom: 5px;
+    border-bottom: 3px solid white;
+}
+
 .header-search {
     padding: 20px 10px;
     -webkit-transition: all 0.3s ease 0s;
@@ -485,7 +492,7 @@ button {
 .header-search .search-toggle {
   background-color: transparent;
   border: medium none;
-  color: #575757;
+  color: white; /*#575757;*/
   display: block;
   padding: 0;
 }
@@ -701,7 +708,7 @@ Services Area CSS
     transition: .2s;
     -webkit-transition: .5s;
     box-shadow: 0px 0px 20px 0px #ccc;
-    background-color: #fff;
+    background-color: #f5f8f9;
     position: relative;
 
 }
@@ -742,7 +749,7 @@ Services Area CSS
     /* margin-top: 130px; */
 }
 .services {
-    background-color: #fff;
+    background-color: #f5f8f9;
     margin-top: 30px;
 }
 .service-item {
@@ -1201,7 +1208,7 @@ Services Area CSS
 	padding: 20px;
 }
 .main-blog {
-	padding: 90px;
+    padding: 90px;
 }
 .pagination-area .pagination {
     margin: 30px 0 0;
@@ -3030,4 +3037,25 @@ End Team CSS
     transition: all 0.2s ease-out;
     z-index: 1;
     background-color: #cd2122;
+}
+
+.fade-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    opacity: .6;
+    pointer-events: none;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,transparent));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,transparent 100%);
+}
+.navbar-mask {
+    position: absolute;
+    top: -1px;
+    left: 12.5%;
+    width: 75%;
+    height: 1px;
+    background-color: #fff;
 }

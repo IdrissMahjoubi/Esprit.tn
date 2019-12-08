@@ -7,7 +7,7 @@ class HeaderBar extends Component {
         style={{
           background: '#db4437',
           width: '100%',
-          height: '76px',
+          height: '30%',
           position: 'absolute',
           left: '0'
         }}
