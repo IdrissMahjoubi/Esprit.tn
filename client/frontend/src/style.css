@@ -2960,3 +2960,74 @@ End Team CSS
     position: relative;
     z-index: 1;
 }
+
+.image-box {
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.image-box-holder {
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.image-box-text > p {
+    margin: 0 0 20px;
+}
+.image-box-wrapper{
+    height: 250px;
+    display: block;
+}
+.image-box-wrapper > img {
+    -webkit-transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+    -webkit-backface-visibility: hidden;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+    max-width: 100%;
+
+}
+
+.image-box-title {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 0;
+    padding-bottom: 30px;
+    z-index: 0;
+    line-height: 1.4;
+    margin-top: 0;
+}
+.image-box-title::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    height: 200%;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,transparent), color-stop(100%,rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(top, transparent 0%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, transparent 0%,rgba(0,0,0,1) 100%);
+    z-index: -1;
+    opacity: .8;
+}
+.image-box-title::after{
+    content: '';
+    height: 2px;
+    width: 30px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    z-index: 1;
+    background-color: #cd2122;
+}
