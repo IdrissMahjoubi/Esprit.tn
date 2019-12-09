@@ -3059,3 +3059,9 @@ End Team CSS
     height: 1px;
     background-color: #fff;
 }
+.hide{
+    display: none;
+}
+.dynamic-margin {
+    margin-top: 25% !important;
+}

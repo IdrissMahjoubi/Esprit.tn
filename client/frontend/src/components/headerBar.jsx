@@ -2,21 +2,81 @@ import React, { Component } from 'react';
 
 class HeaderBar extends Component {
   render() {
+    const breadcrumb = this.props.breadcrumb;
+    let style = {
+      background: '#db4437',
+      width: '100%',
+      height: '30%',
+      position: 'absolute',
+      left: '0'
+    };
+    let title;
+    let subtitle;
+    let titleDivStyle = {
+      position: 'absolute',
+      top: '50%',
+      left: '12.5%'
+    };
+    let subtitleDivStyle = {
+      position: 'absolute',
+      top: '50%',
+      left: '62.5%'
+    };
+    let titleStyle = {
+      color: '#eee',
+      lineHeight: '1.5',
+      fontSize: '24px',
+      fontWeight: '600',
+      padding: '7px 5px 6px',
+      background: 'rgba(0, 0, 0, 0.8)',
+      marginBottom: '2px'
+    };
+    let subtitleStyle1 = {
+      color: '#eee',
+      lineHeight: '1.5',
+      fontSize: '20px',
+      fontWeight: '600',
+      padding: '7px 5px 0px',
+      marginBottom: '2px'
+    };
+    let subtitleStyle2 = {
+      color: '#eee',
+      lineHeight: '1.5',
+      fontSize: '16px',
+      fontWeight: '600',
+      padding: '0px 5px 6px',
+      marginBottom: '2px'
+    };
+    if (breadcrumb) {
+      style = {
+        backgroundImage: 'url(' + breadcrumb.src + ')',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100%',
+        height: '70%',
+        position: 'absolute',
+        left: '0'
+      };
+      title = (
+        <div style={titleDivStyle}>
+          <h2 style={titleStyle}>{breadcrumb.Title}</h2>
+        </div>
+      );
+      subtitle = (
+        <div style={subtitleDivStyle}>
+          <h2 style={subtitleStyle1}>{breadcrumb.Title}</h2>
+          <h3 style={subtitleStyle2}>{breadcrumb.Subtitle}</h3>
+        </div>
+      );
+    }
     return (
-      <div
-        style={{
-          background: '#db4437',
-          width: '100%',
-          height: '30%',
-          position: 'absolute',
-          left: '0'
-        }}
-      >
+      <div id="header-bar" style={style}>
         <svg
           width="2700px"
           height="64px"
           style={{
-            background: '#db4437',
+            // background: '#db4437',
+
             position: 'absolute',
             bottom: '0',
             left: '50%',
@@ -75,6 +135,8 @@ class HeaderBar extends Component {
             filter="url(#filter-mask5)"
           ></path>
         </svg>
+        {title}
+        {subtitle}
       </div>
     );
   }

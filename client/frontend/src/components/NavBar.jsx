@@ -9,35 +9,36 @@ import LinkDuo from './../components/utils/LinkDuo';
 
 class NavBar extends Component {
   componentDidMount() {
-    let elem = document.getElementById("navbar");
-    document.addEventListener("scroll", () => {
-        if (window.scrollY > 170) {
-            elem.classList.add("menu-shrink");
-            elem.classList.add("fixed-top");
-        } else {
-            elem.classList.remove("menu-shrink");
-            elem.classList.remove("fixed-top");
-        }
+    let elem = document.getElementById('navbar');
+    let bar = document.getElementById('header-bar');
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 170) {
+        elem.classList.add('menu-shrink');
+        elem.classList.add('fixed-top');
+        bar.classList.add('hide');
+      } else {
+        elem.classList.remove('menu-shrink');
+        elem.classList.remove('fixed-top');
+        bar.classList.remove('hide');
+      }
     });
     window.scrollTo(0, 0);
-    
-
-}
-closeNavbar() {
-    if (window.matchMedia("screen and (max-width: 991px)").matches) {
-        document.getElementById("collaspe-btn").click();
+  }
+  closeNavbar() {
+    if (window.matchMedia('screen and (max-width: 991px)').matches) {
+      document.getElementById('collaspe-btn').click();
     }
-}
+  }
 
   render() {
+    const breadcrumb = this.props.breadcrumb;
     return (
       <React.Fragment>
         {/* Start Top Header */}
-        <div className="header-fill">
-          <HeaderBar/>
+        <div className="header-fill" >
+          <HeaderBar breadcrumb={breadcrumb} />
         </div>
         <div className="fade-header"></div>
-        
         <div className="top-header">
           <div className="container">
             <div className="row white-line">

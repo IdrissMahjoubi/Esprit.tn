@@ -6,12 +6,13 @@ import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Icofont from 'react-icofont';
 import { Row, Col } from 'react-bootstrap';
+import breadcrumbbg from '../../assets/img/esprit-tech-pres.png';
 class EspritTech extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar />
-        <section className="our-blog main-blog">
+        <NavBar breadcrumb={breadcrumb} />
+        <section className="our-blog main-blog dynamic-margin">
           <div className="container">
             <div>
               <Row>
@@ -208,7 +209,6 @@ class EspritTech extends Component {
                   </div>
                 </Col>
               </Row>
-             
             </div>
           </div>
         </section>
@@ -218,6 +218,11 @@ class EspritTech extends Component {
   }
 }
 
+const breadcrumb = {
+  src: breadcrumbbg,
+  Title: 'Esprit-Tech',
+  Subtitle: 'Recherche, Développement et Innovation'
+};
 //Props Types
 EspritTech.propTypes = {
   Title: PropTypes.string,
