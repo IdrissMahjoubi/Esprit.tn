@@ -15,49 +15,52 @@ class Slider extends Component {
   }
 
   render() {
-    let banneronedata = this.props.sliders.map((slider, index) => (
-      <div
-        className="single-slider-item"
-        style={{ backgroundImage: `url(http://localhost:4000/${slider.image})` }}
-        key={index}
-      >
-        <div className="diplay-table overlay">
-          <div className="display-table-cell">
-            <VisibilitySensor>
-              {({ isVisible }) => (
-                <div className="container">
-                  <div className="row">
-                    <div className="col-lg-7">
-                      <span className={isVisible ? 'opacityOne' : 'opacityZero'}>
-                        {slider.titleDescription}
-                      </span>
-
-                      <h1 className={isVisible ? 'opacityOne' : 'opacityZero'}>{slider.title}</h1>
-                      <p className={isVisible ? 'opacityOne' : 'opacityZero'}>
-                        {slider.description}
-                      </p>
-                      <div className="center-wrap">
-                        <Link to={slider.url} className="btn-a">
-                          <div className="button">
-                            {slider.btnName}
-                            <Icofont icon="icofont-long-arrow-right" />
-                            <div className="mask" />
-                          </div>
-                        </Link>
+    let banneronedata =  this.props.sliders.map((slider, index) => {
+      slider.image = slider.image.replace(/\\/g,  "/");
+      return (
+        <div
+          className="single-slider-item"
+          style={{ backgroundImage: `url(http://localhost:4000/${slider.image})` }}
+          key={index}
+        >
+          <div className="diplay-table overlay">
+            <div className="display-table-cell">
+              <VisibilitySensor>
+                {({ isVisible }) => (
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-lg-7">
+                        <span className={isVisible ? 'opacityOne' : 'opacityZero'}>
+                          {slider.titleDescription}
+                        </span>
+  
+                        <h1 className={isVisible ? 'opacityOne' : 'opacityZero'}>{slider.title}</h1>
+                        <p className={isVisible ? 'opacityOne' : 'opacityZero'}>
+                          {slider.description}
+                        </p>
+                        <div className="center-wrap">
+                          <Link to={slider.url} className="btn-a">
+                            <div className="button">
+                              {slider.btnName}
+                              <Icofont icon="icofont-long-arrow-right" />
+                              <div className="mask" />
+                            </div>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </VisibilitySensor>
+                )}
+              </VisibilitySensor>
+            </div>
           </div>
         </div>
-      </div>
-    ));
+      )
+    });
     //BannerOne loop END
 
     const options = {
-      className: 'owl-theme home-slides',
+      className: 'owl-theme home-slides pad-40',
       items: 1,
       loop: true,
       autoplay: true,

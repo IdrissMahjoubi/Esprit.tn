@@ -3065,3 +3065,6 @@ End Team CSS
 .dynamic-margin {
     margin-top: 25% !important;
 }
+.pad-40 {
+    padding-top: 40px;
+}
