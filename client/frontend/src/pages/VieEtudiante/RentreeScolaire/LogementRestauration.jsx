@@ -16,24 +16,13 @@ import logement2 from '../../../assets/img/logement2.png';
 import logement3 from '../../../assets/img/logement3.png';
 import logement4 from '../../../assets/img/logement4.png';
 import logement5 from '../../../assets/img/logement5.png';
-
+import breadcrumbbg from '../../../assets/img/restauration.png';
 class LogementRestauration extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar />
-        <div className="bread-cumbs-area bread-cumbs-bg-rest">
-          <div className="diplay-table">
-            <div className="display-table-cell">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-7"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <section className="our-blog main-blog">
+        <NavBar breadcrumb={breadcrumb} />
+        <section className="our-blog main-blog dynamic-margin">
           <div className="container space-items">
             <Row style={{ textAlign: 'center' }}>
               <h1>
@@ -212,6 +201,11 @@ const mapStateToProps = state => ({
   errors: state.errors,
   loading: state.rdis.loading
 });
+const breadcrumb = {
+  src: breadcrumbbg,
+  Title: 'Logement Et Restauration',
+  Subtitle: 'Logement Et Restauration'
+};
 const preinscri = {
   link: 'http://esprit-tn.com/FoyerResEsp/login/Inscription',
   text: 'pré-inscription',

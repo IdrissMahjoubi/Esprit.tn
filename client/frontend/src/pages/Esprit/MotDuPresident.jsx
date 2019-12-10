@@ -193,7 +193,7 @@ class MotDuPresident extends Component {
                     <Tab.Pane eventKey="#link6">
                       <div>
                         <h4 style={{ color: '#ed1c24' }}>
-                          LA RECONNAISSANCE INTERNATIONALE DE LA QUALITÉ DE NOTRE DIPLÔME{' '}
+                          LA RECONNAISSANCE INTERNATIONALE DE LA QUALITÉ DE NOTRE DIPLÔME
                         </h4>
                         <hr style={{ color: '#ed1c24', borderTop: '2px solid' }}></hr>
                         <p>
@@ -204,9 +204,9 @@ class MotDuPresident extends Component {
                           professionnelle de ses étudiants -116 dans le monde, et seulement 2 sur le
                           continent africain- et par l’adhésion a la CGE (Conférence des Grandes
                           Ecoles) qui rassemble environ 200 grandes écoles d’ingénieur et de
-                          commerce pour un partage d’expérience.{' '}
+                          commerce pour un partage d’expérience.
                         </p>
-                      </div>{' '}
+                      </div>
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>

@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Icofont from 'react-icofont';
+import ImageBox from '../../components/ImageBox';
 import { Row, Col } from 'react-bootstrap';
 import breadcrumbbg from '../../assets/img/esprit-tech-pres.png';
+import corpsEnseignant from '../../assets/img/esprit-tech.png';
 class EspritTech extends Component {
   render() {
     return (
@@ -29,7 +31,7 @@ class EspritTech extends Component {
                 </Col>
               </Row>
             </div>
-            <div className="bread-cumbs-area bread-cumbs-bg-tech">
+            {/* <div className="bread-cumbs-area bread-cumbs-bg-tech">
               <div className="diplay-table">
                 <div className="display-table-cell">
                   <div className="container">
@@ -41,7 +43,10 @@ class EspritTech extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <Row>
+              <ImageBox data={corps} />
+            </Row>
             <div className="margin-top-60">
               <Row style={{ marginBottom: '60px' }}>
                 <Col>
@@ -222,6 +227,12 @@ const breadcrumb = {
   src: breadcrumbbg,
   Title: 'Esprit-Tech',
   Subtitle: 'Recherche, Développement et Innovation'
+};
+const corps = {
+  src: corpsEnseignant,
+  alt: 'Corps Enseignant ESPRIT',
+  title: 'Corps Enseignant ESPRIT',
+  text: ''
 };
 //Props Types
 EspritTech.propTypes = {

@@ -3060,11 +3060,37 @@ End Team CSS
     background-color: #fff;
 }
 .hide{
-    display: none;
+    /* display: none; */
+    /* transition: opacity 1s ease-out;
+    opacity: 0; */
 }
 .dynamic-margin {
     margin-top: 25% !important;
 }
 .pad-40 {
     padding-top: 40px;
+}
+.custom-button {
+    color: #fff !important;
+    background-color: #cd2122;
+    text-shadow: none;
+    padding: 10px 20px;
+    line-height: 1.6;
+    box-shadow: none;
+    font-size: 13px;
+    font-weight: 700;
+    border-style: solid;
+    border-radius: 3px;
+    -webkit-transition: background-color .15s ease-out;
+    transition: background-color .15s ease-out;
+    border-width: 0;
+    border-radius: 3px !important;
+    margin-bottom: 20px;
+
+}
+.custom-button:hover{
+    background-color: #a41a1b;
+}
+.width100 {
+    width: 100%;
 }

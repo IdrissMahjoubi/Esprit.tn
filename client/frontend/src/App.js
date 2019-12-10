@@ -77,6 +77,7 @@ import EventsPage from './pages/VieEtudiante/VieCampus/EventsPage';
 import Infrastructure from './pages/VieEtudiante/VieCampus/Infrastructure';
 import CelluleEcoute from './pages/VieEtudiante/CelluleEcoute';
 import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudiante';
+import ContactEtInfo from './pages/Admission/ContactEtInfo';
   class App extends Component {
   render() {
     return (
@@ -147,6 +148,10 @@ import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudia
                           <Route
                             path="/admission/espritingenieur"
                             render={props => <EspritIngenieur {...props} />}
+                          />
+                          <Route
+                            path="/admission/contactetinfo"
+                            render={props => <ContactEtInfo {...props} />}
                           />
                           {/* Admission Routes */}
                           {/* Formation Routes*/}

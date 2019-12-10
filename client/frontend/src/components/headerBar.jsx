@@ -48,15 +48,29 @@ class HeaderBar extends Component {
       marginBottom: '2px'
     };
     if (breadcrumb) {
-      style = {
-        backgroundImage: 'url(' + breadcrumb.src + ')',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '100%',
-        height: '70%',
-        position: 'absolute',
-        left: '0'
-      };
+      if(breadcrumb.src){
+        style = {
+          backgroundImage: 'url(' + breadcrumb.src + ')',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          width: '100%',
+          height: '70%',
+          position: 'absolute',
+          left: '0'
+        };
+      }
+      else
+      {
+        style = {
+          background: '#db4437',
+          width: '100%',
+          height: '70%',
+          position: 'absolute',
+          left: '0'
+        };
+      }
+     
       title = (
         <div style={titleDivStyle}>
           <h2 style={titleStyle}>{breadcrumb.Title}</h2>

@@ -15,8 +15,8 @@ class Slider extends Component {
   }
 
   render() {
-    let banneronedata =  this.props.sliders.map((slider, index) => {
-      slider.image = slider.image.replace(/\\/g,  "/");
+    let banneronedata = this.props.sliders.map((slider, index) => {
+      slider.image = slider.image.replace(/\\/g, '/');
       return (
         <div
           className="single-slider-item"
@@ -33,7 +33,6 @@ class Slider extends Component {
                         <span className={isVisible ? 'opacityOne' : 'opacityZero'}>
                           {slider.titleDescription}
                         </span>
-  
                         <h1 className={isVisible ? 'opacityOne' : 'opacityZero'}>{slider.title}</h1>
                         <p className={isVisible ? 'opacityOne' : 'opacityZero'}>
                           {slider.description}
@@ -55,7 +54,7 @@ class Slider extends Component {
             </div>
           </div>
         </div>
-      )
+      );
     });
     //BannerOne loop END
 
@@ -88,7 +87,4 @@ const mapStateToProps = state => ({
   loading: state.sliders.loading
 });
 
-export default connect(
-  mapStateToProps,
-  { getSliders }
-)(Slider);
+export default connect(mapStateToProps, { getSliders })(Slider);
