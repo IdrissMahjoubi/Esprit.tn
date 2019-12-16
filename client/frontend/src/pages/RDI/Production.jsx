@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import IconList from '../../components/IconList';
@@ -59,16 +56,6 @@ class Production extends Component {
   }
 }
 
-//Props Types
-Production.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
 const first = {
   icon: 'icofont-book-mark',
   title: 'Articles de conférences',
@@ -169,4 +156,4 @@ const fourth = {
     'Mohamed Jaoua, Building applied mathematics capacities is an asset for development, invited conference at the SM2A (MoroccanAppliedMathematics Society) pedagogical meeting, Rabat, Morocco, February 13 2016'
   ]
 };
-export default connect(mapStateToProps, {})(Production);
+export default Production;

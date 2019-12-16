@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { Col, Row } from 'react-bootstrap';
 class PolitiqueQualite extends Component {
-
-
   render() {
     return (
       <React.Fragment>
@@ -127,7 +122,14 @@ class PolitiqueQualite extends Component {
                   </li>
                 </ul>
                 <h4>Cycle d’amélioration continue</h4>
-                <p>L’organisation de qualité est orienté processus et se base sur des objectifs qui sont rattachés à des activités, ressources et indicateurs mesurables. Afin de placer ESPRIT sur la pente de progrès continue, l’école a adopté une démarche d’amélioration continue comme illustrée par la figure ci-dessous. Ce cycle d’amélioration continu est basé sur la méthode PDCA et la norme ISO 9001 :2008 et il est bouclé par des remédiations correctives.</p>
+                <p>
+                  L’organisation de qualité est orienté processus et se base sur des objectifs qui
+                  sont rattachés à des activités, ressources et indicateurs mesurables. Afin de
+                  placer ESPRIT sur la pente de progrès continue, l’école a adopté une démarche
+                  d’amélioration continue comme illustrée par la figure ci-dessous. Ce cycle
+                  d’amélioration continu est basé sur la méthode PDCA et la norme ISO 9001 :2008 et
+                  il est bouclé par des remédiations correctives.
+                </p>
               </Col>
             </div>
           </div>
@@ -138,15 +140,4 @@ class PolitiqueQualite extends Component {
   }
 }
 
-//Props Types
-PolitiqueQualite.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(PolitiqueQualite);
+export default PolitiqueQualite;

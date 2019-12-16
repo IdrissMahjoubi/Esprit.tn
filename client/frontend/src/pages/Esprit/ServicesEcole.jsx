@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { Col, Row } from 'react-bootstrap';
 class ServicesEcole extends Component {
-
-
   render() {
     return (
       <React.Fragment>
@@ -204,7 +199,7 @@ class ServicesEcole extends Component {
                   <p>Email : souhail.oueslati@esprit.tn</p>
                 </Col>
                 <Col>
-                <div style={{ display: 'flow-root' }}>
+                  <div style={{ display: 'flow-root' }}>
                     <h4>Département Comptabilité</h4>
                     <span className="hr-span"></span>
                   </div>
@@ -215,7 +210,7 @@ class ServicesEcole extends Component {
               </Row>
               <Row style={{ marginBottom: '60px' }}>
                 <Col>
-                <div style={{ display: 'flow-root' }}>
+                  <div style={{ display: 'flow-root' }}>
                     <h4>Département Affaires juridiques et administratives</h4>
                     <span className="hr-span"></span>
                   </div>
@@ -224,7 +219,7 @@ class ServicesEcole extends Component {
                   <p>Email : ashraf.damergi@esprit.tn</p>
                 </Col>
                 <Col>
-                <div style={{ display: 'flow-root' }}>
+                  <div style={{ display: 'flow-root' }}>
                     <h4>Département Finances</h4>
                     <span className="hr-span"></span>
                   </div>
@@ -244,7 +239,7 @@ class ServicesEcole extends Component {
                   <p>Email : salah.bousbia@esprit.tn</p>
                 </Col>
                 <Col>
-                <div style={{ display: 'flow-root' }}>
+                  <div style={{ display: 'flow-root' }}>
                     <h3 style={{ color: '#cd2122' }}>DIRECTION DES SYSTÈMES D'INFORMATION</h3>
                     <hr className="custom-hr" style={{ float: 'left' }}></hr>
                   </div>
@@ -256,7 +251,9 @@ class ServicesEcole extends Component {
               <Row style={{ marginBottom: '60px' }}>
                 <Col>
                   <div style={{ display: 'flow-root' }}>
-                    <h3 style={{ color: '#cd2122' }}>DIRECTION DES INFRASTRUCTURES, HYGIÈNE, SÉCURITÉ ET ENVIRONNEMENT</h3>
+                    <h3 style={{ color: '#cd2122' }}>
+                      DIRECTION DES INFRASTRUCTURES, HYGIÈNE, SÉCURITÉ ET ENVIRONNEMENT
+                    </h3>
                     <hr className="custom-hr" style={{ float: 'left' }}></hr>
                   </div>
                   <br />
@@ -264,7 +261,7 @@ class ServicesEcole extends Component {
                   <p>Email : faycal.lbabda@esprit.tn</p>
                 </Col>
                 <Col>
-                <div style={{ display: 'flow-root' }}>
+                  <div style={{ display: 'flow-root' }}>
                     <h3 style={{ color: '#cd2122' }}>DIRECTION D'ESPRIT LANGUAGE CENTER</h3>
                     <hr className="custom-hr" style={{ float: 'left' }}></hr>
                   </div>
@@ -284,7 +281,7 @@ class ServicesEcole extends Component {
                   <p>Email : nabil.jguirim@esprit.tn</p>
                 </Col>
                 <Col>
-                <div style={{ display: 'flow-root' }}>
+                  <div style={{ display: 'flow-root' }}>
                     <h3 style={{ color: '#cd2122' }}>SERVICE COMMUNICATION</h3>
                     <hr className="custom-hr" style={{ float: 'left' }}></hr>
                   </div>
@@ -304,7 +301,7 @@ class ServicesEcole extends Component {
                   <p>Email : mohamed.rahmouni@esprit.tn</p>
                 </Col>
                 <Col>
-                <div style={{ display: 'flow-root' }}>
+                  <div style={{ display: 'flow-root' }}>
                     <h3 style={{ color: '#cd2122' }}>ESPRIT ENTREPRISE (Formation Continue)</h3>
                     <hr className="custom-hr" style={{ float: 'left' }}></hr>
                   </div>
@@ -322,15 +319,4 @@ class ServicesEcole extends Component {
   }
 }
 
-//Props Types
-ServicesEcole.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(ServicesEcole);
+export default ServicesEcole;

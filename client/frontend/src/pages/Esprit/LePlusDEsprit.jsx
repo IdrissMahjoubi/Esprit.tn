@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Icofont from 'react-icofont';
 import { Row, Col, ProgressBar } from 'react-bootstrap';
 class LePlusDEsprit extends Component {
-
-
   render() {
     return (
       <React.Fragment>
@@ -233,15 +228,4 @@ class LePlusDEsprit extends Component {
   }
 }
 
-//Props Types
-LePlusDEsprit.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(LePlusDEsprit);
+export default LePlusDEsprit;

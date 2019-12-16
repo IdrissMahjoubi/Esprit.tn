@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Icofont from 'react-icofont';
@@ -31,19 +28,6 @@ class EspritTech extends Component {
                 </Col>
               </Row>
             </div>
-            {/* <div className="bread-cumbs-area bread-cumbs-bg-tech">
-              <div className="diplay-table">
-                <div className="display-table-cell">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-lg-7">
-                        <h1>Corps enseignant ESPRIT</h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
             <Row>
               <ImageBox data={corps} />
             </Row>
@@ -234,15 +218,5 @@ const corps = {
   title: 'Corps Enseignant ESPRIT',
   text: ''
 };
-//Props Types
-EspritTech.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
 
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(EspritTech);
+export default EspritTech;

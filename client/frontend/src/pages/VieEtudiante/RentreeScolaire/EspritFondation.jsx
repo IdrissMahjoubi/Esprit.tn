@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../../components/NavBar';
 import fondation from '../../../assets/img/fondation.jpg';
 import Footer from '../../../components/Footer';
@@ -36,11 +33,13 @@ class EspritFondation extends Component {
             </Row>
 
             <Row style={{ display: 'block', textAlign: 'center' }}>
-              <img src={fondation} alt="ESPRIT Fondation"></img>
+              <img style={{ width: '100%' }} src={fondation} alt="ESPRIT Fondation"></img>
             </Row>
             <Row>
               <Col>
-                <h3 style={{ color: '#cd2122' }}>L’INSTAURATION D’UNE ÉGALITÉ DES CHANCES ENTRE LES ÉTUDIANTS</h3>
+                <h3 style={{ color: '#cd2122' }}>
+                  L’INSTAURATION D’UNE ÉGALITÉ DES CHANCES ENTRE LES ÉTUDIANTS
+                </h3>
                 <p>
                   Crée en 2015 et issue d’un engagement social d’une équipe d’acteurs de la société
                   civile (universitaires, experts, promoteurs…). La Fondation Esprit consolide son
@@ -54,7 +53,9 @@ class EspritFondation extends Component {
                 </p>
               </Col>
               <Col>
-                <h3 style={{ color: '#cd2122' }}>LA FONDATION : UN EFFORT SOLIDAIRE DANS UN ESPRIT DE FAMILLE</h3>
+                <h3 style={{ color: '#cd2122' }}>
+                  LA FONDATION : UN EFFORT SOLIDAIRE DANS UN ESPRIT DE FAMILLE
+                </h3>
                 <p>
                   La Fondation a décidé de mettre en œuvre un ensemble de solutions de financement
                   pour assurer la continuité et l’efficacité de ses interventions.
@@ -104,15 +105,4 @@ class EspritFondation extends Component {
   }
 }
 
-//Props Types
-EspritFondation.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(EspritFondation);
+export default EspritFondation;

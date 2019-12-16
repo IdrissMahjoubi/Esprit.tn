@@ -1,8 +1,20 @@
 @media only screen and (max-width : 1024px) {
+    .navbar-light .navbar-nav .nav-link {
+        padding: 0 !important;
+    }
+    .breadcrumb-title{
+        font-size: 20px !important;
+    }
+    .breadcrumb-subtitle
+    {
+        font-size: 16px !important;
+    }
     .top-header {
         display: none;
     }
-
+    .full-height {
+    height: 100% !important;
+    }
     .modal-dialog {
         width: 95%;
         margin-top: -65px;
@@ -16,7 +28,9 @@
     }
     .navbar-light .navbar-brand {
         position: relative;
-        top: 0;
+        top: 20px;
+        left: 20px;
+        width: 125px;
     }
     .navbar-light .navbar-toggler-icon {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(254, 50, 50, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -25,6 +39,7 @@
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(254, 50, 50, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
     .navbar-light .navbar-toggler {
+        margin: 20px 20px 0px 0px;
         border-color: #ed1c24;
         border-radius: 0;
     }
@@ -55,7 +70,7 @@
         left: 15px;
     }
    .logo img {
-        width: 50px;
+        width: 125px;
     }
     .address-bar {
         margin-left: auto;
@@ -230,7 +245,7 @@
         margin: 0 0 10px;
     }
     .main-blog {
-        padding: 60px 20px 20px 20px;
+        padding: 180px 20px 20px 20px;
     }
     .all-post .button {
         margin: 0 auto 0;
@@ -452,7 +467,7 @@
         margin: 0 0 12px;
     }
     .main-blog {
-        padding: 80px 0 60px;
+        padding: 180px 0 60px;
     }
     .home-banner-area {
         height: 100%;
@@ -517,7 +532,7 @@
         padding: 70px 0 50px;
     }
     .main-blog {
-        padding: 40px 0 60px;
+        padding: 160px 0 60px;
     }
     .home-banner-area h1 {
         font-size: 45px;
@@ -534,5 +549,13 @@
     .modal-dialog {
         width: 90%;
         margin-top: -60px;
+    }
+}
+@media only screen and (max-width : 768px) {
+    .main-blog {
+        padding: 300px 0 60px;
+    }
+    .breadcrumb-title{
+        font-size: 16px !important;
     }
 }

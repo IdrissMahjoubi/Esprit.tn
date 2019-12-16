@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import InformationBox from '../../components/InformationBox';
@@ -161,12 +158,6 @@ class VenirAEsprit extends Component {
   }
 }
 
-//Props Types
-VenirAEsprit.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
 const ici = {
   link: 'http://esprit-tn.com/admission/ETR.aspx',
   text: 'ici',
@@ -233,9 +224,4 @@ const secondList = {
   ]
 };
 
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(VenirAEsprit);
+export default VenirAEsprit;

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 //Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
@@ -68,7 +66,7 @@ class ContactEtInfo extends Component {
                   <br />
                   <Row>
                     <Col>
-                      <Accordion defaultActiveKey="0" style={{color:'black'}}>
+                      <Accordion defaultActiveKey="0" style={{ color: 'black' }}>
                         <Card>
                           <Accordion.Toggle as={Card.Header} eventKey="0">
                             <Icofont icon="icofont-home" style={{ marginRight: '10px' }} />
@@ -398,27 +396,6 @@ class ContactEtInfo extends Component {
                   </Row>
                 </Col>
               </Row>
-              {/* <Row style={{ marginBottom: '60px' }}>
-                <Col>
-                  <div style={{ display: 'flow-root' }}>
-                    <h3 style={{ color: '#cd2122' }}>Besoin de plus d’événements :</h3>
-                    <hr className="custom-hr" style={{ float: 'left' }}></hr>
-                  </div>
-                  <br />
-                  <p>Aller sur le site de Tounessna Mag via ce lien :</p>
-                  <Row style={{ textAlign: 'center' }}>
-                    <Col>
-                      <LinkDuo
-                        style={{ width: '75%' }}
-                        className="custom-button btn"
-                        to={'/vieetudiante/rentreescolaire/logementrestauration'}
-                      >
-                        <span>Cliquez ICI</span>
-                      </LinkDuo>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row> */}
             </div>
           </div>
         </section>
@@ -445,15 +422,5 @@ const cinema = {
   title: 'Cinéma Le Palace - Tunis',
   text: ''
 };
-//Props Types
-ContactEtInfo.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
 
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(ContactEtInfo);
+export default ContactEtInfo;

@@ -6,7 +6,6 @@ import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 class Clubs extends Component {
 
-
   render() {
     
     return (

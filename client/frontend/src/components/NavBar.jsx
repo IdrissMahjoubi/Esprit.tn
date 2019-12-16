@@ -9,8 +9,14 @@ import LinkDuo from './../components/utils/LinkDuo';
 
 class NavBar extends Component {
   componentDidMount() {
+   
     let elem = document.getElementById('navbar');
     let bar = document.getElementById('header-bar');
+    if(this.props.pageName==="home")
+    {
+      let svg = document.getElementById('svg');
+      svg.classList.add("hide");
+    }
     document.addEventListener('scroll', () => {
       if (window.scrollY > 170) {
         elem.classList.add('menu-shrink');
@@ -29,13 +35,36 @@ class NavBar extends Component {
       document.getElementById('collaspe-btn').click();
     }
   }
+  responsive() {
+    let bar = document.getElementById('header-bar');
+    let title = document.getElementById('breadcrumb-title');
+    let sub = document.getElementById('breadcrumb-sub');
+    if(bar)
+    {
+      if(bar.classList.contains("full-height")){
+        bar.classList.remove('full-height');
+        if(title)
+        title.classList.remove('hide');
+        if(sub)
+        sub.classList.remove('hide');
+      }
+      else
+      {
+        bar.classList.add('full-height');
+        if(title)
+        title.classList.add('hide');
+        if(sub)
+        sub.classList.add('hide');
+      }
+    }
 
+  }
   render() {
     const breadcrumb = this.props.breadcrumb;
     return (
       <React.Fragment>
         {/* Start Top Header */}
-        <div className="header-fill" >
+        <div className="header-fill">
           <HeaderBar breadcrumb={breadcrumb} />
         </div>
         <div className="fade-header"></div>
@@ -109,7 +138,7 @@ class NavBar extends Component {
         <Navbar
           id="navbar"
           expand="lg"
-          className="navbar navbar-expand-md navbar-light"
+          className="navbar navbar-expand-md navbar-light navbar-static-top"
           collapseOnSelect={true}
         >
           <div className="navbar-mask"></div>
@@ -129,20 +158,20 @@ class NavBar extends Component {
                 </LinkContainer>
               </React.Fragment>
             </Navbar.Brand>
-
             <Navbar.Toggle
               className="navbar-toggler"
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent"
-              aria-expanded="false"
+              aria-expanded="true"
               aria-label="Toggle navigation"
               id="collaspe-btn"
+              onClick={() => this.responsive()}
             />
             <Navbar.Collapse id="navbarSupportedContent">
               <Nav className="navbar-nav ml-auto">
-                <React.Fragment>
+
                   <NavDropdown title="ESPRIT" id="esprit-nav-dropdown">
                     <LinkDuo className="dropdown-item" to="/esprit/motdupresident">
                       Mot du président
@@ -448,7 +477,6 @@ class NavBar extends Component {
                       Cellule D'Écoute
                     </LinkDuo>
                   </NavDropdown>
-                </React.Fragment>
               </Nav>
             </Navbar.Collapse>
 

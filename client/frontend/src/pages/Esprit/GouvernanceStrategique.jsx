@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 //Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Icofont from 'react-icofont';
 import { Row, Col } from 'react-bootstrap';
 class GouvernanceStrategique extends Component {
-
-
   render() {
     return (
       <React.Fragment>
@@ -275,7 +271,6 @@ class GouvernanceStrategique extends Component {
                           Le conseil scientifique est composé de 13 membres répartis comme suit :
                         </p>
                       </div>
-
                       <ul className="services-box-list">
                         <li className="">
                           <span className="services-box-list-text">3 Directeurs</span>
@@ -297,15 +292,4 @@ class GouvernanceStrategique extends Component {
   }
 }
 
-//Props Types
-GouvernanceStrategique.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(GouvernanceStrategique);
+export default GouvernanceStrategique;

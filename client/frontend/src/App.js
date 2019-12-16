@@ -78,6 +78,7 @@ import Infrastructure from './pages/VieEtudiante/VieCampus/Infrastructure';
 import CelluleEcoute from './pages/VieEtudiante/CelluleEcoute';
 import PresentationVieEtudiante from './pages/VieEtudiante/PresentationVieEtudiante';
 import ContactEtInfo from './pages/Admission/ContactEtInfo';
+import Procedure from './pages/Admission/Procedure';
   class App extends Component {
   render() {
     return (
@@ -152,6 +153,10 @@ import ContactEtInfo from './pages/Admission/ContactEtInfo';
                           <Route
                             path="/admission/contactetinfo"
                             render={props => <ContactEtInfo {...props} />}
+                          />
+                           <Route
+                            path="/admission/procedure"
+                            render={props => <Procedure {...props} />}
                           />
                           {/* Admission Routes */}
                           {/* Formation Routes*/}

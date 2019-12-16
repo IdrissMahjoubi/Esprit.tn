@@ -69,6 +69,7 @@ class updateclub extends Component {
     }
     updateClub.append('title', this.state.title);
     updateClub.append('description', this.state.description);
+    if(this.state.sport)
     updateClub.append('sport', this.state.sport);
     updateClub.append('type', this.state.type);
     updateClub.append('url', this.state.url);

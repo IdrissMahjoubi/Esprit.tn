@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import InformationBox from '../../components/InformationBox';
@@ -165,11 +162,6 @@ class Experience extends Component {
   }
 }
 
-//Props Types
-Experience.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
 const info = {
   title: "PLUS D'INFORMATIONS",
   subtitle: 'Contactez M. Salah Bousbia',
@@ -197,9 +189,5 @@ const download = {
   src : downloadsrc
 };
 
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
 
-export default connect(mapStateToProps, {})(Experience);
+export default Experience;

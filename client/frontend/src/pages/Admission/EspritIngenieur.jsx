@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { Row, Col } from 'react-bootstrap';
@@ -94,7 +91,7 @@ class EspritIngenieur extends Component {
                   </Row>
                   <Row>
                     <Col>
-                      <LinkDuo className="custom-button btn width100" to={'/procedure'}>
+                      <LinkDuo className="custom-button btn width100" to={'/admission/procedure'}>
                         <span>Financement</span>
                       </LinkDuo>
                     </Col>
@@ -301,15 +298,5 @@ const reglement = {
   src: arrowsrc
 };
 
-//Props Types
-EspritIngenieur.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
 
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(EspritIngenieur);
+export default EspritIngenieur;

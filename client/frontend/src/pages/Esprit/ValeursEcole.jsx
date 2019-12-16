@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import accredit from '../../assets/img/accredit-button.png';
@@ -11,10 +8,8 @@ import CGE from '../../assets/img/CGE.png';
 import photo1 from '../../assets/img/Photo-1.jpg';
 import photo2 from '../../assets/img/photo-2.jpg';
 import { Row, Col, Image, Container } from 'react-bootstrap';
-import LinkDuo from '../../components/utils/LinkDuo'
+import LinkDuo from '../../components/utils/LinkDuo';
 class ValeursEcole extends Component {
-
-
   render() {
     return (
       <React.Fragment>
@@ -67,22 +62,23 @@ class ValeursEcole extends Component {
                     <ul style={{ listStyle: 'circle' }}>
                       <li>
                         Par son adhésion en avril 2014 à la conférence des grandes école{' '}
-                        <LinkDuo to="http://www.cge.asso.fr/">(CGE )*</LinkDuo> qui regroupe environ 110
-                        établissements français et étrangers qui forment leurs diplômés dans un
+                        <LinkDuo to="http://www.cge.asso.fr/">(CGE )*</LinkDuo> qui regroupe environ
+                        110 établissements français et étrangers qui forment leurs diplômés dans un
                         souci constant d’excellence
                       </li>
                       <li>
-                        Par son adhésion à l’initiative <LinkDuo to="http://www.cdio.org/">CDIO*</LinkDuo>{' '}
-                        fondé par le MIT (Massachussetts institue of Technology) qui regroupe 116
-                        institutions dont 2 seulement sur le continent africain. CDIO a pour
-                        objectif est de recentrer la pédagogie des formations d’ingénieurs autour de
-                        mises en situation professionnelle)
+                        Par son adhésion à l’initiative{' '}
+                        <LinkDuo to="http://www.cdio.org/">CDIO*</LinkDuo> fondé par le MIT
+                        (Massachussetts institue of Technology) qui regroupe 116 institutions dont 2
+                        seulement sur le continent africain. CDIO a pour objectif est de recentrer
+                        la pédagogie des formations d’ingénieurs autour de mises en situation
+                        professionnelle)
                       </li>
                       <li>
                         Et enfin par l’accréditation internationale de ses programmes à travers le
                         label EUR ACE qui lui a été délivrée par la commission française des titres
-                        de l’ingénieur <LinkDuo to="https://www.cti-commission.fr/">(CTI)*</LinkDuo> en juin
-                        2014.
+                        de l’ingénieur <LinkDuo to="https://www.cti-commission.fr/">(CTI)*</LinkDuo>{' '}
+                        en juin 2014.
                       </li>
                     </ul>
                     <Container>
@@ -207,15 +203,4 @@ class ValeursEcole extends Component {
   }
 }
 
-//Props Types
-ValeursEcole.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
-
-export default connect(mapStateToProps, {})(ValeursEcole);
+export default ValeursEcole;

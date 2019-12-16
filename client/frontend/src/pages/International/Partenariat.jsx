@@ -18,7 +18,7 @@ class Partenariats extends Component {
               <div className="container">
                 <div className="row">
                   <div className="col-lg-7">
-                    <h1>Partenariatss</h1>
+                    <h1>Partenariats</h1>
                   </div>
                 </div>
               </div>

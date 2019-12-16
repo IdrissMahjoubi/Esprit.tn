@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 import InformationBox from '../../../components/InformationBox';
@@ -191,16 +188,6 @@ class LogementRestauration extends Component {
   }
 }
 
-//Props Types
-LogementRestauration.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
-
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
 const breadcrumb = {
   src: breadcrumbbg,
   Title: 'Logement Et Restauration',
@@ -258,4 +245,4 @@ const info = {
   subtitle: '',
   description: ['Appelez le 70 250 014', <br />, 'ou e-mail: contact@esprit.tn']
 };
-export default connect(mapStateToProps, {})(LogementRestauration);
+export default LogementRestauration;
