@@ -236,7 +236,7 @@ import Procedure from './pages/Admission/Procedure';
                           />
                           <Route
                             path="/entreprise/stages"
-                            render={props => <Stages {...props} />}
+                            render={props => <StagesIngenieur {...props} />}
                           />
                            <Route
                             path="/entreprise/formationCertifiante"

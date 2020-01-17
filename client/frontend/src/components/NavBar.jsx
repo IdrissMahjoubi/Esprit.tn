@@ -372,7 +372,7 @@ class NavBar extends Component {
                         </LinkDuo>
                         <LinkDuo
                           className="dropdown-item"
-                          to="/entreprise/EspritLanguageCenter/TEFTEFAQ"
+                          to="/entreprise/EspritLanguageCenter/TEFTFAQ"
                         >
                           TEF & TEFAQ
                         </LinkDuo>

@@ -11,7 +11,7 @@ class SalleDePresse extends Component {
     this.props.getAllPress();
   }
   render() {
-    const { articles, rapports, brochures, communiques, loading } = this.props;
+    const { articles, rapports, brochures, communiques } = this.props;
     return (
       <React.Fragment>
         <NavBar breadcrumb={breadcrumb} />

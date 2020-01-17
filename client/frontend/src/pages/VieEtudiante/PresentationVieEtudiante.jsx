@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-//Import Component
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { Row, Col, Card } from 'react-bootstrap';
@@ -108,15 +105,6 @@ class PresentationVieEtudiante extends Component {
   }
 }
 
-//Props Types
-PresentationVieEtudiante.propTypes = {
-  Title: PropTypes.string,
-  Content: PropTypes.string
-};
 
-const mapStateToProps = state => ({
-  errors: state.errors,
-  loading: state.rdis.loading
-});
 
-export default connect(mapStateToProps, {})(PresentationVieEtudiante);
+export default PresentationVieEtudiante;

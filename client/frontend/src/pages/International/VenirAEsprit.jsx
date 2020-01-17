@@ -75,7 +75,7 @@ class VenirAEsprit extends Component {
                     </li>
                   </ul>
                   <p>
-                    Les spécialités actuellement dispensées sont{' '}
+                    Les spécialités actuellement dispensées sont
                     <strong>
                       les TIC (Informatique & Télécom), le génie civil et le génie électromécanique.
                     </strong>

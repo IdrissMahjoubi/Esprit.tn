@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 import Icofont from 'react-icofont';
@@ -30,8 +29,8 @@ class PresentationIngenieur extends Component {
               </Row>
             </div>
             <div className="margin-top-60">
-              <Row  style={{ marginBottom: '60px' }}>
-              <Col>
+              <Row style={{ marginBottom: '60px' }}>
+                <Col>
                   <div style={{ display: 'flow-root' }}>
                     <h3 style={{ color: '#cd2122' }}>Electromecanique</h3>
                     <hr className="custom-hr" style={{ float: 'left' }}></hr>
@@ -200,18 +199,18 @@ class PresentationIngenieur extends Component {
 }
 const download1 = {
   link: 'http://esprit.tn/wp-content/uploads/2017/05/Présentation-site-EM.pdf',
-  text : 'DOWNLOAD',
-  src : downloadsrc
+  text: 'DOWNLOAD',
+  src: downloadsrc
 };
 const download2 = {
   link: 'http://esprit.tn/wp-content/uploads/2017/05/présentation-génie-civil.pdf',
-  text : 'DOWNLOAD',
-  src : downloadsrc
+  text: 'DOWNLOAD',
+  src: downloadsrc
 };
 const download3 = {
   link: 'http://esprit.tn/wp-content/uploads/2017/07/présentation-TIC.pdf',
-  text : 'DOWNLOAD',
-  src : downloadsrc
+  text: 'DOWNLOAD',
+  src: downloadsrc
 };
 const breadcrumb = {
   src: breadcrumbbg,
